@@ -3,7 +3,7 @@
 This private repository contains the working paper
 
 > **A Rényi family in the entanglement-assisted asymptotic spectrum of graphs**
-> Seth Douglas and Nidhal Mghirbi
+> Nidhal Mghirbi and Seth Douglas
 
 The paper studies graph parameters obtained by minimizing Petz--Rényi
 information radii over compatible classical--quantum channels.  Its main
