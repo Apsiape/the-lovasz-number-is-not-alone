@@ -18,10 +18,11 @@ candidate results are:
    `C_min(G) < log_2 Sigma(G)`.
 
 This is a **version-1 research draft**.  The theorem statements and exact
-certificates have been reconstructed, but named independent mathematical
-reviews and a final priority search remain outstanding.  The manuscript does
-not claim an exact entanglement-assisted Shannon-capacity formula, a complete
-description of the spectrum, or an exact intermediate reliability curve.
+certificates have been reconstructed, and a dated literature/priority audit
+is recorded in `LITERATURE_AUDIT.md`.  Independent mathematical reviews remain
+outstanding.  The manuscript does not claim an exact entanglement-assisted
+Shannon-capacity formula, a complete description of the spectrum, or an exact
+intermediate reliability curve.
 
 ## Repository layout
 
@@ -33,6 +34,8 @@ description of the spectrum, or an exact intermediate reliability curve.
   72-vertex examples.
 - `verify/` -- deterministic checks and pinned output.
 - `REVIEW.md` -- proof-audit and literature-audit checklist.
+- `LITERATURE_AUDIT.md` -- dated novelty search, closest prior art, and
+  claim-by-claim priority assessment.
 
 ## Build the paper
 

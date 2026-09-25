@@ -80,20 +80,29 @@ product, normalized, and monotone for an appropriate cohomomorphism preorder.
 Zuiddam used this framework for ordinary graph homomorphisms
 \cite{Zuiddam2019}; Li and Zuiddam introduced its quantum and
 entanglement-assisted variants \cite{LiZuiddam2020}.  In the strongest of
-these preorders, the Lov\'asz number is the canonical known spectral point.
-Li and Zuiddam asked whether it might even be the only point of the
-entanglement-assisted spectrum.
+these preorders, Li and Zuiddam proved that the Lov\'asz number is a
+spectral point, reported no other examples, and asked whether it might even
+be the only point \cite[Theorem~18 and the discussion following
+Conjecture~19]{LiZuiddam2020}.  To our knowledge, the present construction is
+the first to produce points of the entanglement-assisted graph spectrum
+beyond the Lov\'asz number, and hence the first infinite family in that
+spectrum.
 
 R\'enyi radii have appeared previously in graph theory from several
-directions.  Dalai related the Lov\'asz number to a R\'enyi-divergence
-radius \cite{Dalai2013}, while Vrana developed a probabilistic refinement of
-the ordinary asymptotic spectrum \cite{Vrana2020}.  The quantum preorder also
-has spectral points beyond the Lov\'asz number, including fractional-Haemers
-type parameters \cite{LiZuiddam2020}.  The result here is different in two
-respects: the full Petz family is proved multiplicative for arbitrary joint
-representations, and the monotonicity proof applies to the
-entanglement-assisted preorder.  We do not claim that this family exhausts
-that spectrum.
+directions.  Dalai used classical--quantum R\'enyi information radii to
+recover the Lov\'asz bound as the zero-error endpoint of a sphere-packing
+construction \cite{Dalai2013}; this does not give finite-order graph
+parameters in an asymptotic spectrum.  Vrana showed that each already-known
+point of the ordinary graph spectrum admits a distribution-valued
+probabilistic refinement \cite{Vrana2020}; that construction presupposes a
+scalar spectral point and concerns the ordinary cohomomorphism preorder.  In
+the weaker quantum and commuting-quantum preorders, fractional-Haemers and
+tracial-Haemers type parameters provide further points
+\cite{LiZuiddam2020,GaoGriblingLi2022}.  Li and Zuiddam noted that the
+corresponding monotonicity was not known for their stronger
+entanglement-assisted preorder.  The result here proves both multiplicativity
+for arbitrary joint representations and monotonicity for that stronger
+preorder.  We do not claim that this family exhausts the spectrum.
 
 We construct a one-parameter family of points.  Let $(\rho_x)_{x\in V(G)}$
 be density operators such that $\rho_x\rho_y=0$ whenever $x\neq y$ are
@@ -155,7 +164,12 @@ where $C_{\min}$ is the smallest Holevo capacity of a compatible
 classical--quantum channel and $\Sigma$ is the fractional common-dominator
 simulation cost of Duan and Winter \cite{DuanWinter2016}.  The first two
 identities are information-radius formulas; the last uses the equivalence of
-supported Petz order two and supported max-relative entropy.
+supported Petz order two and supported max-relative entropy.  Duan and Winter
+already proved multiplicativity of $\Sigma$ for two fixed cq-graphs
+\cite[Proposition~18]{DuanWinter2016}.  The graph-level product statement
+needed here is stronger in quantifiers: a representation of $G\boxtimes H$
+may be chosen jointly and need not factor through representations of the two
+graphs.  The nested-compression argument handles precisely this issue.
 
 To show that the last two endpoints are themselves different, we give a
 finite exact example.

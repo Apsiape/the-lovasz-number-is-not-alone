@@ -25,17 +25,21 @@ success is not a promotion of any theorem.
 
 ## Literature gates
 
-- [ ] Search for post-2020 points of the entanglement-assisted asymptotic
+- [x] Search for post-2020 points of the entanglement-assisted asymptotic
       spectrum beyond the Lovász number.
-- [ ] Compare carefully with fractional Haemers bounds: Li--Zuiddam place them
+- [x] Compare carefully with fractional Haemers bounds: Li--Zuiddam place them
       in the quantum spectrum, not automatically in the stronger
       entanglement-assisted spectrum.
-- [ ] Compare with Vrana's probabilistic refinements and identify whether any
+- [x] Compare with Vrana's probabilistic refinements and identify whether any
       specialization already equals the present family.
-- [ ] Check Rényi/Augustin graph-radius and sphere-packing literature for an
+- [x] Check Rényi/Augustin graph-radius and sphere-packing literature for an
       equivalent graph-level optimization.
-- [ ] Verify the precise novelty claim for graph-level multiplicativity of
+- [x] Verify the precise novelty claim for graph-level multiplicativity of
       `Sigma` against work following Duan--Winter.
+
+The search record and the resulting qualifications are in
+`LITERATURE_AUDIT.md`.  These boxes record completion of the search, not a
+mathematical proof audit or an absolute guarantee against missed literature.
 
 ## Claims deliberately not made
 
