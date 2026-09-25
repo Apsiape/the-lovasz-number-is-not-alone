@@ -18,11 +18,11 @@ candidate results are:
    `C_min(G) < log_2 Sigma(G)`.
 
 This is a **version-1 research draft**.  The theorem statements and exact
-certificates have been reconstructed, and a dated literature/priority audit
-is recorded in `LITERATURE_AUDIT.md`.  Independent mathematical reviews remain
-outstanding.  The manuscript does not claim an exact entanglement-assisted
-Shannon-capacity formula, a complete description of the spectrum, or an exact
-intermediate reliability curve.
+certificates have been reconstructed.  A dated literature/priority audit and
+a blind hostile proof audit are recorded in the repository.  Specialist human
+review remains outstanding.  The manuscript does not claim an exact
+entanglement-assisted Shannon-capacity formula, a complete description of the
+spectrum, or an exact intermediate reliability curve.
 
 ## Repository layout
 
@@ -36,6 +36,8 @@ intermediate reliability curve.
 - `REVIEW.md` -- proof-audit and literature-audit checklist.
 - `LITERATURE_AUDIT.md` -- dated novelty search, closest prior art, and
   claim-by-claim priority assessment.
+- `reviews/HOSTILE_AUDIT_2026-09-25.md` -- independent adversarial proof audit,
+  attempted falsifiers, repairs, and publication verdict.
 
 ## Build the paper
 

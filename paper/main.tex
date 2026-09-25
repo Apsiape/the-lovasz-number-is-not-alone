@@ -110,7 +110,8 @@ nonadjacent in the confusability graph $G$.  For the Petz--R\'enyi divergence
 $D_\alpha$, define
 \begin{equation}\label{eq:def-parameter}
  \log_2\vtheta_\alpha(G)
- =\inf_{(\rho_x),\,\sigma>0}\max_x D_\alpha(\rho_x\Vert\sigma),
+ =\inf_{\substack{(\rho_x),\,\sigma>0\\ \Tr\sigma=1}}
+    \max_x D_\alpha(\rho_x\Vert\sigma),
  \qquad 0\leq\alpha\leq2.
 \end{equation}
 The output dimension is arbitrary and finite, and no attainment is assumed.
@@ -374,7 +375,9 @@ If $z=Z_s(\sigma,Q)$, then
 \end{lemma}
 
 \begin{proof}
-For $s\neq0$, the $s$th power of $K_s(\sigma,Q)$ inside $\ran Q$ is
+The outer occurrence of $K_s$ is evaluated on the ambient space $\ran Q$;
+on that space $K_s(\sigma,Q)$ is faithful.  For $s\neq0$, the $s$th power
+of $K_s(\sigma,Q)$ inside $\ran Q$ is
 $Q\sigma^sQ$.  Compression to $P\leq Q$ gives
 $P\sigma^sP$, proving \eqref{eq:tower-op}.  For $s=0$, take logarithms
 inside $\ran Q$.  Equation \eqref{eq:tower-normalized} follows from
@@ -396,6 +399,8 @@ For $0\leq\alpha\leq2$ and finite graphs $G,H$,
 \end{theorem}
 
 \begin{proof}
+If either graph is empty, both sides vanish by the convention
+$\vtheta_\alpha(K_0)=0$.  Assume henceforth that both are nonempty.
 Fix $s=1-\alpha$ and take a joint packing $(P_{xy})$ of $G\boxt H$ with a
 faithful center $\sigma$.  Suppose
 $Z_s(\sigma,P_{xy})\geq2^{-r}$ for every pair $(x,y)$.  For each $x$, let
@@ -487,6 +492,8 @@ For $0\leq\alpha\leq2$,
 \end{theorem}
 
 \begin{proof}
+The assertion is immediate if either graph is empty, so assume both are
+nonempty.
 For the upper bound, take near-optimal families on orthogonal Hilbert-space
 summands with centers $\sigma_G,\sigma_H$ and radius bounds $\log_2a$ and
 $\log_2b$.  The block center
@@ -512,7 +519,7 @@ $\vtheta_\alpha(K_1)=1$.
 
 \begin{lemma}[Flagged mixtures]\label{lem:flagged}
 Let $\omega_h\geq0$ with $\sum_h\omega_h=\omega$ and $\Tr\omega=1$.
-Let $\tau_h$ be states and let $\sigma>0$.  If
+Let $\tau_h$ be states and let $\sigma>0$ be a density operator.  If
 $D_\alpha(\tau_h\Vert\sigma)\leq\lambda$ whenever $\omega_h\neq0$, then,
 for $0\leq\alpha\leq2$,
 \begin{equation}\label{eq:flagged}
@@ -549,6 +556,8 @@ $\alpha\in[0,2]$.
 \end{theorem}
 
 \begin{proof}
+If $G$ is empty the claim is immediate.  If $G$ is nonempty, the defining
+data force $H$ to be nonempty, so the construction below applies.
 Take the data $\omega,\omega_g^h$ from
 \eqref{eq:ea-sum}--\eqref{eq:ea-orth}, and a compatible target family
 $(\tau_h)$ with faithful center $\sigma$.  Define
@@ -566,15 +575,16 @@ radius.  Take infima.
 \end{proof}
 
 \begin{proof}[Proof of \cref{thm:spectrum}]
-Normalization is the one-vertex case of \cref{thm:union}; additivity is
-\cref{thm:union}; multiplicativity is \cref{thm:product}; and monotonicity is
+For $K_1$, the packing formula is attained with $P=I$, giving
+$Z_s(\sigma,I)=1$, while the one-projection case of
+\cref{lem:orthogonal-sum} gives $Z_s(\sigma,P)\leq1$ for every witness.
+Thus $\vtheta_\alpha(K_1)=1$.  Additivity is \cref{thm:union},
+multiplicativity is \cref{thm:product}, and monotonicity is
 \cref{thm:ea-mono}.
 \end{proof}
 
-The data-processing step above generally fails for Petz orders above two,
-and a direct finite flagged-mixture counterexample exists at order three.
-Accordingly, the present argument makes no spectral claim for
-$\alpha>2$.
+Petz data processing generally fails above order two.  Accordingly, the
+present argument makes no spectral claim for $\alpha>2$.
 
 \section{The pentagon and infinitely many points}\label{sec:pentagon}
 
@@ -666,7 +676,11 @@ $\vtheta_\alpha(C_5)=5/2$.
 \end{theorem}
 
 \begin{proof}
-The pentagon is vertex-transitive, so averaging gives
+The pentagon is vertex-transitive.  Given any witness, take the orthogonal
+direct sum of its relabelings by all graph automorphisms and weight the center
+equally across the summands.  Degree-one homogeneity makes every vertex value
+in the symmetrized witness equal to the average of the original five values;
+the reverse inequality follows from minimum at most average.  Hence
 $1/\vtheta_\alpha(C_5)=\sup_{P,\sigma}\frac15\sum_iZ_{1-\alpha}(\sigma,P_i)$.
 With $p=(1-\alpha)^{-1}$, \cref{lem:pentagon-interp} gives the lower bound
 $5/B(p)$, which is the left side of \eqref{eq:pentagon-bounds}.
@@ -753,7 +767,9 @@ $Q_0=\proj{00}$, and define $j_x=4\Tr Q_xQ_0$.  The four classes
 $j=0,1,2,4$ have sizes $9,8,6,1$.
 
 For a profile $k=(k_0,k_1,k_2,k_4)$, replace every class-$j$ vertex by
-$k_j$ mutually nonadjacent clones and delete it if $k_j=0$.  The graph
+$k_j$ mutually nonadjacent clones and delete it if $k_j=0$.  Each clone
+inherits all adjacencies of its parent to vertices outside its clone class.
+The graph
 \begin{equation}
  G_{32}=F[(2,1,1,0)]
 \end{equation}
@@ -793,8 +809,17 @@ $\sum_x\mu_xh_\sigma(P_x)\leq\lambda$, with $\mu_x\geq0$.  Then
 \end{proposition}
 
 \begin{proof}
-For the first part, split each parent support into $k_x$ clone supports using
-a common finite diagonal refinement whose pieces have equal center mass.
+For the first part, let $A=\prod_{x:k_x>0}[k_x]$ and work on
+$\bigoplus_{f\in A}\cH$.  Put
+\[
+ \sigma'=|A|^{-1}\bigoplus_{f\in A}\sigma,
+ \qquad
+ P'_{x,a}=\bigoplus_{f\in A:\,f(x)=a}P_x,
+\]
+with zero blocks in the omitted summands.  Distinct clones of one parent are
+orthogonal, and external forbidden pairs remain orthogonal because clones
+inherit their parent's relations.  Functional calculus on the direct sum
+gives $w_{\sigma'}(P'_{x,a})=w_x/k_x$.
 On a support $P$, the Gibbs state
 $\rho=\exp(P\ln\sigma P)/w_\sigma(P)$ satisfies
 $D(\rho\Vert\sigma)=-\log_2w_\sigma(P)$.  The information-radius identity

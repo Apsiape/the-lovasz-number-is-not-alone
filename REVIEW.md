@@ -5,23 +5,27 @@ success is not a promotion of any theorem.
 
 ## Mathematical gates
 
-- [ ] Reconstruct supported Petz minimization for positive, zero, and negative
+- [x] Reconstruct supported Petz minimization for positive, zero, and negative
       compression powers, including the order-zero support convention.
-- [ ] Reconstruct the normalized tower identity and the row-span extraction
+- [x] Reconstruct the normalized tower identity and the row-span extraction
       for an arbitrary joint strong-product representation.
-- [ ] Check the orthogonal-sum inequality used for disjoint-union additivity.
-- [ ] Check the flagged-mixture argument and Petz data processing at both
+- [x] Check the orthogonal-sum inequality used for disjoint-union additivity.
+- [x] Check the flagged-mixture argument and Petz data processing at both
       endpoints `alpha=0,2`.
-- [ ] Check the complement convention in the entanglement-assisted preorder.
-- [ ] Reconstruct the two endpoint operator bounds and the three-lines
+- [x] Check the complement convention in the entanglement-assisted preorder.
+- [x] Reconstruct the two endpoint operator bounds and the three-lines
       interpolation for the pentagon.
-- [ ] Check every inequality in the infinite distinctness ladder.
-- [ ] Reconstruct the harmonic vector-state moment model without imposing any
+- [x] Check every inequality in the infinite distinctness ladder.
+- [x] Reconstruct the harmonic vector-state moment model without imposing any
       orthogonality relation on the auxiliary projections.
-- [ ] Check the direct bridge from a common dominator to the harmonic bound and
+- [x] Check the direct bridge from a common dominator to the harmonic bound and
       from the Gibbs witness to the information-radius bound.
-- [ ] Independently inspect the certificate key reductions and the exact
+- [x] Independently inspect the certificate key reductions and the exact
       positive-semidefinite proof.
+
+These boxes record the blind hostile audit dated 2026-09-25.  Its scope,
+attempted falsifiers, repairs, and remaining human-review requirement are in
+`reviews/HOSTILE_AUDIT_2026-09-25.md`.
 
 ## Literature gates
 
