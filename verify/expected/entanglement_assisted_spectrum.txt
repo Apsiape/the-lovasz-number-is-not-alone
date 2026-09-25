@@ -1,0 +1,53 @@
+[1] distinctness ladder (exact integers, 50-digit decimals)
+    2^16 = 65536 < 5^7 = 78125
+    k=0 alpha_k=1.111111111111e-01  L(alpha_k)=2.267471713492684  U(alpha_k+1)=2.264361203750272
+    k=1 alpha_k=1.538461538462e-02  L(alpha_k)=2.239969534739401  U(alpha_k+1)=2.239585206227302
+    k=2 alpha_k=1.949317738791e-03  L(alpha_k)=2.236555300272223  U(alpha_k+1)=2.236507328832863
+    k=3 alpha_k=2.440810349036e-04  L(alpha_k)=2.236128887039003  U(alpha_k+1)=2.236122891696080
+    k=4 alpha_k=3.051664683085e-05  L(alpha_k)=2.236075591101458  U(alpha_k+1)=2.236074841700575
+    k=5 alpha_k=3.814682713765e-06  L(alpha_k)=2.236068929198581  U(alpha_k+1)=2.236068835523735
+    U(alpha_0) = 5^(9/16) = 2.472695437163514 < 5/2
+    all ladder separations strict; values lie in (sqrt5, 5/2)
+[2] QI-92 separation 2^C_min <= R < L <= Sigma (exact fractions)
+    L - R = 538087279416248559183095/153778236194122166201858782246 > 0
+    pentagon: theta(C5)^2 = 5 < 25/4 = (2^C_min(C5))^2
+[3] Lemmas 2-3 (compression identity, orthogonal-sum inequality)
+    max sum_j c_s(Q_j;sigma) over 60 states, s in {-1,-1/2,0,1/2,1}: 0.9455 <= 1
+    compression identity: max deviation below 1e-8: True
+[4] Lemma 5 (flagged mixture) and its failure above order two
+    order 0.00: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = 0.0000
+    order 0.25: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0216
+    order 0.50: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0445
+    order 1.00: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0316
+    order 1.50: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0142
+    order 2.00: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0051
+    order 3.00: the inequality fails in some of the 200 instances, by more than 0.5 bit
+[5] Proposition 6 on an explicit quantum homomorphism into K_4
+    8 flat vectors in C^4, 12 orthogonal pairs, non-maximally mixed rho
+    compatibility holds; max_(u,alpha) D_alpha(tau'_u||rho x I/4) - 2 = 0.0000
+[6] Lemmas 8-9 on random pentagon packings (P_i P_(i+2) = 0)
+    400 packings in dimensions 3-6, ranks 1-2
+    Lemma 8: max ratios  trace-norm 0.7159  Hilbert-Schmidt 0.5777  (both <= 1)
+    Lemma 9: s=1.00 p=1.0000 B(p)=2.236068 max sum_i c_s / B(p) = 0.8754
+    Lemma 9: s=0.90 p=1.1111 B(p)=2.208519 max sum_i c_s / B(p) = 0.8367
+    Lemma 9: s=0.75 p=1.3333 B(p)=2.154435 max sum_i c_s / B(p) = 0.7939
+    Lemma 9: s=0.60 p=1.6667 B(p)=2.075782 max sum_i c_s / B(p) = 0.7730
+    Lemma 9: s=0.50 p=2.0000 B(p)=2.000000 max sum_i c_s / B(p) = 0.7693
+[7] Theorem 10: explicit pentagon families
+    commuting family: D_alpha(rho_i||I/5) = log2(5/2) at alpha in {0,1/4,1/2,1,3/2,2}
+    umbrella in R^3: <u_i,u_(i+2)> = 0 and <u_i,c>^2 = 1/sqrt5 verified
+    umbrella with sigma_eps, eps=1e-9: D_alpha <= log2(sqrt5)/(1-alpha) - log2(1-eps) at 5 orders
+    table: lower bound L, proved upper bound U=min(5/2, 5^(p/2)), and the best value found
+    over umbrella states sigma=diag(1-x,x/2,x/2) (last column is evidence only)
+    alpha=0.0200  L=2.24117  U=2.27309  best-found=2.27309
+    alpha=0.0500  L=2.24924  U=2.33281  best-found=2.33281
+    alpha=0.1000  L=2.26396  U=2.44521  best-found=2.44083
+    alpha=0.1111  L=2.26747  U=2.47270  best-found=2.46468
+    alpha=0.1217  L=2.27091  U=2.49983  best-found=2.48683
+    alpha=0.1500  L=2.28053  U=2.50000  best-found=2.50000
+    alpha=0.2000  L=2.29932  U=2.50000  best-found=2.50000
+    alpha=0.3000  L=2.34559  U=2.50000  best-found=2.50000
+    alpha=0.4000  L=2.40873  U=2.50000  best-found=2.50000
+    alpha=0.5000  L=2.50000  U=2.50000  best-found=2.50000
+    L(1/2) = 5/2 exactly; pure-handle bound is below 5/2 for alpha < 0.121765
+QI-118 controls: all checks passed

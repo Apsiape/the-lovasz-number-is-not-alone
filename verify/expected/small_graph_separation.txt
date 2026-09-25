@@ -1,0 +1,17 @@
+seed: 24 vertices, 216 ordered forbidden pairs; exact two-qubit packing verified
+overlap classes with vertex 0 (j = 4<00|Q_x|00>): {0: 9, 1: 8, 2: 6, 4: 1}
+48 automorphisms fix vertex 0 and preserve the overlap classes
+moment relaxation: 409 monomials, 1009 symmetry-reduced moments
+graph with 32 vertices, clone counts per overlap class j=0,1,2,4: [2, 1, 1, 0]
+  Gibbs witness:    2^C_min <= 1/t_W = 6.186983   (t_W = 5225365592240894/32329248967670751)
+  harmonic dual:    Sigma  >= 1/t_H = 6.194232   (all 1009 moment equations exact, 176 of them nontrivial; Z >= 0 exact)
+  exact gap: t_W - t_H > 0, relative 1.1716e-03; log2 Sigma - C_min >= 0.001689 bits
+graph with 44 vertices, clone counts per overlap class j=0,1,2,4: [1, 2, 3, 1]
+  Gibbs witness:    2^C_min <= 1/t_W = 8.949075   (t_W = 10100518339490701/90390296909609703)
+  harmonic dual:    Sigma  >= 1/t_H = 8.962394   (all 1009 moment equations exact, 176 of them nontrivial; Z >= 0 exact)
+  exact gap: t_W - t_H > 0, relative 1.4883e-03; log2 Sigma - C_min >= 0.002146 bits
+graph with 72 vertices, clone counts per overlap class j=0,1,2,4: [4, 3, 2, 0]
+  Gibbs witness:    2^C_min <= 1/t_W = 13.125000   (t_W = 8/105)
+  harmonic dual:    Sigma  >= 1/t_H = 13.191800   (all 1009 moment equations exact, 176 of them nontrivial; Z >= 0 exact)
+  exact gap: t_W - t_H > 0, relative 5.0895e-03; log2 Sigma - C_min >= 0.007324 bits
+QI-120 certificates: all exact checks passed

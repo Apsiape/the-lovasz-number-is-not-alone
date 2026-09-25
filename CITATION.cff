@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the paper."
+title: "A Rényi family in the entanglement-assisted asymptotic spectrum of graphs"
+type: article
+authors:
+  - family-names: Douglas
+    given-names: Seth
+  - family-names: Mghirbi
+    given-names: Nidhal
+date-released: 2026-09-25
+repository-code: "https://github.com/Apsiape/petz-renyi-graph-spectrum"
