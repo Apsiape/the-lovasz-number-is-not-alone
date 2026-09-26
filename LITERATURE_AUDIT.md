@@ -1,9 +1,9 @@
 # Literature and priority audit
 
 **Date:** 2026-09-25  
-**Scope:** novelty of the Petz--Rényi spectral family, its pentagon
-separation, arbitrary-joint product theorem, and the 32-vertex endpoint
-separation.
+**Scope:** novelty of the Petz--Rényi spectral continuum, its pentagon
+separation, arbitrary-joint product theorem, the Duan--Winter pentagon
+conjecture, and the 32-vertex endpoint separation.
 
 This is a search record, not a mathematical validation of the manuscript.
 It should be revisited after expert circulation and before any categorical
@@ -51,8 +51,9 @@ tracial Haemers points for the commuting-quantum spectrum, not for
 
 **Priority assessment:** subject to proof review, the spectral-point theorem
 is very likely the first explicit construction beyond Lovász theta in
-`X(G, <=_*)`; the pentagon theorem is then the first explicit infinite family
-of pairwise distinct points there.  This is the paper's principal novelty.
+`X(G, <=_*)`; continuity makes the pentagon theorem the first explicit
+continuum of pairwise distinct points there.  This is the paper's principal
+novelty.
 
 ### 2. Dalai and Augustin/Rényi radii
 
@@ -103,13 +104,53 @@ single classical graph.  The audit found no earlier graph-level example of
 strong endpoint witness, but it is supporting rather than the headline
 result.  The paper does not claim that 32 vertices is minimal.
 
+### 6. The Duan--Winter pentagon conjecture
+
+The published IEEE version of Duan--Winter states the relevant chain as
+Eq. (54), asks immediately before it whether graph-level `Sigma` is
+multiplicative, and then conjectures that for the pentagon
+`C_min`, `S_{0,NS}`, `log Sigma`, and `log alpha*` all equal `log(5/2)`.
+It explicitly notes that a rigorous proof had eluded the authors.  The arXiv
+version has different equation numbering, so the manuscript cites the
+published Eq. (54).
+
+The present order-two endpoint and arbitrary-joint product theorem give
+`Sigma(G strong-product H) = Sigma(G) Sigma(H)` at the graph-optimized level.
+This removes the regularization in `S_{0,NS}`.  The pentagon plateau then
+gives `C_min(C5) = log Sigma(C5) = log(5/2)`, while the classical fractional
+packing value is `alpha*(C5)=5/2`.  This proves the conjectured equalities and
+shows that the Lovász term on the left of Eq. (54) is strictly smaller.
+
+**Priority assessment:** the exact wording and model match a published open
+problem, rather than a nearby fixed-channel statement.  The manuscript must
+retain the qualification that single-letter characterization is not an
+efficient formula and does not settle Duan--Winter's question for general
+noncommutative graphs.
+
+## Focused update: continuum and forward citations
+
+A second search on 2026-09-25 checked exact phrases for an
+`entanglement-assisted asymptotic spectrum` Rényi continuum and for later
+solutions of the Duan--Winter pentagon conjecture.  OpenAlex still indexed six
+works citing Li--Zuiddam; their titles and abstracts concern generalized
+preordered semirings, catalytic/amortized complexity, tracial Haemers bounds,
+and asymptotic nonnegative rank.  None presents another point of
+`X(G, <=_*)` or the present graph-optimized Petz family.
+
+OpenAlex indexed 66 works citing Duan--Winter.  A title/abstract triage and
+exact-phrase search found substantial later work on no-signalling capacities,
+channel simulation, quantum correlations, and noncommutative graphs, but no
+paper claiming the pentagon equality chain above.  Citation indexes and
+phrase searches are incomplete, so this supports rather than proves the
+priority claim.
+
 ## Recommended public claim
 
 The defensible introduction-level statement is:
 
 > To our knowledge, this is the first construction of spectral points beyond
 > the Lovász number in the entanglement-assisted asymptotic spectrum of
-> graphs, and hence the first infinite family of points in that spectrum.
+> graphs, and the pentagon distinguishes a continuum of them.
 
 Do not say that the work introduces Rényi graph radii, proves fixed-cq
 simulation multiplicativity for the first time, or gives the first

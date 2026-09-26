@@ -16,6 +16,10 @@ success is not a promotion of any theorem.
 - [x] Reconstruct the two endpoint operator bounds and the three-lines
       interpolation for the pentagon.
 - [x] Check every inequality in the infinite distinctness ladder.
+- [x] Check the graph-uniform transfer in the order-continuity proof and the
+      endpoint-to-continuum argument on the pentagon.
+- [x] Match the graph optimization, product, and regularization conventions
+      to the published Duan--Winter model and Eq. (54).
 - [x] Reconstruct the harmonic vector-state moment model without imposing any
       orthogonality relation on the auxiliary projections.
 - [x] Check the direct bridge from a common dominator to the harmonic bound and
@@ -40,6 +44,9 @@ attempted falsifiers, repairs, and remaining human-review requirement are in
       equivalent graph-level optimization.
 - [x] Verify the precise novelty claim for graph-level multiplicativity of
       `Sigma` against work following Duan--Winter.
+- [x] Re-scan forward citations of Li--Zuiddam and Duan--Winter for another
+      EA spectral continuum or a published resolution of the pentagon
+      conjecture.
 
 The search record and the resulting qualifications are in
 `LITERATURE_AUDIT.md`.  These boxes record completion of the search, not a
@@ -47,11 +54,11 @@ mathematical proof audit or an absolute guarantee against missed literature.
 
 ## Claims deliberately not made
 
-- The Lovász number is not shown to be nonminimal in the spectrum.
 - Entanglement-assisted Shannon capacity is not identified with any new point.
 - Orders above two are not covered.
-- Uncountably many distinct points are not proved.
 - The exact pentagon curve on `(0,1/2)` is not determined.
+- The Lovász number is not shown to be the least spectral point; only the
+  stronger "only point" possibility is ruled out.
 - The 32-vertex graph is not proved minimal.
 - The exact values of its endpoint parameters are not computed.
 

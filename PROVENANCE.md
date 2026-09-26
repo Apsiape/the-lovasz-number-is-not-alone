@@ -13,6 +13,12 @@ research records in `Apsiape/quantum-interfaces-lab`:
 - the independent small-graph reconstruction and verifier audit;
 - the earlier QI-70/QI-73/QI-74 pentagon and endpoint notes.
 
+The 2026-09-25 revision adds the graph-uniform continuity argument distilled
+from QI-74, the resulting continuum theorem, and the Duan--Winter pentagon
+corollary obtained by combining the order-two endpoint with arbitrary-joint
+graph multiplicativity.  It also incorporates Nidhal Mghirbi's corrected
+manuscript citation and explicit credit for the certificate recovery method.
+
 The exact certificate data and deterministic verification scripts were copied
 without mathematical modification. The only path-level adjustment is that
 `verify/small_graph_separation.py` reads the certificate from

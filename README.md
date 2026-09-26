@@ -2,7 +2,7 @@
 
 This private repository contains the working paper
 
-> **A Rényi family in the entanglement-assisted asymptotic spectrum of graphs**
+> **A continuum of Rényi points in the entanglement-assisted asymptotic spectrum of graphs and the Duan--Winter pentagon conjecture**
 > Nidhal Mghirbi and Seth Douglas
 
 The paper studies graph parameters obtained by minimizing Petz--Rényi
@@ -11,10 +11,13 @@ candidate results are:
 
 1. for every order `alpha` in `[0,2]`, the resulting parameter is a point of
    Li and Zuiddam's entanglement-assisted asymptotic spectrum of graphs;
-2. the pentagon distinguishes infinitely many orders;
+2. order-continuity makes the pentagon distinguish a continuum of points,
+   with values filling `[sqrt(5), 5/2]` before the exact plateau;
 3. nested compression proves strong-product multiplicativity for arbitrary
    joint representations, rather than only for product witnesses; and
-4. exact rational moment certificates give a 32-vertex graph with
+4. graph-level multiplicativity of `Sigma` resolves the Duan--Winter pentagon
+   conjecture and removes the regularization in graph no-signalling simulation;
+5. exact rational moment certificates give a 32-vertex graph with
    `C_min(G) < log_2 Sigma(G)`.
 
 This is a **version-1 research draft**.  The theorem statements and exact
@@ -38,6 +41,8 @@ spectrum, or an exact intermediate reliability curve.
   claim-by-claim priority assessment.
 - `reviews/HOSTILE_AUDIT_2026-09-25.md` -- independent adversarial proof audit,
   attempted falsifiers, repairs, and publication verdict.
+- `reviews/CONTINUUM_DUAN_WINTER_AUDIT_2026-09-25.md` -- focused hostile audit
+  of the continuum argument and the Duan--Winter model identification.
 
 ## Build the paper
 

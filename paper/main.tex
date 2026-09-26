@@ -36,12 +36,12 @@
 \newcommand{\bra}[1]{\langle #1\rvert}
 \newcommand{\proj}[1]{\ket{#1}\!\bra{#1}}
 
-\title{A R\'enyi family in the entanglement-assisted\\
-asymptotic spectrum of graphs}
+\title{A continuum of R\'enyi points in the entanglement-assisted\\
+asymptotic spectrum of graphs and the Duan--Winter pentagon conjecture}
 \author{Nidhal Mghirbi \and Seth Douglas}
 \date{Version 1 --- September 2026}
 \hypersetup{
-  pdftitle={A Renyi family in the entanglement-assisted asymptotic spectrum of graphs},
+  pdftitle={A continuum of Renyi points in the entanglement-assisted asymptotic spectrum of graphs and the Duan--Winter pentagon conjecture},
   pdfauthor={Nidhal Mghirbi and Seth Douglas}
 }
 
@@ -60,13 +60,17 @@ spectrum of graphs introduced by Li and Zuiddam.  The proof of
 multiplicativity applies to arbitrary joint representations and is based on a
 nested-compression identity, not on an assumption that an optimizer factors.
 
-The pentagon distinguishes infinitely many members of the family.  More
-precisely, for $0\leq\alpha\leq 1/2$ we obtain explicit two-sided bounds, and
-$\vtheta_\alpha(C_5)=5/2$ for $1/2\leq\alpha\leq2$.  A sparse sequence of
-orders gives infinitely many pairwise distinct spectral points, all distinct
-from the Lov\'asz number.  At the endpoints,
-$\vtheta_0=\vtheta$, $\vtheta_1=2^{C_{\min}}$, and
-$\vtheta_2=\Sigma$.  Finally, an exact rational moment certificate gives a
+ The pentagon distinguishes a continuum of members of the family.  We prove
+ that $\alpha\mapsto\vtheta_\alpha(G)$ is continuous on $[0,1)$ for every
+ finite graph, obtain explicit two-sided pentagon bounds on $[0,1/2]$, and
+ show that $\vtheta_\alpha(C_5)=5/2$ for $1/2\leq\alpha\leq2$.  Consequently
+ the pentagon maps $[0,1/2]$ onto $[\sqrt5,5/2]$; an explicit sparse ladder
+ gives certified separated instances.  At the endpoints,
+ $\vtheta_0=\vtheta$, $\vtheta_1=2^{C_{\min}}$, and
+ $\vtheta_2=\Sigma$.  Graph-level multiplicativity of $\Sigma$ also resolves
+ the Duan--Winter pentagon conjecture: its no-signalling simulation cost is
+ $\log_2(5/2)$, equal to $C_{\min}(C_5)$ and the fractional-packing bound but
+ strictly above $\log_2\vtheta(C_5)$.  Finally, an exact rational moment certificate gives a
 32-vertex graph for which $C_{\min}(G)<\log_2\Sigma(G)$, so the last two
 endpoints are distinct as graph parameters.  The finite certificate is
 included with a deterministic verifier.
@@ -81,12 +85,16 @@ Zuiddam used this framework for ordinary graph homomorphisms
 \cite{Zuiddam2019}; Li and Zuiddam introduced its quantum and
 entanglement-assisted variants \cite{LiZuiddam2020}.  In the strongest of
 these preorders, Li and Zuiddam proved that the Lov\'asz number is a
-spectral point, reported no other examples, and asked whether it might even
-be the only point \cite[Theorem~18 and the discussion following
-Conjecture~19]{LiZuiddam2020}.  To our knowledge, the present construction is
-the first to produce points of the entanglement-assisted graph spectrum
-beyond the Lov\'asz number, and hence the first infinite family in that
-spectrum.
+ spectral point, reported no other examples, and asked whether it might even
+ be the only point \cite[Theorem~18 and the discussion following
+ Conjecture~19]{LiZuiddam2020}.  The continuum constructed here rules out that
+ ``only point'' route to their conjectured characterization.  It does not
+ decide their weaker proposed route, that the Lov\'asz number might be the
+ least spectral point.  To our knowledge, the present construction is the
+ first to produce points of the entanglement-assisted graph spectrum beyond
+ the Lov\'asz number.  The role of the Lov\'asz number in bounding
+ entanglement-assisted zero-error capacity was established by Beigi
+ \cite{Beigi2010}.
 
 R\'enyi radii have appeared previously in graph theory from several
 directions.  Dalai used classical--quantum R\'enyi information radii to
@@ -147,7 +155,17 @@ The family is not a redundant parametrization.  On the pentagon we prove
 \end{equation}
 and equality $\vtheta_\alpha(C_5)=5/2$ on $[1/2,2]$.  Interpolation between
 trace-norm and Hilbert--Schmidt operator inequalities is the main ingredient.
-The bounds imply the following.
+ Together with continuity in the order, the endpoint values imply the
+ following.
+
+ \begin{theorem}[A continuum of points]\label{thm:continuum}
+ The set $\{\vtheta_\alpha:0\leq\alpha\leq1/2\}$ contains continuum many
+ pairwise distinct elements of $X(\cG,\leq_*)$.  Their values on the pentagon
+ fill the interval $[\sqrt5,5/2]$.
+ \end{theorem}
+
+ For a completely explicit separated subfamily we also record the following
+ ladder.
 
 \begin{theorem}[Infinitely many points]\label{thm:infinite}
 For $k\geq0$, put $\alpha_k=(8^{k+1}+1)^{-1}$.  The points
@@ -168,9 +186,16 @@ identities are information-radius formulas; the last uses the equivalence of
 supported Petz order two and supported max-relative entropy.  Duan and Winter
 already proved multiplicativity of $\Sigma$ for two fixed cq-graphs
 \cite[Proposition~18]{DuanWinter2016}.  The graph-level product statement
-needed here is stronger in quantifiers: a representation of $G\boxtimes H$
-may be chosen jointly and need not factor through representations of the two
-graphs.  The nested-compression argument handles precisely this issue.
+ needed here is stronger in quantifiers: a representation of $G\boxtimes H$
+ may be chosen jointly and need not factor through representations of the two
+ graphs.  The nested-compression argument handles precisely this issue.
+
+ Duan and Winter conjectured that all non-Lov\'asz terms in their pentagon
+ simulation chain equal $\log_2(5/2)$, while noting that a rigorous proof was
+ missing \cite[Eq.~(54) and the paragraph following it]{DuanWinter2016}.
+ The product theorem at order two supplies the missing graph-level
+ multiplicativity.  We state the resulting resolution in
+ \cref{cor:duan-winter} below.
 
 To show that the last two endpoints are themselves different, we give a
 finite exact example.
@@ -201,8 +226,9 @@ curve on $(0,1/2)$, and a classification of the spectrum remain open.
 \paragraph{Organization.}
 \Cref{sec:prelim} fixes conventions.  Supported minimization and product
 multiplicativity are proved in \cref{sec:compression,sec:product}.
-Disjoint-union additivity and entanglement-assisted monotonicity are proved in
-\cref{sec:union,sec:ea}.  The pentagon is treated in \cref{sec:pentagon}.
+ Disjoint-union additivity and entanglement-assisted monotonicity are proved in
+ \cref{sec:union,sec:ea}.  The pentagon and the Duan--Winter chain are treated
+ in \cref{sec:pentagon,sec:duan-winter}.
 The endpoint separation and its certificate are described in
 \cref{sec:small}.  Additional certificate details are in
 \cref{sec:certificate}.
@@ -345,8 +371,13 @@ Moreover, $\alpha\mapsto\vtheta_\alpha(G)$ is nondecreasing.
 \end{proposition}
 
 \begin{proof}
-At order zero, \eqref{eq:packing-formula} is the standard projector form of
-the Lov\'asz number \cite{Lovasz1979,Dalai2013}.  At order one, the
+ At order zero, \eqref{eq:packing-formula} is the standard projector form of
+ the Lov\'asz number \cite{Lovasz1979,Dalai2013}.  Explicitly, purify
+ $\sigma$ to a vector $c$ on a larger space and replace $P_x$ by
+ $P_x\otimes I$; then
+ $\Tr(P_x\sigma)=\lVert(P_x\otimes I)c\rVert^2$, which is Lov\'asz's
+ vector-and-handle form.  Conversely, taking the reduced state recovers the
+ projector form.  At order one, the
 information-radius identity
 \[
  \max_p\chi(p;\rho)=\inf_\sigma\max_xD(\rho_x\Vert\sigma)
@@ -357,7 +388,43 @@ $K_{-1}=(P\sigma^{-1}P)^{-1}$ is the shorted operator
 minimum is obtained with max-relative entropy.  Normalizing a common
 dominator $T=t\sigma$ identifies the optimized max-radius with
 $\log_2\Sigma(G)$, giving the third equality.  Monotonicity follows from
-monotonicity of the Petz divergence in its order before taking infima.
+ monotonicity of the Petz divergence in its order before taking infima.
+\end{proof}
+
+\begin{proposition}[Continuity in the order]\label{prop:order-continuity}
+For every finite graph $G$, the map
+$\alpha\mapsto\vtheta_\alpha(G)$ is continuous on $[0,1)$.
+\end{proposition}
+
+\begin{proof}
+Write $f_G(\alpha)=\log_2\vtheta_\alpha(G)$.  Right continuity follows
+directly from the variational definition.  Indeed, for any fixed
+$\alpha_0<1$, choose a finite compatible family and faithful center whose
+radius at $\alpha_0$ is within $\eps$ of $f_G(\alpha_0)$.  Each of the
+finitely many Petz divergences is right-continuous in its order, including at
+order zero, so this witness gives
+$\limsup_{\alpha\downarrow\alpha_0}f_G(\alpha)\leq
+f_G(\alpha_0)+\eps$.  Monotonicity gives the reverse inequality, and then
+$\eps\downarrow0$.
+
+For left continuity, let $0<\beta<\alpha<1$ and put
+$\psi(t)=\log\Tr\rho^t\sigma^{1-t}$.  Convexity of $\psi$, together with
+$\psi(0)\leq0=\psi(1)$, gives
+$\psi(\beta)\leq(\beta/\alpha)\psi(\alpha)$.  Since both denominators in the
+Petz divergences are negative,
+\begin{equation}\label{eq:petz-order-comparison}
+ D_\alpha(\rho\Vert\sigma)
+ \leq \frac{\alpha(1-\beta)}{\beta(1-\alpha)}
+ D_\beta(\rho\Vert\sigma).
+\end{equation}
+The constant is independent of the representation and its dimension.
+Applying the inequality to a near-optimal order-$\beta$ witness gives
+\[
+ f_G(\beta)\leq f_G(\alpha)
+ \leq \frac{\alpha(1-\beta)}{\beta(1-\alpha)}f_G(\beta).
+\]
+As $\beta\uparrow\alpha$, the multiplier tends to one.  This proves left
+continuity at every $\alpha\in(0,1)$ and completes the proof.
 \end{proof}
 
 The key algebraic fact is the following exact nesting property.
@@ -583,10 +650,14 @@ multiplicativity is \cref{thm:product}, and monotonicity is
 \cref{thm:ea-mono}.
 \end{proof}
 
-Petz data processing generally fails above order two.  Accordingly, the
-present argument makes no spectral claim for $\alpha>2$.
+Petz data processing generally fails above order two.  In particular, the
+included deterministic verifier contains a numerical finite-dimensional
+order-three witness, with a margin exceeding one half bit, against the
+flagged-mixture inequality used in
+\cref{lem:flagged}.  Accordingly, the present argument makes no spectral
+claim for $\alpha>2$.
 
-\section{The pentagon and infinitely many points}\label{sec:pentagon}
+\section{The pentagon and a continuum of points}\label{sec:pentagon}
 
 Index $C_5$ by $\mathbb Z_5$ with $i\sim i\pm1$.  In our confusability
 convention, a pentagon packing satisfies $P_iP_{i+2}=0$.
@@ -604,8 +675,10 @@ For every pentagon packing and every operator $X$,
 \begin{proof}
 For a rank-one operator $X=ab^*$,
 $\lVert P_iab^*P_i\rVert_1=\lVert P_ia\rVert\lVert P_ib\rVert$.
-The projector form of $\vtheta(C_5)=\sqrt5$ gives
-$\sum_i\lVert P_iv\rVert^2\leq\sqrt5\lVert v\rVert^2$; Cauchy--Schwarz
+ The relevant projector bound is the Lov\'asz number of the complement.
+ Since $C_5$ is self-complementary,
+ $\vtheta(\overline{C_5})=\vtheta(C_5)=\sqrt5$, and the projector form gives
+ $\sum_i\lVert P_iv\rVert^2\leq\sqrt5\lVert v\rVert^2$; Cauchy--Schwarz
 therefore proves \eqref{eq:trace-endpoint} for rank one.  A singular-value
 decomposition and the triangle inequality prove it for general $X$.
 
@@ -703,8 +776,18 @@ $\proj c$, $c=(1,0,0)$, the pure-state Petz radius tends to
 $\log_2\sqrt5/(1-\alpha)$, giving
 $\vtheta_\alpha(C_5)\leq5^{1/(2-2\alpha)}$.
 
-At $\alpha=1/2$, the lower bound is $5/2$.  Monotonicity in $\alpha$ and the
-uniform upper bound give equality throughout $[1/2,2]$.
+ At $\alpha=1/2$, the lower bound is $5/2$.  Monotonicity in $\alpha$ and the
+ uniform upper bound give equality throughout $[1/2,2]$.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:continuum}]
+By \cref{prop:order-continuity}, the map
+$\alpha\mapsto\vtheta_\alpha(C_5)$ is continuous on $[0,1/2]$.
+Its endpoint values are $\sqrt5$ and $5/2$ by
+\cref{prop:endpoints,thm:pentagon}.  Monotonicity and the intermediate value
+theorem therefore show that its image is exactly $[\sqrt5,5/2]$.  Parameters
+with different values on $C_5$ are different graph functions, so this interval
+indexes continuum many distinct spectral points.
 \end{proof}
 
 In particular, $\vtheta_\alpha(C_5)>\sqrt5$ for every $\alpha>0$, while the
@@ -727,9 +810,66 @@ $\vtheta_{\alpha_0}(C_5)\leq5^{9/16}<5/2$, and every value is strictly above
 $\sqrt5$.  Hence all listed spectral points are distinct.
 \end{proof}
 
-Combining \cref{thm:infinite} with \cref{thm:small-graph} shows that
-$\vtheta_0$, the countable ladder $(\vtheta_{\alpha_k})_k$, $\vtheta_1$,
-and $\vtheta_2$ are pairwise distinct points of $X(\cG,\leq_*)$.
+The ladder is an exact, explicitly separated subfamily of the continuum.
+Combining it with \cref{thm:small-graph} shows in particular that
+$\vtheta_0$, $(\vtheta_{\alpha_k})_k$, $\vtheta_1$, and $\vtheta_2$ are
+pairwise distinct points of $X(\cG,\leq_*)$.
+
+\section{The Duan--Winter simulation chain}\label{sec:duan-winter}
+
+Duan and Winter define the graph-optimized asymptotic no-signalling
+simulation cost by
+\begin{equation}\label{eq:s0ns}
+ S_{0,\mathrm{NS}}(G)
+ =\lim_{n\to\infty}\frac1n\log_2\Sigma(G^{\boxt n}).
+\end{equation}
+Their fixed-cq-graph multiplicativity result does not remove this
+regularization after optimizing jointly over graph representations.  The
+order-two instance of \cref{thm:product} does: for every finite graph,
+\begin{equation}\label{eq:s0ns-single-letter}
+ S_{0,\mathrm{NS}}(G)=\log_2\Sigma(G).
+\end{equation}
+This is a single-letter characterization, not a claim that the graph
+optimization is efficiently computable, and it does not address their
+separate question for general noncommutative graphs.
+
+Let $\alpha^*(G)$ denote the fractional independence number.  In the present
+confusability convention, the published Duan--Winter chain reads
+\begin{equation}\label{eq:duan-winter-chain}
+ \log_2\vtheta(G)\leq C_{\min}(G)
+ \leq S_{0,\mathrm{NS}}(G)
+ \leq\log_2\alpha^*(G).
+\end{equation}
+The first inequality is strict on the pentagon, and all remaining terms can
+now be evaluated exactly.
+
+\begin{corollary}[Duan--Winter pentagon conjecture]\label{cor:duan-winter}
+For the pentagon,
+\begin{equation}
+ \log_2\sqrt5
+ < C_{\min}(C_5)
+ = S_{0,\mathrm{NS}}(C_5)
+ = \log_2\Sigma(C_5)
+ = \log_2\alpha^*(C_5)
+ = \log_2\frac52.
+\end{equation}
+Thus the pentagon conjecture stated after Eq.~(54) of
+Duan--Winter \cite{DuanWinter2016} holds, and the leftmost inequality in that
+display is strict.
+\end{corollary}
+
+\begin{proof}
+The identities $\vtheta_1=2^{C_{\min}}$ and $\vtheta_2=\Sigma$, together with
+\cref{thm:pentagon}, give
+$C_{\min}(C_5)=\log_2\Sigma(C_5)=\log_2(5/2)$.
+Equation \eqref{eq:s0ns-single-letter} gives the asymptotic simulation term.
+The elementary fractional packing of the five-cycle has value $5/2$, while
+$\vtheta(C_5)=\sqrt5$.
+\end{proof}
+
+The same chain records a different strict link on the small graph below:
+\cref{thm:small-graph} gives
+$C_{\min}(G_{32})<\log_2\Sigma(G_{32})=S_{0,\mathrm{NS}}(G_{32})$.
 
 \section{A 32-vertex endpoint separation}\label{sec:small}
 
@@ -789,8 +929,24 @@ $Z_{-1}(\sigma,P)$.
 The certificate has two halves.  A rational direct sum of the packing
 \eqref{eq:magic-square} and one-dimensional clique packings produces a Gibbs
 vector and therefore a compatible cq channel with small information radius.
-A moment-relaxation dual bounds every possible harmonic vector, in every
-dimension, and therefore every common-dominator simulation.
+ A moment-relaxation dual bounds every possible harmonic vector, in every
+ dimension, and therefore every common-dominator simulation.
+
+For a clone profile $k$, define the seed harmonic radius
+\begin{equation}\label{eq:tH-definition}
+ t_H(F[k])=\sup\left\{t:\begin{array}{l}
+  (P_x)_{x\in V(F)}\text{ is a packing, }\sigma>0,\ \Tr\sigma=1,\\
+  h_\sigma(P_x)\geq tk_x\text{ whenever }k_x>0
+ \end{array}\right\}.
+\end{equation}
+Let $\mathcal A_0$ be the 48 seed automorphisms fixing vertex zero and
+preserving the overlap classes, and put
+\begin{equation}\label{eq:averaged-harmonic}
+ \overline h_x=\frac1{|\mathcal A_0|}
+ \sum_{g\in\mathcal A_0}h_\sigma(P_{g(x)}).
+\end{equation}
+Because $k_{g(x)}=k_x$, averaging preserves every radial constraint in
+\eqref{eq:tH-definition}.
 
 \begin{proposition}[Direct operational bridge]\label{prop:operational-bridge}
 Let $F[k]$ be a clone graph.
@@ -800,8 +956,8 @@ Let $F[k]$ be a clone graph.
  2^{C_{\min}(F[k])}\leq
  \left(\min_{x:k_x>0}\frac{w_x}{k_x}\right)^{-1}.
 \]
-\item Suppose every packing and state satisfy a linear harmonic inequality
-$\sum_x\mu_xh_\sigma(P_x)\leq\lambda$, with $\mu_x\geq0$.  Then
+\item Suppose every packing and state satisfy the averaged linear harmonic
+inequality $\sum_x\mu_x\overline h_x\leq\lambda$, with $\mu_x\geq0$.  Then
 \[
  \Sigma(F[k])\geq\frac{\sum_x\mu_xk_x}{\lambda}.
 \]
@@ -832,7 +988,9 @@ $h_\sigma(P_{x,a})\geq1/t$.  The clone supports are orthogonal.  If
 $P_x=\sum_aP_{x,a}$, the trace of the shorted operator is superadditive over
 these blocks; this follows from the Schur-complement formula for the diagonal
 blocks of $(P_x\sigma^{-1}P_x)^{-1}$.  Hence
-$h_\sigma(P_x)\geq k_x/t$.  The assumed inequality gives
+ $h_\sigma(P_x)\geq k_x/t$.  Averaging over $\mathcal A_0$ preserves this
+ inequality because the profile is orbit-invariant, so
+ $\overline h_x\geq k_x/t$.  The assumed inequality gives
 $t\geq(\sum_x\mu_xk_x)/\lambda$.  Singular $T$ follows by faithful
 regularization and a limit.
 \end{proof}
@@ -860,7 +1018,11 @@ at most $F_x$.  Thus $\sqrt\sigma F_x\sqrt\sigma=\sigma_{/P_x}$.  Taking
 the vector-state expectation proves the second identity.
 \end{proof}
 
-The two projection families $P_x\otimes I$ and $I\otimes E_y$ commute, but
+ For words $L,R$ in seed vertices, write
+ \[
+  m(L,R)=\langle\Omega,P_L\otimes E_R\,\Omega\rangle.
+ \]
+ The two projection families $P_x\otimes I$ and $I\otimes E_y$ commute, but
 no orthogonality relation is imposed on the $E_y$.  Form a Gram matrix from
 the 409 monomials
 \[
@@ -868,23 +1030,36 @@ the 409 monomials
  (I\otimes E_b)_{b=0}^{23},\quad
  (P_a\otimes E_b)_{a=b\text{ or }a\not\perp b}.
 \]
-Its entries are moments of words in the two families.  Idempotence, forbidden
-adjacent $P$ pairs, and the two endpoint consequences of
-\eqref{eq:harmonic-moment} give sound moment identifications.  Averaging over
-the 48 seed automorphisms fixing vertex zero and taking real parts preserves
-positive semidefiniteness.  The construction is a finite, symmetry-reduced
+ Its entries are moments of words in the two families.  The key table uses
+ exactly four rewriting rules, each valid in every model:
+ \begin{enumerate}
+ \item[(R1)] merge equal adjacent letters in either word (idempotence);
+ \item[(R2)] set the moment to zero if $L$ contains adjacent forbidden
+ $P$-letters;
+ \item[(R3)] if $R$ ends in $y$, append $y$ to $L$, using
+ $(P_y\otimes E_y)\Omega=(I\otimes E_y)\Omega$;
+ \item[(R4)] if $R$ begins in $y$, prepend $y$ to $L$, using the adjoint of
+ the same vector identity.
+ \end{enumerate}
+Simultaneously reversing both words complex-conjugates the moment.  Averaging
+over $\mathcal A_0$ and then taking real parts therefore preserves positive
+semidefiniteness and identifies symmetry-related moments.  The construction is a finite, symmetry-reduced
 noncommutative moment relaxation in the spirit of
 \cite{NPA2008,Mghirbi2026}.  The resulting table has 1009 moment keys.
 
-Let $\Gamma(y)$ be the resulting real symmetric matrix, with one variable per
-key.  The primal relaxation maximizes $t$ subject to
+ Let $\Gamma(y)$ be the resulting real symmetric matrix, with one variable per
+ key.  Write $\kappa_x$ for the key of the moment
+$m(\varnothing,x)=h_\sigma(P_x)$.  After symmetry averaging this coordinate
+is $y_{\kappa_x}=\overline h_x$.  The primal relaxation maximizes $t$ subject to
 \begin{equation}\label{eq:moment-primal}
  \Gamma(y)\succeq0,\qquad y_{1}=1,\qquad
- y_x\geq tk_x\quad(k_x>0).
+ y_{\kappa_x}\geq tk_x\quad(k_x>0).
 \end{equation}
-By \cref{lem:harmonic-moment}, every finite-dimensional packing and state
-gives a feasible point.  Therefore the relaxation upper bounds the true
-harmonic radius.
+ By \cref{lem:harmonic-moment}, every finite-dimensional packing and state
+gives a positive semidefinite Gram matrix.  Its $\mathcal A_0$-average obeys
+$y_{\kappa_x}=|\mathcal A_0|^{-1}\sum_g h_\sigma(P_{g(x)})\geq tk_x$ whenever
+the original harmonic vector obeys the radial constraints.  Therefore the
+relaxation upper bounds $t_H(F[k])$ in every dimension.
 
 A dual certificate consists of $Z\succeq0$, multipliers $\mu_x\geq0$, and
 $\lambda$ such that, for each moment key $\kappa$,
@@ -935,9 +1110,15 @@ $0.001689$, $0.002146$, and $0.007324$ bits.
 \section{Certificate verification}\label{sec:certificate}
 
 The file \texttt{certificates/small\_graph\_certificates.json} contains, for
-each graph, the rational Gibbs mixture, the rational multipliers $\mu$, and
-the nonzero orbits of the dual matrix $Z$.  The verifier performs the
-following steps.
+ each graph, the rational Gibbs mixture, the rational multipliers $\mu$, and
+ the nonzero orbits of the dual matrix $Z$.  The verifier performs the
+ following steps.
+
+The certificate recovery procedure follows the method of Mghirbi
+\cite{Mghirbi2026}: symmetry averaging, dyadic rounding, and an exact
+minimum-norm correction of the affine residual, followed here by an integer
+positivity certificate.  These steps explain how the rational data were
+found; acceptance uses only the exact checks below.
 
 \begin{enumerate}
 \item It rebuilds the 24-vertex seed, all 216 ordered forbidden pairs, the
@@ -966,7 +1147,7 @@ test.  Both must be rejected.
 
 \section{Discussion and open questions}
 
-Theorem \ref{thm:spectrum} supplies infinitely many points of the
+ Theorem \ref{thm:spectrum} supplies a continuum of points of the
 entanglement-assisted asymptotic spectrum beyond the Lov\'asz number.  It
 does not alter the spectral upper bound on entanglement-assisted Shannon
 capacity because every point in the present family is at least $\vtheta$.
@@ -976,14 +1157,17 @@ open.
 Several concrete questions remain.
 \begin{enumerate}
 \item Does entanglement-assisted monotonicity extend beyond Petz order two?
-The flagged-mixture proof cannot: it fails already on finite examples at
-order three.
-\item Is $\alpha\mapsto\vtheta_\alpha(C_5)$ continuous, and what is its exact
-value on $(0,1/2)$?  Continuity would immediately turn the countable family
-proved here into an uncountable one.
-\item Does the limit as $\alpha\to\infty$ equal the complement of projective
-rank?  Flat representations give the corresponding upper bound, but a
-dimension-independent near-packing argument is missing.
+The flagged-mixture proof cannot: the verifier includes a deterministic
+numerical order-three witness with a margin above one half bit.
+\item What is the exact pentagon curve on $(0,1/2)$?  It is continuous by
+\cref{prop:order-continuity}, joins $\sqrt5$ to $5/2$, and is exactly constant
+at $5/2$ on $[1/2,2]$, but the displayed bounds need not coincide below
+order $1/2$.
+\item Can the definition be extended beyond $\alpha\leq2$, and does an
+appropriate large-order endpoint equal the complement of projective rank?
+Flat representations give the corresponding upper bound, but the present
+EA-monotonicity mechanism fails and a dimension-independent near-packing
+argument is missing.
 \item How small can a graph with
 $C_{\min}<\log_2\Sigma$ be?  The certificate proves existence on 32
 vertices, not minimality.

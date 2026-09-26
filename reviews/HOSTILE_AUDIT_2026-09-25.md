@@ -24,8 +24,9 @@ record makes that condition explicit and also:
 - proves one-vertex normalization directly;
 - expands the direct-sum construction that splits parent supports into clones;
 - explains the vertex-transitive block symmetrization; and
-- removes an unused order-three counterexample assertion that was not proved
-  exactly in the manuscript.
+- initially removed an unqualified order-three counterexample assertion that
+  was not proved exactly in the manuscript.  The later revision restores it
+  only as a clearly labeled deterministic numerical witness from the verifier.
 
 ## Load-bearing results
 
