@@ -19,7 +19,7 @@ certificate for a 32-vertex graph with
 
 - `paper/main.tex` -- standalone manuscript.
 - `paper/references.bib` -- primary references.
-- `output/pdf/petz-renyi-graph-spectrum-v1.pdf` -- latest visually reviewed
+- `output/pdf/the-lovasz-number-is-not-alone-v1.pdf` -- latest visually reviewed
   manuscript build.
 - `certificates/` -- exact rational certificate data for the 32-, 44-, and
   72-vertex examples.
