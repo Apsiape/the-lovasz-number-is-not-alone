@@ -1,33 +1,19 @@
 # The Lovász number is not alone
 
-This private repository contains the working paper
+This repository contains the paper
 
 > **The Lovász number is not alone: a continuum of Rényi points in the entanglement-assisted spectrum of graphs**
+>
 > Nidhal Mghirbi and Seth Douglas
 
-The paper studies graph parameters obtained by minimizing Petz--Rényi
-information radii over compatible classical--quantum channels.  Its main
-candidate results are:
-
-1. for every order `alpha` in `[0,2]`, the resulting parameter is a point of
-   Li and Zuiddam's entanglement-assisted asymptotic spectrum of graphs;
-2. order-continuity makes the pentagon distinguish a continuum of points,
-   with values filling `[sqrt(5), 5/2]` before the exact plateau;
-3. nested compression proves strong-product multiplicativity for arbitrary
-   joint representations, rather than only for product witnesses; and
-4. graph-level multiplicativity of `Sigma` resolves the Duan--Winter pentagon
-   conjecture and removes the regularization in graph no-signalling simulation;
-5. exact rational moment certificates give a 32-vertex graph with
-   `C_min(G) < log_2 Sigma(G)`.
-6. optimizing sandwiched Rényi radii of orders `beta >= 1` gives the same
-   curve as the Petz family on orders `[1,2]`.
-
-This is a **preprint candidate**.  The theorem statements and exact
-certificates have been reconstructed, and Nidhal Mghirbi reports a complete
-author-side proof review.  Dated literature/priority and hostile proof audits
-are recorded in the repository.  The manuscript does not claim an exact
-entanglement-assisted Shannon-capacity formula, a complete description of the
-spectrum, or an exact intermediate reliability curve.
+We minimize Petz--Rényi information radii over classical--quantum channels
+compatible with a graph. The resulting parameters form a continuum of points
+in Li and Zuiddam's entanglement-assisted asymptotic spectrum. The paper also
+proves strong-product multiplicativity for arbitrary joint representations,
+resolves the Duan--Winter pentagon conjecture, shows that graph-level
+no-signalling simulation single-letterizes, and gives an exact rational
+certificate for a 32-vertex graph with
+`C_min(G) < log_2 Sigma(G)`.
 
 ## Repository layout
 
@@ -37,17 +23,9 @@ spectrum, or an exact intermediate reliability curve.
   manuscript build.
 - `certificates/` -- exact rational certificate data for the 32-, 44-, and
   72-vertex examples.
-- `verify/` -- deterministic checks and pinned output.
-- `REVIEW.md` -- proof-audit and literature-audit checklist.
-- `LITERATURE_AUDIT.md` -- dated novelty search, closest prior art, and
-  claim-by-claim priority assessment.
-- `reviews/HOSTILE_AUDIT_2026-09-25.md` -- independent adversarial proof audit,
-  attempted falsifiers, repairs, and publication verdict.
-- `reviews/CONTINUUM_DUAN_WINTER_AUDIT_2026-09-25.md` -- focused hostile audit
-  of the continuum argument and the Duan--Winter model identification.
-- `reviews/FINAL_MANUSCRIPT_AUDIT_2026-09-26.md` -- audit of the final rewrite,
-  its new sandwiched-radius proposition, exact-confusability appendix, and
-  disclosure/provenance changes.
+- `verify/` -- deterministic certificate checks and pinned output.
+- `CITATION.cff` -- citation metadata.
+- `LICENSE.md` -- licensing for the manuscript, data, and verification code.
 
 ## Build the paper
 
@@ -69,13 +47,23 @@ python verify/run_all.py
 ```
 
 The exact small-graph checker verifies the rational affine equations and the
-positive-semidefinite certificate using integer arithmetic.  Floating-point
+positive-semidefinite certificate using integer arithmetic. Floating-point
 Cholesky factorization is used only to propose an integer factor; it is not an
-acceptance criterion.  Negative-control modes are documented in `REVIEW.md`.
+acceptance criterion.
 
-## Status discipline
+The following negative controls are expected to exit unsuccessfully:
 
-The manuscript distinguishes proved implications from computational
-certification and from open questions.  Passing the scripts establishes only
-the stated finite algebraic checks.  It is not a substitute for reviewing the
-dimension-independent arguments.
+```powershell
+python verify/entanglement_assisted_spectrum.py --perturb
+python verify/small_graph_separation.py --perturb
+python verify/small_graph_separation.py --perturb-psd
+```
+
+Passing the scripts establishes only the stated finite algebraic checks. It is
+not a substitute for reviewing the dimension-independent arguments.
+
+## Citation and license
+
+Citation metadata are in `CITATION.cff`. The manuscript and certificate data
+are released under CC BY 4.0; the verification software is released under the
+MIT License. See `LICENSE.md` for the scope and full notices.

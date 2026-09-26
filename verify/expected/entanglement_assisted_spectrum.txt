@@ -8,7 +8,7 @@
     k=5 alpha_k=3.814682713765e-06  L(alpha_k)=2.236068929198581  U(alpha_k+1)=2.236068835523735
     U(alpha_0) = 5^(9/16) = 2.472695437163514 < 5/2
     all ladder separations strict; values lie in (sqrt5, 5/2)
-[2] QI-92 separation 2^C_min <= R < L <= Sigma (exact fractions)
+[2] separation 2^C_min <= R < L <= Sigma (exact fractions)
     L - R = 538087279416248559183095/153778236194122166201858782246 > 0
     pentagon: theta(C5)^2 = 5 < 25/4 = (2^C_min(C5))^2
 [3] Lemmas 2-3 (compression identity, orthogonal-sum inequality)
@@ -50,4 +50,4 @@
     alpha=0.4000  L=2.40873  U=2.50000  best-found=2.50000
     alpha=0.5000  L=2.50000  U=2.50000  best-found=2.50000
     L(1/2) = 5/2 exactly; pure-handle bound is below 5/2 for alpha < 0.121765
-QI-118 controls: all checks passed
+Entanglement-assisted spectrum controls: all checks passed

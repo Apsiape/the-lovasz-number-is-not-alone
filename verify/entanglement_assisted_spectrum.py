@@ -1,10 +1,10 @@
-"""Controls for QI-118: Petz graph parameters in the entanglement-assisted spectrum.
+"""Controls for Petz graph parameters in the entanglement-assisted spectrum.
 
 What is exact here
 ------------------
 * the integer inequality 2^16 < 5^7 behind the distinctness ladder, and the
   ladder values at 50-digit decimal precision;
-* the QI-92 rational separation L - R, recomputed with fractions.
+* the rational separation L - R, recomputed with fractions.
 
 What is a finite numerical control (it changes no status)
 ---------------------------------------------------------
@@ -75,7 +75,7 @@ def petz(rho, sig, a):
 
 
 def comp(P, sig, s):
-    """Power-mean compression c_s(P; sig) of QI-74 on the range of the projection P."""
+    """Power-mean compression c_s(P; sig) on the range of the projection P."""
     w, v = np.linalg.eigh(herm(P))
     u = v[:, w > 0.5]
     if s == 0:
@@ -139,15 +139,15 @@ def ladder(ratio):
     print("    all ladder separations strict; values lie in (sqrt5, 5/2)")
 
 
-# ---------------------------------------------------------------- 2. QI-92 rational separation
+# ---------------------------------------------------------------- 2. Rational separation
 def qi92():
-    print("[2] QI-92 separation 2^C_min <= R < L <= Sigma (exact fractions)")
+    print("[2] separation 2^C_min <= R < L <= Sigma (exact fractions)")
     lam = Fraction(11122150566011123, 1853614522304)
     L = Fraction(24001 * 24000 + 24004) / lam
     R = Fraction(24002 ** 4 + 3 * 24001 ** 4, 24002 * 24001 ** 2)
     target = Fraction(538087279416248559183095, 153778236194122166201858782246)
-    require(L - R == target, "QI-92 L-R", str(target), str(L - R))
-    require(L - R > 0, "QI-92 L-R > 0", "positive", str(L - R))
+    require(L - R == target, "L-R", str(target), str(L - R))
+    require(L - R > 0, "L-R > 0", "positive", str(L - R))
     print("    L - R = {0}/{1} > 0".format((L - R).numerator, (L - R).denominator))
     require(Fraction(5, 2) ** 2 > 5, "(5/2)^2 > 5", "true", "false")
     print("    pentagon: theta(C5)^2 = 5 < 25/4 = (2^C_min(C5))^2")
@@ -405,7 +405,7 @@ def main():
     quantum_hom()
     pentagon_bounds(rng)
     pentagon_families()
-    print("QI-118 controls: all checks passed")
+    print("Entanglement-assisted spectrum controls: all checks passed")
 
 
 if __name__ == "__main__":

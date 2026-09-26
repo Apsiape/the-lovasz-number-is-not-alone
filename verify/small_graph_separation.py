@@ -1,4 +1,4 @@
-"""Exact certificates for QI-120: small clone graphs of the magic-square seed with C_min < log2 Sigma.
+"""Exact certificates for small clone graphs of the magic-square seed with C_min < log2 Sigma.
 
 For each certified graph G = F[k] (a clone profile k on the 24-vertex magic-square seed F,
 constant on the four overlap classes with vertex 0) the script checks, in exact arithmetic:
@@ -414,7 +414,7 @@ def main():
               " nontrivial; Z >= 0 exact)" % (float(1 / tH), len(keys), neq))
         print("  exact gap: t_W - t_H > 0, relative %.4e; log2 Sigma - C_min >= %.6f bits" % (
             float(gap), float(np.log2(float(tW / tH)))))
-    print("QI-120 certificates: all exact checks passed")
+    print("Small-graph certificates: all exact checks passed")
 
 
 if __name__ == "__main__":

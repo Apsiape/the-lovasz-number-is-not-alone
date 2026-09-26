@@ -78,8 +78,9 @@ On the five-cycle the family sweeps out the whole interval $[\sqrt5,5/2]$, so
 it contains continuum many distinct points.  A single Hilbert--Schmidt
 inequality gives $\Cmin(C_5)=\log_2(5/2)$, which proves the pentagon
 conjecture of Duan and Winter.  The same framework settles the two links of
-their inequality chain that they left open.  The asymptotic no-signalling
-simulation cost of a graph always equals its one-shot value $\log_2\Sigma$.
+their inequality chain that they left open.  The regularized graph-level
+no-signalling simulation rate always equals its single-letter SDP value
+$\log_2\Sigma$.
 And a 32-vertex graph built from the Mermin--Peres magic square, certified in
 exact rational arithmetic, has $\Cmin<\log_2\Sigma$.
 \end{abstract}
@@ -121,8 +122,8 @@ communication assisted by no-signalling correlations.  For a confusability
 graph $G$ they compare several numbers attached to the classical--quantum
 channels $x\mapsto\rho_x$ whose confusability graph is $G$.  There is the
 Lov\'asz number $\vt(G)$.  There is $\Cmin(G)$, the smallest Holevo capacity
-of such a channel, and $\Sigma(G)$, the smallest cost of simulating such a
-channel exactly with no-signalling help.  They prove the chain
+of such a channel, and $\Sigma(G)$, the infimum of the real SDP simulation
+value over such channels.  They prove the chain
 \begin{equation}\label{eq:dw-chain}
  \log_2\vt(G)\ \le\ \Cmin(G)\ \le\ \SNS(G)\ \le\ \log_2\Sigma(G)\ \le\
  \log_2\alpha^*(G),
@@ -327,7 +328,7 @@ single-letter formula,
 \[
  \SNS(G)=\log_2\Sigma(G),
 \]
-for the cheapest asymptotic no-signalling simulation of a channel with
+for the optimal asymptotic no-signalling simulation rate among channels with
 confusability graph $G$.  Duan and Winter single out asymptotic simulation
 with no-signalling assistance as an important open problem.  At the level of
 confusability graphs, this reduces it to a one-shot problem.
@@ -516,10 +517,14 @@ The \emph{no-signalling simulation cost} is
  \Sigma(G)=\inf\bigl\{\Tr T\ :\ T\ge\rho_x\text{ for all }x,\
    (\rho_x)\text{ compatible}\bigr\}.
 \end{equation}
-Duan and Winter show that $\min\{\Tr T:T\ge\rho_x\ \forall x\}$ governs the
-cost of simulating the channel $x\mapsto\rho_x$ exactly with no-signalling
-assistance.  So $\log\Sigma(G)$ is the cheapest such simulation among channels
-compatible with $G$.  Tensoring witnesses shows that $\Sigma$ is
+Duan and Winter show that $\min\{\Tr T:T\ge\rho_x\ \forall x\}$ is the real
+SDP value governing exact simulation of the channel $x\mapsto\rho_x$ with
+no-signalling assistance.  For a fixed channel, the literal one-shot
+noiseless message alphabet has size equal to the ceiling of this SDP value;
+the ceiling disappears after division by block length.  At graph level,
+$\Sigma(G)$ is an infimum over compatible channels and need not be attained.
+Thus $\log\Sigma(G)$ is the infimum of the corresponding single-letter SDP
+costs.  Tensoring witnesses shows that $\Sigma$ is
 submultiplicative under $\boxt$, so the regularization
 \[
  \SNS(G)=\lim_{n\to\infty}\frac1n\log\Sigma(G^{\boxt n})
@@ -926,8 +931,8 @@ At $\alpha=0$ and $\alpha=1$, \cref{thm:product} recovers the multiplicativity
 of $\vt$ \cite{Lovasz1979} and Duan and Winter's additivity of $\Cmin$
 \cite[Lemma~23]{DuanWinter2016}.  At $\alpha=2$ it says
 $\Sigma(G\boxt H)=\Sigma(G)\Sigma(H)$.
-Hence $\SNS(G)=\log\Sigma(G)$: the regularization in Duan and Winter's
-asymptotic simulation cost is unnecessary at the graph level.  Their
+Hence $\SNS(G)=\log\Sigma(G)$: regularizing the graph-level SDP value does not
+change it.  Their
 fixed-cq-graph result \cite{DuanWinter2016} is the special case
 $P_{xy}=P_x\otimes Q_y$.
 \end{remark}
@@ -1735,7 +1740,9 @@ change the infimum.
 \begin{proof}
 Restricting can only increase an infimum, so we show the reverse.  Take a
 compatible family $(\rho_x)$ on $\cH$ with center $\sigma$ (or dominator
-$T$).  Add an orthonormal vector $f_e$ for each edge $e$ of $G$.  For a
+$T$).  If $E(G)=\varnothing$, every compatible family already has exact
+confusability graph $G$, so there is nothing to prove.  Assume henceforth that
+$|E(G)|>0$.  Add an orthonormal vector $f_e$ for each edge $e$ of $G$.  For a
 vertex $x$ of degree $d_x>0$, let $\Pi_x$ project onto the $f_e$ with $e\ni x$,
 and let $\Pi_E$ project onto all of them.  Put
 \[

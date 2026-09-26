@@ -14,4 +14,4 @@ graph with 72 vertices, clone counts per overlap class j=0,1,2,4: [4, 3, 2, 0]
   Gibbs witness:    2^C_min <= 1/t_W = 13.125000   (t_W = 8/105)
   harmonic dual:    Sigma  >= 1/t_H = 13.191800   (all 1009 moment equations exact, 176 of them nontrivial; Z >= 0 exact)
   exact gap: t_W - t_H > 0, relative 5.0895e-03; log2 Sigma - C_min >= 0.007324 bits
-QI-120 certificates: all exact checks passed
+Small-graph certificates: all exact checks passed

@@ -1,11 +1,19 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite the paper."
-title: "A continuum of Rényi points in the entanglement-assisted asymptotic spectrum of graphs and the Duan--Winter pentagon conjecture"
+title: "The Lovász number is not alone: a continuum of Rényi points in the entanglement-assisted spectrum of graphs"
 type: article
 authors:
   - family-names: Mghirbi
     given-names: Nidhal
   - family-names: Douglas
     given-names: Seth
-date-released: 2026-09-25
+version: 1.0.0
+date-released: 2026-09-26
 repository-code: "https://github.com/Apsiape/petz-renyi-graph-spectrum"
+license: CC-BY-4.0
+keywords:
+  - entanglement-assisted asymptotic spectrum
+  - Lovász number
+  - Petz--Rényi divergence
+  - no-signalling simulation
+  - zero-error information theory
