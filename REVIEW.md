@@ -26,10 +26,18 @@ success is not a promotion of any theorem.
       from the Gibbs witness to the information-radius bound.
 - [x] Independently inspect the certificate key reductions and the exact
       positive-semidefinite proof.
+- [x] Reconstruct the supported-state minimization identifying optimized
+      sandwiched order `beta` with Petz order `2-1/beta`, including the
+      max-relative endpoint.
+- [x] Check the exact-confusability perturbation and repair its common
+      dominator so that isolated vertices remain dominated.
 
 These boxes record the blind hostile audit dated 2026-09-25.  Its scope,
 attempted falsifiers, repairs, and remaining human-review requirement are in
 `reviews/HOSTILE_AUDIT_2026-09-25.md`.
+
+The last two boxes record the focused final-manuscript audit dated 2026-09-26.
+Nidhal Mghirbi separately reports having checked every proof in the manuscript.
 
 ## Literature gates
 
@@ -47,6 +55,9 @@ attempted falsifiers, repairs, and remaining human-review requirement are in
 - [x] Re-scan forward citations of Li--Zuiddam and Duan--Winter for another
       EA spectral continuum or a published resolution of the pentagon
       conjecture.
+- [x] Verify that the final bibliography uses the published Duan--Winter
+      equation numbering and removes the erroneous Zenodo identifiers for the
+      unpublished certificate-recovery manuscript.
 
 The search record and the resulting qualifications are in
 `LITERATURE_AUDIT.md`.  These boxes record completion of the search, not a

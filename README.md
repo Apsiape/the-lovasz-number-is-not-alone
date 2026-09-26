@@ -1,8 +1,8 @@
-# Petz--Rényi graph spectrum
+# The Lovász number is not alone
 
 This private repository contains the working paper
 
-> **A continuum of Rényi points in the entanglement-assisted asymptotic spectrum of graphs and the Duan--Winter pentagon conjecture**
+> **The Lovász number is not alone: a continuum of Rényi points in the entanglement-assisted spectrum of graphs**
 > Nidhal Mghirbi and Seth Douglas
 
 The paper studies graph parameters obtained by minimizing Petz--Rényi
@@ -19,11 +19,13 @@ candidate results are:
    conjecture and removes the regularization in graph no-signalling simulation;
 5. exact rational moment certificates give a 32-vertex graph with
    `C_min(G) < log_2 Sigma(G)`.
+6. optimizing sandwiched Rényi radii of orders `beta >= 1` gives the same
+   curve as the Petz family on orders `[1,2]`.
 
-This is a **version-1 research draft**.  The theorem statements and exact
-certificates have been reconstructed.  A dated literature/priority audit and
-a blind hostile proof audit are recorded in the repository.  Specialist human
-review remains outstanding.  The manuscript does not claim an exact
+This is a **preprint candidate**.  The theorem statements and exact
+certificates have been reconstructed, and Nidhal Mghirbi reports a complete
+author-side proof review.  Dated literature/priority and hostile proof audits
+are recorded in the repository.  The manuscript does not claim an exact
 entanglement-assisted Shannon-capacity formula, a complete description of the
 spectrum, or an exact intermediate reliability curve.
 
@@ -43,6 +45,9 @@ spectrum, or an exact intermediate reliability curve.
   attempted falsifiers, repairs, and publication verdict.
 - `reviews/CONTINUUM_DUAN_WINTER_AUDIT_2026-09-25.md` -- focused hostile audit
   of the continuum argument and the Duan--Winter model identification.
+- `reviews/FINAL_MANUSCRIPT_AUDIT_2026-09-26.md` -- audit of the final rewrite,
+  its new sandwiched-radius proposition, exact-confusability appendix, and
+  disclosure/provenance changes.
 
 ## Build the paper
 

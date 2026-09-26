@@ -32,3 +32,27 @@ Certificate data SHA-256:
 
 The repository intentionally omits raw commission transcripts, broad project
 ledgers, and unrelated exploratory work.
+
+## Final-manuscript rewrite, 2026-09-26
+
+Nidhal Mghirbi supplied a complete rewrite of the manuscript and bibliography,
+including the present title, figures, theorem-level narrative, the sandwiched
+Rényi-radius identification, and the exact-confusability appendix.  The source
+files and rendered PDF received for this revision had SHA-256 hashes:
+
+```text
+main.tex     6aa1a3e08f186c2eb6a417bdd311861e35994fce2614ae066828ed26f9e4ff64
+references.bib d28057c0f15984257c9e9922a202d41feb0a859efdb68fb47f5286da1d1fcc46
+proposal PDF 87cb7b1da5b133265fb615c8b45a24a45bdd86994bba863615043bbcbf959057
+```
+
+The repository version makes three documented editorial changes after that
+intake: it qualifies the abstract's literature statement with “to our
+knowledge,” repairs the common dominator in the exact-confusability lemma from
+`(1-epsilon)T` to `T`, and adds a disclosure of generative-AI assistance.  The
+mathematical audit of the new material is recorded in
+`reviews/FINAL_MANUSCRIPT_AUDIT_2026-09-26.md`.
+
+The rebuilt 23-page release PDF at
+`output/pdf/petz-renyi-graph-spectrum-v1.pdf` has SHA-256
+`5ad1659fe3d302021e986b375c63004fbf70406dae88dce80724a0213b73fc39`.
