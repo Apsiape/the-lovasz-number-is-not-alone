@@ -1,5 +1,7 @@
 # The Lovász number is not alone
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22983499.svg)](https://doi.org/10.5281/zenodo.22983499)
+
 This repository contains the paper
 
 > **The Lovász number is not alone: a continuum of Rényi points in the entanglement-assisted spectrum of graphs**
@@ -64,6 +66,12 @@ not a substitute for reviewing the dimension-independent arguments.
 
 ## Citation and license
 
-Citation metadata are in `CITATION.cff`. The manuscript and certificate data
-are released under CC BY 4.0; the verification software is released under the
-MIT License. See `LICENSE.md` for the scope and full notices.
+The archived `v1.0.0` release is available at
+[10.5281/zenodo.22983499](https://doi.org/10.5281/zenodo.22983499). The
+all-versions concept DOI is
+[10.5281/zenodo.22983498](https://doi.org/10.5281/zenodo.22983498). Citation
+metadata are in `CITATION.cff`.
+
+The manuscript and certificate data are released under CC BY 4.0; the
+verification software is released under the MIT License. See `LICENSE.md` for
+the scope and full notices.
