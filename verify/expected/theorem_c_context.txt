@@ -1,0 +1,7 @@
+graph with 32 vertices: independence number 6 = Lovasz number (exact); fractional packing number 32/5 = 6.4000 (exact LP pair, 528 maximal cliques)
+  smallest eigenvalue of Z (floating point, information only): 2.0e-05
+graph with 44 vertices: independence number 8 = Lovasz number (exact); fractional packing number 37/4 = 9.2500 (exact LP pair, 1968 maximal cliques)
+  smallest eigenvalue of Z (floating point, information only): 6.2e-07
+graph with 72 vertices: independence number 12 = Lovasz number (exact); fractional packing number 72/5 = 14.4000 (exact LP pair, 28144 maximal cliques)
+  smallest eigenvalue of Z (floating point, information only): 2.0e-05
+Theorem C context: all exact checks passed

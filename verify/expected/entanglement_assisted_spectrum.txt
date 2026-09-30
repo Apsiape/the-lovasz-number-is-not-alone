@@ -11,10 +11,10 @@
 [2] separation 2^C_min <= R < L <= Sigma (exact fractions)
     L - R = 538087279416248559183095/153778236194122166201858782246 > 0
     pentagon: theta(C5)^2 = 5 < 25/4 = (2^C_min(C5))^2
-[3] Lemmas 2-3 (compression identity, orthogonal-sum inequality)
+[3] Lemmas 4.3-4.4 (compression identity, orthogonal-sum inequality)
     max sum_j c_s(Q_j;sigma) over 60 states, s in {-1,-1/2,0,1/2,1}: 0.9455 <= 1
     compression identity: max deviation below 1e-8: True
-[4] Lemma 5 (flagged mixture) and its failure above order two
+[4] Lemma 4.6 (flagged mixture) and its failure above order two
     order 0.00: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = 0.0000
     order 0.25: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0216
     order 0.50: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0445
@@ -22,18 +22,18 @@
     order 1.50: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0142
     order 2.00: max [D(mix||rho x sigma) - max_h D(tau_h||sigma)] = -0.0051
     order 3.00: the inequality fails in some of the 200 instances, by more than 0.5 bit
-[5] Proposition 6 on an explicit quantum homomorphism into K_4
+[5] Theorem 4.7 on an explicit quantum homomorphism into K_4
     8 flat vectors in C^4, 12 orthogonal pairs, non-maximally mixed rho
     compatibility holds; max_(u,alpha) D_alpha(tau'_u||rho x I/4) - 2 = 0.0000
-[6] Lemmas 8-9 on random pentagon packings (P_i P_(i+2) = 0)
+[6] Lemmas 5.1, 5.3, 5.4 on random pentagon packings (P_i P_(i+2) = 0)
     400 packings in dimensions 3-6, ranks 1-2
-    Lemma 8: max ratios  trace-norm 0.7159  Hilbert-Schmidt 0.5777  (both <= 1)
-    Lemma 9: s=1.00 p=1.0000 B(p)=2.236068 max sum_i c_s / B(p) = 0.8754
-    Lemma 9: s=0.90 p=1.1111 B(p)=2.208519 max sum_i c_s / B(p) = 0.8367
-    Lemma 9: s=0.75 p=1.3333 B(p)=2.154435 max sum_i c_s / B(p) = 0.7939
-    Lemma 9: s=0.60 p=1.6667 B(p)=2.075782 max sum_i c_s / B(p) = 0.7730
-    Lemma 9: s=0.50 p=2.0000 B(p)=2.000000 max sum_i c_s / B(p) = 0.7693
-[7] Theorem 10: explicit pentagon families
+    Lemmas 5.3, 5.1: max ratios  trace-norm 0.7159  Hilbert-Schmidt 0.5777  (both <= 1)
+    Lemma 5.4: s=1.00 p=1.0000 B(p)=2.236068 max sum_i c_s / B(p) = 0.8754
+    Lemma 5.4: s=0.90 p=1.1111 B(p)=2.208519 max sum_i c_s / B(p) = 0.8367
+    Lemma 5.4: s=0.75 p=1.3333 B(p)=2.154435 max sum_i c_s / B(p) = 0.7939
+    Lemma 5.4: s=0.60 p=1.6667 B(p)=2.075782 max sum_i c_s / B(p) = 0.7730
+    Lemma 5.4: s=0.50 p=2.0000 B(p)=2.000000 max sum_i c_s / B(p) = 0.7693
+[7] Theorem 5.5: explicit pentagon families
     commuting family: D_alpha(rho_i||I/5) = log2(5/2) at alpha in {0,1/4,1/2,1,3/2,2}
     umbrella in R^3: <u_i,u_(i+2)> = 0 and <u_i,c>^2 = 1/sqrt5 verified
     umbrella with sigma_eps, eps=1e-9: D_alpha <= log2(sqrt5)/(1-alpha) - log2(1-eps) at 5 orders

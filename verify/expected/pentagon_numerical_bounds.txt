@@ -1,0 +1,12 @@
+witness: umbrella vectors with center (1-x)|c><c| + (x/2)(I-|c><c|), x optimized
+  alpha    x*          witness radius   plotted     limiting-handle bound
+  0.040  1.192e-05  2.312313       2.312314    2.312314
+  0.060  6.571e-04  2.353826       2.353826    2.353925
+  0.080  4.859e-03  2.397127       2.397128    2.398143
+  0.090  9.437e-03  2.419035       2.419036    2.421305
+  0.100  1.600e-02  2.440834       2.440835    2.445213
+  0.110  2.457e-02  2.462321       2.462321    2.469902
+  0.120  3.499e-02  2.483319       2.483319    2.495411
+  0.125  4.083e-02  2.493589       2.493589    2.500000
+caption: radius at alpha=0.1 is 2.4408 < 2.4452; below 5/2 until alpha = 0.128164
+Pentagon numerical bounds: all checks passed (floating point; evidence only)

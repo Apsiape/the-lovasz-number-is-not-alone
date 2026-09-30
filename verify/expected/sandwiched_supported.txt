@@ -1,0 +1,9 @@
+PASS exact rational parameter maps: 10
+PASS exact commuting flat-state identities: 4
+PASS supported optimizers: 480
+PASS sub-one cases: 270
+PASS endpoint cases (1/2, 1, infinity): 90
+PASS competing states: 9600
+PASS isometry, pinching and scalar Holder: 270
+Floating-point tolerance: 1e-8; fixed seed: 20260929
+Scope: finite regressions only; the general proof is Proposition 3.5.

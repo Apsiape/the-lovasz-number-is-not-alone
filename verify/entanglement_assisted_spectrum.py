@@ -8,13 +8,13 @@ What is exact here
 
 What is a finite numerical control (it changes no status)
 ---------------------------------------------------------
-* the orthogonal-sum inequality and the compression identity (Lemmas 2 and 3);
-* the flagged-mixture inequality (Lemma 5) at orders in [0, 2], and a scope
+* the orthogonal-sum inequality and the compression identity (Lemmas 4.4 and 4.3);
+* the flagged-mixture inequality (Lemma 4.6) at orders in [0, 2], and a scope
   witness showing that the same inequality fails at order 3;
-* the construction of Proposition 6 on an explicit quantum homomorphism;
-* the two pentagon operator bounds (Lemma 8) and the interpolated bound
-  (Lemma 9) on random pentagon packings;
-* explicit pentagon families giving the upper bounds of Theorem 10, and a
+* the construction of Theorem 4.7 on an explicit quantum homomorphism;
+* the two pentagon operator bounds (Lemmas 5.1 and 5.3) and the interpolated
+  bound (Lemma 5.4) on random pentagon packings;
+* explicit pentagon families giving the upper bounds of Theorem 5.5, and a
   sigma-optimized umbrella family printed as evidence only.
 
 Deliberate failure: ``--perturb`` replaces the ladder ratio 8 by 7. The claimed
@@ -155,7 +155,7 @@ def qi92():
 
 # ---------------------------------------------------------------- 3. disjoint union lemmas
 def disjoint_union(rng):
-    print("[3] Lemmas 2-3 (compression identity, orthogonal-sum inequality)")
+    print("[3] Lemmas 4.3-4.4 (compression identity, orthogonal-sum inequality)")
     worst_sum = 0.0
     worst_id = 0.0
     for trial in range(60):
@@ -192,7 +192,7 @@ def disjoint_union(rng):
 
 # ---------------------------------------------------------------- 4. flagged mixtures
 def flagged(rng):
-    print("[4] Lemma 5 (flagged mixture) and its failure above order two")
+    print("[4] Lemma 4.6 (flagged mixture) and its failure above order two")
     orders = (0.0, 0.25, 0.5, 1.0, 1.5, 2.0)
     worst = {a: -1e9 for a in orders}
     viol3 = 0
@@ -227,7 +227,7 @@ def flagged(rng):
 
 # ---------------------------------------------------------------- 5. an explicit quantum homomorphism
 def quantum_hom():
-    print("[5] Proposition 6 on an explicit quantum homomorphism into K_4")
+    print("[5] Theorem 4.7 on an explicit quantum homomorphism into K_4")
     signs = [(1, a, b, c) for a in (1, -1) for b in (1, -1) for c in (1, -1)]
     U = [np.array(s, dtype=complex) / 2 for s in signs]
     n = len(U)
@@ -308,7 +308,7 @@ def B(p):
 
 
 def pentagon_bounds(rng):
-    print("[6] Lemmas 8-9 on random pentagon packings (P_i P_(i+2) = 0)")
+    print("[6] Lemmas 5.1, 5.3, 5.4 on random pentagon packings (P_i P_(i+2) = 0)")
     s_list = (1.0, 0.9, 0.75, 0.6, 0.5)
     worst = {s: 0.0 for s in s_list}
     w1 = w2 = 0.0
@@ -325,26 +325,26 @@ def pentagon_bounds(rng):
         r1 = sum(schatten(Pi @ X @ Pi, 1) for Pi in P) / (math.sqrt(5) * schatten(X, 1))
         r2 = sum(schatten(Pi @ X @ Pi, 2) ** 2 for Pi in P) / (2 * schatten(X, 2) ** 2)
         w1, w2 = max(w1, r1), max(w2, r2)
-        require(r1 <= 1 + TOL, "Lemma 8(i)", "<= 1", r1)
-        require(r2 <= 1 + TOL, "Lemma 8(ii)", "<= 1", r2)
+        require(r1 <= 1 + TOL, "Lemma 5.3", "<= 1", r1)
+        require(r2 <= 1 + TOL, "Lemma 5.1", "<= 1", r2)
         sig = rand_state(rng, d)
         sig = fn(sig, lambda x: x ** float(rng.uniform(1, 4)))
         sig = sig / np.trace(sig).real
         for s in s_list:
             r = sum(comp(Pi, sig, s) for Pi in P) / B(1 / s)
             worst[s] = max(worst[s], r)
-            require(r <= 1 + TOL, "Lemma 9 at s={0}".format(s), "<= 1", r)
+            require(r <= 1 + TOL, "Lemma 5.4 at s={0}".format(s), "<= 1", r)
         count += 1
     print("    400 packings in dimensions 3-6, ranks 1-2")
-    print("    Lemma 8: max ratios  trace-norm {0:.4f}  Hilbert-Schmidt {1:.4f}  (both <= 1)".format(w1, w2))
+    print("    Lemmas 5.3, 5.1: max ratios  trace-norm {0:.4f}  Hilbert-Schmidt {1:.4f}  (both <= 1)".format(w1, w2))
     for s in s_list:
-        print("    Lemma 9: s={0:.2f} p={1:.4f} B(p)={2:.6f} max sum_i c_s / B(p) = {3:.4f}".format(
+        print("    Lemma 5.4: s={0:.2f} p={1:.4f} B(p)={2:.6f} max sum_i c_s / B(p) = {3:.4f}".format(
             s, 1 / s, B(1 / s), worst[s]))
 
 
 # ---------------------------------------------------------------- 7. pentagon families
 def pentagon_families():
-    print("[7] Theorem 10: explicit pentagon families")
+    print("[7] Theorem 5.5: explicit pentagon families")
     # commuting five-dimensional family, sigma = I/5
     e = np.eye(5)
     rhos = [(np.outer(e[i], e[i]) + np.outer(e[(i + 1) % 5], e[(i + 1) % 5])) / 2 for i in range(5)]

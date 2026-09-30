@@ -1,0 +1,7 @@
+PASS negative control: entanglement_assisted_spectrum.py --perturb rejected
+PASS negative control: small_graph_separation.py --perturb rejected
+PASS negative control: small_graph_separation.py --perturb-psd rejected
+PASS negative control: sandwiched_supported.py --perturb rejected
+PASS negative control: theorem_c_context.py --perturb rejected
+PASS negative control: pentagon_numerical_bounds.py --perturb rejected
+Negative controls: 6/6 rejected

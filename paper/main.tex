@@ -50,8 +50,8 @@
 \title{The Lov\'asz number is not alone:\\[3pt]
 \large a continuum of R\'enyi points in the entanglement-assisted spectrum of graphs}
 \author{Nidhal Mghirbi \and Seth Douglas}
-\date{September 2026}
-\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas}}
+\date{September 2026 --- Version 1.1}
+\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas},pdfsubject={Version 1.1; September 2026}}
 
 \begin{document}
 \maketitle
@@ -72,7 +72,9 @@ the order gives a family $\vt_\alpha$, $0\le\alpha\le2$, and we prove that
 every member lies in the spectrum.  The main step is multiplicativity under
 the strong product.  It has to hold for representations of the product that do
 not factor, and an exact nesting identity for power compressions takes care
-of this.
+of this.  The graph radii obtained from sandwiched R\'enyi divergences give
+exactly the same family after the change of order $\alpha=2-1/\beta$,
+$\frac12\le\beta\le\infty$.
 
 On the five-cycle the family sweeps out the whole interval $[\sqrt5,5/2]$, so
 it contains continuum many distinct points.  A single Hilbert--Schmidt
@@ -191,7 +193,7 @@ continuum many distinct points of the form $\vt_\alpha$.
 Since $\vt_1(C_5)=\vt_2(C_5)=5/2$, \cref{thm:B} gives the values of $\Cmin$
 and $\Sigma$ on the pentagon.  That is precisely what Duan and Winter
 conjectured right after~\eqref{eq:dw-chain}, where they note that a rigorous
-proof ``has so far eluded'' them \cite[Eq.~(54) and the paragraph after
+proof ``has so far eluded'' them \cite[Eq.~(54) and the discussion after
 it]{DuanWinter2016}.
 
 \begin{pentcor}
@@ -230,6 +232,10 @@ $\log_2\sqrt5<\Cmin(C_5)=\SNS(C_5)=\log_2\Sigma(C_5)=\log_2\alpha^*(C_5)
   \node[font=\scriptsize, gray!40!black, anchor=south west]
      at (axis cs:0.128,2.203) {$\alpha\approx0.122$};
   \addplot[only marks, mark=*, mark size=2pt] coordinates {(0,2.2360679775) (0.5,2.5)};
+  % numerical upper bounds from explicit witnesses (verify/pentagon_numerical_bounds.py)
+  \addplot[only marks, mark=x, mark size=2.4pt, thick, red!75!black] coordinates
+     {(0.04,2.312314) (0.06,2.353826) (0.08,2.397128) (0.09,2.419036)
+      (0.1,2.440835) (0.11,2.462321) (0.12,2.483319) (0.125,2.493589)};
   \node[font=\scriptsize, anchor=north west] at (axis cs:0.006,2.233) {$\vt(C_5)=\sqrt5$};
   \node[font=\scriptsize, orange!70!black, anchor=west]
      at (axis cs:0.004,2.47) {umbrella};
@@ -248,13 +254,21 @@ $\log_2\sqrt5<\Cmin(C_5)=\SNS(C_5)=\log_2\Sigma(C_5)=\log_2\alpha^*(C_5)
 \end{groupplot}
 \node[font=\small] at ($(group c1r1.south east)+(0,-0.75)$) {order $\alpha$};
 \end{tikzpicture}
-\caption{What is known about $\alpha\mapsto\vt_\alpha(C_5)$.  The
+\caption{Bounds on $\alpha\mapsto\vt_\alpha(C_5)$.  The
 horizontal scale changes at $\alpha=\tfrac12$.  On $[\tfrac12,2]$ the curve is
 exactly $\tfrac52$, which gives $\Cmin(C_5)=\log_2\tfrac52$ and
 $\Sigma(C_5)=\tfrac52$.  On $[0,\tfrac12]$ it is continuous and nondecreasing
 and lies between the interpolation lower bound (blue) and the minimum of
-$\tfrac52$ and the Lov\'asz-umbrella bound (orange).  The umbrella bound is
-better than $\tfrac52$ only for $\alpha<1-\ln5/(2\ln\frac52)\approx0.122$.
+$\tfrac52$ and the Lov\'asz-umbrella bound obtained from the limiting
+handle center (orange).  This particular bound is better than $\tfrac52$
+only for $\alpha<1-\ln5/(2\ln\frac52)\approx0.122$; the crossing of these
+upper bounds does not by itself identify a transition in the exact graph value.
+Crosses: numerical upper bounds from explicit witnesses, the umbrella vectors
+of \cref{fig:pentagon-geometries}(b) with the faithful center
+$(1-x)\proj c+\tfrac x2(I-\proj c)$ and $x$ optimized at each order
+(\texttt{verify/pentagon\_numerical\_bounds.py}).  They improve on the
+limiting handle center only slightly, for example $2.4408<2.4452$ at
+$\alpha=0.1$, and they stay below $\tfrac52$ until $\alpha\approx0.128$.
 Continuity and the endpoint values $\sqrt5$ and $\tfrac52$ force the curve
 through every value in between.}
 \label{fig:pentagon-curve}
@@ -271,6 +285,10 @@ magic square, such that
 Both outer bounds are certified by exact rational data.  In particular
 $\vt_1\ne\vt_2$.
 \end{mainthm}
+
+For this graph $\vt(G_{32})=6$ and $\alpha^*(G_{32})=\tfrac{32}5$, so both
+bounds lie well inside the interval $[\vt,\alpha^*]$ of the Duan--Winter chain
+(\cref{sec:small}).
 
 \subsection{A taste of the method: the pentagon in one inequality}
 \label{sec:taste}
@@ -346,10 +364,13 @@ Duan and Winter already wrote $\log_2\Sigma$ as a conditional min-entropy,
 which is a max-relative-entropy radius.  What seems to be new is that, once
 one minimizes over states supported in a fixed projection, this radius
 coincides with the \emph{Petz} radius of order two.  All three quantities then
-sit on a single monotone curve.  Above order one the curve is also the same
-for the sandwiched R\'enyi divergences: the sandwiched radius of order
-$\beta\ge1$ equals $\vt_{2-1/\beta}$ (\cref{prop:sandwiched}), so nothing
-depends on which quantum R\'enyi divergence one prefers there.  The picture has a useful by-product: every
+sit on a single monotone curve.  The sandwiched R\'enyi graph radii trace
+this entire curve as well: for $\frac12\le\beta\le\infty$,
+$\widetilde\vt_\beta=\vt_{2-1/\beta}$ (\cref{prop:sandwiched}).  Thus the
+sandwiched family runs from $\vt$ at $\beta=\frac12$, through $2^{\Cmin}$
+at $\beta=1$, to $\Sigma$ at $\beta=\infty$, and gives the same spectral
+points.  The equality is between optimized graph radii, not divergences of
+fixed pairs of states.  The picture has a useful by-product: every
 $\vt_\alpha$ is squeezed between $\vt$ and $\alpha^*$ by flat witnesses
 (\cref{prop:endpoints}).  So the family collapses to a single value on graphs
 with $\vt=\alpha^*$, perfect graphs among them, and it can only separate
@@ -462,7 +483,7 @@ is invertible.  $\Pi_\rho$ is the support projection of $\rho$.
 
 \subsection{Representations and R\'enyi radii}
 
-\begin{definition}\label{def:representation}
+\begin{definition}\label[definition]{def:representation}
 A \emph{representation} of $G$ is a family $(P_x)_{x\in V(G)}$ of nonzero
 orthogonal projections on a Hilbert space such that $P_xP_y=0$ whenever
 $x\ne y$ are non-adjacent.  A family of states $(\rho_x)$ is
@@ -489,7 +510,7 @@ nonnegative and vanishes at $\rho=\sigma$.  It is additive under tensor
 products.  It is nondecreasing in $\alpha$.  And it satisfies data processing
 for every $\alpha\in[0,2]$.
 
-\begin{definition}\label{def:theta-alpha}
+\begin{definition}\label[definition]{def:theta-alpha}
 For a graph $G$ and $\alpha\in[0,2]$, define $\vt_\alpha(G)$ by
 \begin{equation}\label{eq:def-parameter}
  \log\vt_\alpha(G)
@@ -547,6 +568,8 @@ operators $\omega_g^h$ ($g\in V(G)$, $h\in V(H)$) with
  \omega_g^h\,\omega_{g'}^{h'}&=0\quad\text{whenever $g\ne g'$ are non-adjacent
  in $G$ and $h\simeq h'$ in $H$.}\label{eq:ea-orth}
 \end{align}
+\Cref{lem:preorder} derives~\eqref{eq:ea-sum}--\eqref{eq:ea-orth} from
+Li and Zuiddam's definition, which is phrased with graph complements.
 Here is the operational picture.  Alice and Bob share a pure entangled state,
 and $\omega$ is Bob's half of it.  To send $g$, Alice measures her half with a
 measurement that depends on $g$, obtains an outcome $h$, and sends $h$ through
@@ -598,7 +621,7 @@ $\sigma_{/P}$, the largest positive operator below $\sigma$ with range in
 $\ran P$ \cite{AndersonTrapp1975}.  All the weights are homogeneous of degree
 one: $K_s(c\sigma,P)=c\,K_s(\sigma,P)$ for $c>0$.
 
-\begin{proposition}[supported minimization]\label{prop:supported}
+\begin{proposition}[supported minimization]\label[proposition]{prop:supported}
 Let $0\le\alpha\le2$ and $s=1-\alpha$.  Then
 \[
  \min_{\rho:\ \supp\rho\subseteq\ran P}D_\alpha(\rho\Vert\sigma)
@@ -660,7 +683,7 @@ Some witnesses have the same radius at every order.  Call a pair
 $(\rho,\sigma)$ \emph{flat} if $\sigma$ commutes with a projection $\Pi$ and
 $\rho=\Pi\sigma/\Tr\Pi\sigma$.
 
-\begin{lemma}[flat witnesses]\label{lem:flat}
+\begin{lemma}[flat witnesses]\label[lemma]{lem:flat}
 If $(\rho,\sigma)$ is flat, then $D_\alpha(\rho\Vert\sigma)=-\log\Tr\Pi\sigma$
 for every $\alpha\in[0,2]$.
 \end{lemma}
@@ -671,7 +694,7 @@ $\Tr\rho^\alpha\sigma^{1-\alpha}=c^{-\alpha}\Tr\Pi\sigma=c^{1-\alpha}$, which
 gives the claim for $\alpha\ne0,1$.  The two remaining orders are direct.
 \end{proof}
 
-\begin{proposition}\label{prop:endpoints}
+\begin{proposition}\label[proposition]{prop:endpoints}
 For every graph $G$:
 \begin{enumerate}[label=\textup{(\roman*)},itemsep=1pt]
 \item $\vt_0(G)=\vt(G)$, $\vt_1(G)=2^{\Cmin(G)}$ and $\vt_2(G)=\Sigma(G)$;
@@ -725,7 +748,7 @@ is exactly what happens (\cref{sec:pentagon}).
 
 \subsection{Continuity}
 
-\begin{proposition}\label{prop:continuity}
+\begin{proposition}\label[proposition]{prop:continuity}
 For every graph $G$, the map $\alpha\mapsto\vt_\alpha(G)$ is continuous on
 $[0,1)$.
 \end{proposition}
@@ -738,44 +761,80 @@ dimension.  The details are in \cref{app:continuity}.
 \subsection{Sandwiched radii give the same curve}\label{sec:sandwiched}
 
 The Petz divergence is not the only quantum R\'enyi divergence.  For
-$\beta\in(1,\infty)$ the \emph{sandwiched} R\'enyi divergence
+$\beta\in[\frac12,1)\cup(1,\infty)$ the \emph{sandwiched} R\'enyi divergence
 \cite{MDSFT2013,WWY2014} is
 \[
  \widetilde D_\beta(\rho\Vert\sigma)
  =\frac1{\beta-1}\log\Tr\Bigl(\sigma^{\frac{1-\beta}{2\beta}}\,\rho\,
    \sigma^{\frac{1-\beta}{2\beta}}\Bigr)^{\beta},
 \]
-with the relative entropy $\widetilde D_1=D$ and the max-relative entropy
+with the relative entropy $\widetilde D_1=D$ at order one and the
+max-relative entropy
 $\widetilde D_\infty(\rho\Vert\sigma)=\log\min\{\lambda:\rho\le\lambda\sigma\}$
-at the two ends.  Define $\widetilde\vt_\beta(G)$
-by~\eqref{eq:def-parameter} with $\widetilde D_\beta$ in place of $D_\alpha$.
-Above order one, this gives nothing new.
+at order infinity.  This family satisfies data processing throughout
+$[\frac12,\infty]$ \cite{FrankLieb2013}.  Define $\widetilde\vt_\beta(G)$
+by~\eqref{eq:def-parameter} with $\widetilde D_\beta$ in place of $D_\alpha$,
+using the same compatible families and faithful centers, and set
+$\widetilde\vt_\beta(K_0)=0$.  On this full range it gives exactly the Petz
+family, with a change of order.
 
-\begin{proposition}[sandwiched radii]\label{prop:sandwiched}
-For every graph $G$ and every $\beta\in[1,\infty]$,
+\begin{proposition}[sandwiched radii]\label[proposition]{prop:sandwiched}
+For every graph $G$ and every $\beta\in[\frac12,\infty]$,
 \[
  \widetilde\vt_\beta(G)=\vt_{2-1/\beta}(G),
 \]
-with $2-1/\infty=2$.  In particular $\widetilde\vt_1=2^{\Cmin}$ and
-$\widetilde\vt_\infty=\Sigma$.
+with $2-1/\infty=2$.  In particular,
+\[
+ \widetilde\vt_{1/2}=\vt,\qquad
+ \widetilde\vt_{2/3}=\vt_{1/2},\qquad
+ \widetilde\vt_1=2^{\Cmin},\qquad
+ \widetilde\vt_\infty=\Sigma.
+\]
 \end{proposition}
 
 \begin{proof}
-Put $\theta=(\beta-1)/\beta\in[0,1]$, so that $s=-\theta$ is the parameter of
-the Petz order $\alpha=1-s=2-1/\beta$.  The argument leading
-to~\eqref{eq:projection-formula} applies verbatim once we know the supported
-minimum: for a projection $P\ne0$ and a faithful state $\sigma$,
+Put $s=(1-\beta)/\beta\in[-1,1]$, with $s=-1$ at $\beta=\infty$, so the
+corresponding Petz order is $\alpha=1-s=2-1/\beta$.  As in the proof
+of~\eqref{eq:projection-formula}, it suffices to show that for a projection
+$P\ne0$ and a faithful state $\sigma$,
 \begin{equation}\label{eq:sandwiched-supported}
  \min_{\rho:\ \supp\rho\subseteq\ran P}\widetilde D_\beta(\rho\Vert\sigma)
- =-\log Z_{-\theta}(\sigma,P).
+ =-\log Z_s(\sigma,P),
 \end{equation}
-At $\beta=1$ this is \cref{prop:supported} at order one.  At $\beta=\infty$,
-the condition $\rho\le\lambda\sigma$ for a state supported in $\ran P$ says that
-$\rho/\lambda$ lies below $\sigma$ with range in $\ran P$, so
-$1/\lambda\le\Tr\sigma_{/P}=Z_{-1}(\sigma,P)$, with equality at
-$\rho=\sigma_{/P}/\Tr\sigma_{/P}$.
+with a minimizer faithful on $\ran P$.  All inverses and compressed powers
+below are taken on $\ran P$.
 
-Now let $1<\beta<\infty$.  Put $A=P\sigma^{-\theta}P$, which is positive
+\emph{Case $\frac12\le\beta<1$.}  Here $s\in(0,1]$.  Put
+$A=P\sigma^sP>0$ on $\ran P$ and $X=A^{1/2}\rho A^{1/2}$.  The constraint
+on $\rho$ becomes $X\ge0$, $\Tr A^{-1}X=1$.  The map
+$V=\sigma^{s/2}P A^{-1/2}:\ran P\to\cH$ is an isometry, and
+\[
+ \sigma^{s/2}\rho\sigma^{s/2}=VXV^*.
+\]
+Consequently the sandwiched moment is $\Tr X^\beta$.
+Pinch $X$ in an orthonormal eigenbasis $(e_i)$ of $A$, obtaining $Y$.
+Pinching preserves $\Tr A^{-1}X$ and cannot decrease $\Tr X^\beta$:
+it is an average of unitary conjugations, and $X\mapsto\Tr X^\beta$ is
+concave for $0<\beta<1$.  Writing $Ae_i=a_i e_i$ and
+$\langle e_i,Ye_i\rangle=a_iq_i$, we have $q_i\ge0$ and $\sum_iq_i=1$.
+Scalar H\"older with conjugate exponents $1/\beta$ and $1/(1-\beta)$ gives
+\[
+ \Tr X^\beta\le\Tr Y^\beta
+ =\sum_i a_i^\beta q_i^\beta
+ \le\Bigl(\sum_i a_i^{\beta/(1-\beta)}\Bigr)^{1-\beta}
+ =Z_s(\sigma,P)^{1-\beta}.
+\]
+Equality holds at $\rho=A^{1/s}/Z_s=K_s/Z_s$:
+then $q_i=a_i^{1/s}/Z_s$ and $X$ is already diagonal in $(e_i)$.
+Since $\beta-1<0$, maximizing the moment minimizes the divergence, giving
+\eqref{eq:sandwiched-supported}.  At $\beta=\frac12$ this directly reads
+$-\log Z_1(\sigma,P)=-\log\Tr P\sigma$; no limiting argument is needed.
+
+\emph{Case $\beta=1$.}  This is Proposition~\ref{prop:supported} at order
+one, with minimizer $K_0/Z_0$.
+
+\emph{Case $1<\beta<\infty$.}  Put $\theta=(\beta-1)/\beta\in(0,1)$,
+so $s=-\theta$, and let $A=P\sigma^{-\theta}P$, which is positive
 definite on $\ran P$, and $X=A^{1/2}\rho A^{1/2}$.  The operator
 $\sigma^{-\theta/2}\rho\,\sigma^{-\theta/2}$ has the same nonzero eigenvalues
 as $\rho^{1/2}\sigma^{-\theta}\rho^{1/2}=\rho^{1/2}A\rho^{1/2}$, and hence as
@@ -791,21 +850,40 @@ so $\Tr X^\beta\ge Z_{-\theta}(\sigma,P)^{-(\beta-1)}$, which is the lower bound
 in~\eqref{eq:sandwiched-supported}.  At $\rho=K_{-\theta}/Z_{-\theta}$ we get
 $X\propto A^{1-1/\theta}$, so $X^\beta\propto A^{-1/\theta}=(A^{-1})^{1/\theta}$,
 which is the equality case of H\"older's inequality.
+
+\emph{Case $\beta=\infty$.}  The condition $\rho\le\lambda\sigma$ for a state
+supported in $\ran P$ says that $\rho/\lambda$ lies below $\sigma$ with
+range in $\ran P$, so
+$1/\lambda\le\Tr\sigma_{/P}=Z_{-1}(\sigma,P)$, with equality at
+$\rho=\sigma_{/P}/\Tr\sigma_{/P}=K_{-1}/Z_{-1}$.
+
+In every case $K_s/Z_s$ is faithful on $\ran P$.  Thus the minimizing
+states retain the prescribed supports, and for a nonempty graph the same
+argument as in~\eqref{eq:projection-formula} yields
+\[
+ \frac1{\widetilde\vt_\beta(G)}
+ =\sup_{(P_x),\,\sigma}\min_x Z_s(\sigma,P_x)
+ =\frac1{\vt_{1-s}(G)}.
+\]
+The empty graph follows from the conventions.  These identities hold in
+each fixed dimension before optimizing over representations and centers;
+no exchange of an order limit with an unbounded-dimension infimum is used.
 \end{proof}
 
-So above order one the curve does not depend on which of the two standard
-quantum R\'enyi divergences is used: the sandwiched radii of orders
-$\beta\in[1,\infty]$ trace exactly the Petz curve on $[1,2]$.  By
-\cref{thm:A}, every $\widetilde\vt_\beta$ with $\beta\ge1$ is therefore a point
-of $\Xs$ as well.  What happens below order one is discussed in
-\cref{sec:open}.
+Thus the sandwiched radii on $[\frac12,\infty]$ trace exactly the Petz curve
+on $[0,2]$, from the Lov\'asz number to the no-signalling simulation cost.
+By \cref{thm:A}, every
+$\widetilde\vt_\beta$ in this range is a point of $\Xs$, and the two
+families give the same set of spectral points.  This is an identity of
+optimized graph radii after reparameterization, not an identity between
+the two divergences for arbitrary fixed states.
 
 \subsection{The tower identity}
 
 The key algebraic fact is that compressing in two steps is the same as
 compressing in one.
 
-\begin{lemma}[tower identity]\label{lem:tower}
+\begin{lemma}[tower identity]\label[lemma]{lem:tower}
 Let $P\le Q$ be projections and $s\in[-1,1]$.  Compute the outer compression
 below inside $\ran Q$, where $K_s(\sigma,Q)$ is faithful.  Then
 \[
@@ -926,7 +1004,7 @@ supremum gives
 \]
 \end{proof}
 
-\begin{remark}\label{rem:single-letter}
+\begin{remark}\label[remark]{rem:single-letter}
 At $\alpha=0$ and $\alpha=1$, \cref{thm:product} recovers the multiplicativity
 of $\vt$ \cite{Lovasz1979} and Duan and Winter's additivity of $\Cmin$
 \cite[Lemma~23]{DuanWinter2016}.  At $\alpha=2$ it says
@@ -943,7 +1021,7 @@ Two small lemmas do the work.  The first rewrites a divergence after
 compressing the center.  The second says that the weights of orthogonal blocks
 never add up to more than one.
 
-\begin{lemma}[compression identity]\label{lem:compression}
+\begin{lemma}[compression identity]\label[lemma]{lem:compression}
 Let $Q\ne0$ be a projection, $s=1-\alpha\in[-1,1]$, and
 $\sigma_Q=K_s(\sigma,Q)/Z_s(\sigma,Q)$.  Every state $\rho$ supported in
 $\ran Q$ satisfies
@@ -958,7 +1036,7 @@ Petz moment.  For $\alpha=1$ use $Q(\ln\sigma)Q=\ln\sigma_Q+(\ln Z_0)Q$ on
 $\ran Q$, and for $\alpha=0$ use $Q\sigma Q=Z_1\sigma_Q$.
 \end{proof}
 
-\begin{lemma}[orthogonal blocks]\label{lem:orthogonal-sum}
+\begin{lemma}[orthogonal blocks]\label[lemma]{lem:orthogonal-sum}
 If $Q_1,\dots,Q_m$ are mutually orthogonal projections, $\sigma$ is a faithful
 state and $s\in[-1,1]$, then $\sum_jZ_s(\sigma,Q_j)\le1$.
 \end{lemma}
@@ -1000,7 +1078,7 @@ $G$, and the only question is whether its radius can be larger than the old
 one.  It cannot.  The joint state is a flagged mixture with the flag
 discarded, and discarding the flag is data processing.
 
-\begin{lemma}[flagged mixtures]\label{lem:flagged}
+\begin{lemma}[flagged mixtures]\label[lemma]{lem:flagged}
 Let $\omega_h\ge0$ with $\sum_h\omega_h=\omega$ and $\Tr\omega=1$, let
 $\tau_h$ be states and let $\sigma$ be faithful.  If
 $D_\alpha(\tau_h\Vert\sigma)\le R$ whenever $\omega_h\ne0$, then for
@@ -1059,7 +1137,7 @@ Normalization was noted at the start of the section.  Additivity is
 \cref{thm:ea-mono}.
 \end{proof}
 
-\begin{remark}[orders above two]\label{rem:above-two}
+\begin{remark}[orders above two]\label[remark]{rem:above-two}
 The only place the restriction $\alpha\le2$ enters is data processing in
 \cref{lem:flagged}.  Petz data processing fails above order two, and the
 inequality of \cref{lem:flagged} itself fails too.  The verifier accompanying
@@ -1076,7 +1154,7 @@ order one half, where everything is exact, and then work down to order zero.
 
 \subsection{Order one half and above}
 
-\begin{lemma}[Hilbert--Schmidt inequality]\label{lem:hs}
+\begin{lemma}[Hilbert--Schmidt inequality]\label[lemma]{lem:hs}
 For every representation of $C_5$ and every operator $X$,
 \[
  \sum_i\nrm{P_iXP_i}_2^2\le2\nrm{X}_2^2 .
@@ -1164,14 +1242,18 @@ it has radius $\log\frac52$ at every order.
 \node[font=\small] at (0,0,-0.42) {(b) Lov\'asz's umbrella, $\alpha=0$};
 \end{tikzpicture}
 \end{minipage}
-\caption{Two optimal geometries for the pentagon.  Solid lines are edges and
-dashed chords are the non-edges, which must be orthogonal.  (a) Vertex $i$ gets
-the uniform state on $\{e_i,e_{i+1}\}$ and the center is $I/5$.  Non-adjacent
-supports are disjoint, and the radius is $\log\frac52$ at every order.  (b)
-Unit vectors $u_i$ on a cone around the handle $c$ with
-$|\langle c,u_i\rangle|^2=1/\sqrt5$ and $u_i\perp u_{i+2}$.  This attains
-$\vt(C_5)=\sqrt5$ at order zero, and its radius grows like
-$5^{1/(2-2\alpha)}$.  Neither geometry is optimal for $0<\alpha<\frac12$.}
+\caption{Two pentagon representations attaining the known values in the
+indicated regimes.  Solid lines are edges and dashed chords are the
+non-edges, which must be orthogonal.  (a) Vertex $i$ gets the uniform state
+on $\{e_i,e_{i+1}\}$ and the center is $I/5$.  Non-adjacent supports are
+disjoint, and the radius is $\log\frac52$ at every order; this witness is
+optimal for $\frac12\le\alpha\le2$.  (b) Unit vectors $u_i$ on a cone around
+the handle $c$ with $|\langle c,u_i\rangle|^2=1/\sqrt5$ and
+$u_i\perp u_{i+2}$.  This attains $\vt(C_5)=\sqrt5$ at order zero.  For
+$0\le\alpha\le\frac12$, faithful centers tending to $\proj c$ make the
+exponentiated radius tend to $5^{1/(2-2\alpha)}$, giving an upper bound on
+$\vt_\alpha(C_5)$.  For
+$0<\alpha<\frac12$, the exact graph value remains undetermined.}
 \label{fig:pentagon-geometries}
 \end{figure}
 
@@ -1181,7 +1263,7 @@ Order zero is governed by a trace-norm version of \cref{lem:hs}, with the
 constant $\sqrt5$ in place of $2$.  Interpolating between the two gives
 everything in between.
 
-\begin{lemma}[trace-norm inequality]\label{lem:trace}
+\begin{lemma}[trace-norm inequality]\label[lemma]{lem:trace}
 For every representation of $C_5$ and every operator $X$,
 $\sum_i\nrm{P_iXP_i}_1\le\sqrt5\,\nrm X_1$.
 \end{lemma}
@@ -1197,7 +1279,7 @@ Cauchy--Schwarz proves the claim for rank one.  A singular value decomposition
 and the triangle inequality do the rest.
 \end{proof}
 
-\begin{lemma}[interpolation]\label{lem:interp}
+\begin{lemma}[interpolation]\label[lemma]{lem:interp}
 For $1\le p\le2$, every representation of $C_5$ and every operator $X$,
 \[
  \sum_i\nrm{P_iXP_i}_p^p\le B(p)\,\nrm X_p^p,
@@ -1270,7 +1352,57 @@ and they conjecture that on the pentagon every term except the first equals
 $\log\frac52$.  They also ask whether the two middle links can ever be strict.
 We can now answer all of this.
 
-\begin{corollary}[the pentagon conjecture]\label{cor:pentagon}
+Since the corollaries below answer their questions, we quote the relevant
+passages.  The quotations, and the numbers of Section~V and Proposition~18, are from
+arXiv:1409.3426v3, where the chain is numbered~(53) rather than~(54).  There a
+graph $G$ comes with $S_G=\operatorname{span}\{\ket i\!\bra j:i\sim j\}$,
+where ``$i\sim j$ means confusability: $i=j$ or $\{i,j\}\in E$ is an edge of
+the graph''.  For a cq-graph $K$ the condition $K^\dagger K<S_G$ says that
+the channel is compatible with $G$ in the sense of \cref{def:representation},
+and $G\times H$ denotes their strong product, our $G\boxt H$.  Section~V
+defines
+\begin{quote}\small
+$\Sigma(G):=\inf\{\Sigma(K):K$ cq-graph with $K^\dagger K<S_G\}$, and the
+asymptotic simulation cost (regularization)
+$S_{0,\mathrm{NS}}(G):=\lim_{n\to\infty}\frac1n\log\Sigma(G^n)$, where
+$G^n=G\times\cdots\times G$ denotes the $n$-fold strong graph product.  The
+latter limit exists and equals the infimum because evidently
+$\log\Sigma(G\times H)\le\log\Sigma(G)+\log\Sigma(H)$.
+\end{quote}
+Their Lemma~23 reads: ``For any two graphs $G$ and $H$,
+$\Cmin(G\times H)=\Cmin(G)+\Cmin(H)$.''  They derive the chain from it as a
+corollary and continue:
+\begin{quote}\small
+Note that it may be true that $S_{0,\mathrm{NS}}(G)=\log\Sigma(G)$, but to
+prove this we would need to show the additivity relation
+$\log\Sigma(G\times H)=\log\Sigma(G)+\log\Sigma(H)$, which remains unknown.
+\end{quote}
+After an example in which the last link is strict, they write:
+\begin{quote}\small
+We think that also the leftmost inequality in (53) can be strict.  But
+although the pentagon $G=C_5$ seems to be a candidate, for which we
+conjecture (based on some ad hoc calculations) that
+$\Cmin(G)=S_{0,\mathrm{NS}}(G)=\log\Sigma(G)=\log\alpha^*(G)=\log\frac52$,
+whereas $\log\vt(G)=\frac12\log5$, a rigorous proof of this has so far eluded
+us.  Whether the other two inequalities can be strict remains an open
+question.
+\end{quote}
+
+Their Proposition~18 does not settle the middle link.  It states that
+$\Sigma(K_1\otimes K_2)=\Sigma(K_1)\Sigma(K_2)$ for cq-graphs $K_1,K_2$,
+which concerns two fixed channels.  The graph quantity
+$\Sigma(G\boxt H)$ is an infimum over all channels compatible with $G\boxt H$,
+and most of them are not of the form $K\otimes L$.  So Proposition~18 gives
+only $\Sigma(G\boxt H)\le\Sigma(G)\Sigma(H)$, the inequality quoted above.  The
+reverse inequality needs a bound for non-product channels.  That is the
+additivity they list as unknown, and \cref{thm:product} at order two supplies
+it (\cref{rem:single-letter}).  Operationally, $\SNS(G)$ is the cost rate of
+exact no-signalling-assisted simulation when, at each block length $n$, one
+may choose the cheapest channel compatible with $G^{\boxt n}$.  Such a channel
+may correlate the $n$ uses.  \Cref{cor:middle} says that this freedom does not
+lower the rate below the single-letter value $\log\Sigma(G)$.
+
+\begin{corollary}[the pentagon conjecture]\label[corollary]{cor:pentagon}
 $\log\sqrt5<\Cmin(C_5)=\SNS(C_5)=\log\Sigma(C_5)=\log\alpha^*(C_5)=\log\frac52$.
 \end{corollary}
 
@@ -1285,7 +1417,7 @@ This proof uses only \cref{lem:hs}, the projection formula and
 monotonicity in $\alpha$.  The product theorem is not needed for the pentagon,
 but it is needed for the general statement.
 
-\begin{corollary}[the middle links]\label{cor:middle}
+\begin{corollary}[the middle links]\label[corollary]{cor:middle}
 For every graph $G$, $\SNS(G)=\log\Sigma(G)$.  There is a graph with
 $\Cmin(G)<\SNS(G)$.
 \end{corollary}
@@ -1393,7 +1525,7 @@ $F$ and faithful states $\sigma$.  Define $t_H(F[k])$ in the same way with
 $h_\sigma$.  Here $k_v$ means $k_{j_v}$, and deleted vertices may be
 represented by $P_v=0$.
 
-\begin{proposition}[bridge]\label{prop:bridge}
+\begin{proposition}[bridge]\label[proposition]{prop:bridge}
 For every profile $k$,
 \[
  2^{\Cmin(F[k])}\le\frac1{t_W(F[k])}
@@ -1440,7 +1572,7 @@ Let $(P_v)$ represent $F$ on $\cH$ and let $\sigma$ be faithful.  Put
 $\Omega=\vect(\sqrt\sigma)\in\cH\otimes\cH$, let $F_v$ be the orthogonal
 projection onto $\sigma^{-1/2}\ran P_v$, and let $E_v=F_v^{\mathsf T}$.
 
-\begin{lemma}[harmonic weight as a moment]\label{lem:harmonic-moment}
+\begin{lemma}[harmonic weight as a moment]\label[lemma]{lem:harmonic-moment}
 For every $v$,
 \[
  (P_v\otimes E_v)\Omega=(I\otimes E_v)\Omega
@@ -1516,6 +1648,24 @@ Combine~\eqref{eq:g32-rationals} with \cref{prop:bridge}.  The reciprocals of
 the two rationals are $6.186983\ldots$ and $6.194232\ldots$.
 \end{proof}
 
+\paragraph{Where the separations sit.}  In all three graphs the Lov\'asz number
+equals the independence number, and the fractional packing number is larger:
+\[
+ \vt=6,\ \alpha^*=\tfrac{32}5\ (G_{32});\qquad
+ \vt=8,\ \alpha^*=\tfrac{37}4\ (G_{44});\qquad
+ \vt=12,\ \alpha^*=\tfrac{72}5\ (G_{72}).
+\]
+So the certified values of \cref{tab:certified} lie strictly inside the
+interval $[\vt,\alpha^*]$ that the Duan--Winter chain allows, and the gap
+between orders one and two is a small part of it.  The exact positivity of
+each dual matrix $Z$ is proved in integers (\cref{app:certificate}); in
+floating point its smallest eigenvalue is about $2.0\times10^{-5}$,
+$6.2\times10^{-7}$ and $2.0\times10^{-5}$ for $G_{32}$, $G_{44}$ and $G_{72}$.
+These margins only guided the rounding.  The values of $\vt$ and $\alpha^*$
+are checked exactly by \texttt{verify/theorem\_c\_context.py}: an independent
+set and a rational dual matrix for $\vt$, and a rational packing and clique
+cover of equal value for $\alpha^*$.
+
 \section{Open problems}\label{sec:open}
 
 \paragraph{Is $\vt$ the least point?}
@@ -1536,13 +1686,13 @@ we are missing a dimension-free argument for the other direction.
 The proof of \cref{thm:A} uses three features of the Petz family.  These are
 a closed form for the supported minimum with the tower property, the
 block structure used for unions and flagged mixtures, and data processing.
-For sandwiched divergences of order $\beta\ge1$ the question has a complete
-answer: by \cref{prop:sandwiched} they reproduce the Petz curve on $[1,2]$,
-from $2^{\Cmin}$ at $\beta=1$ to $\Sigma$ at $\beta=\infty$.  Sandwiched
-divergences also satisfy data processing for $\frac12\le\beta<1$
-\cite{Tomamichel2016}, but there we have no closed form for the supported
-minimum.  Do these orders give spectral points, and do they differ from the
-$\vt_\alpha$ with $\alpha<1$?
+For sandwiched divergences the answer is complete on the full
+data-processing range $[\frac12,\infty]$: \cref{prop:sandwiched} gives the
+supported minimum $-\log Z_{(1-\beta)/\beta}$ and identifies the graph
+radii with the Petz curve on $[0,2]$.  In particular, the orders
+$\frac12\le\beta<1$ give precisely the Petz sub-one family, not additional
+spectral points.  Do other quantum divergences with these three features
+yield spectral points outside this common family?
 
 \paragraph{Convexity.}
 In the ordinary spectrum, Vrana's probabilistic refinement makes the spectrum
@@ -1559,8 +1709,11 @@ refinements, which we do not have.
 
 \paragraph{The pentagon curve.}
 What is $\vt_\alpha(C_5)$ for $0<\alpha<\frac12$?  The bounds in
-\cref{fig:pentagon-curve} do not meet, and neither geometry in
-\cref{fig:pentagon-geometries} is optimal there.
+\cref{fig:pentagon-curve} do not meet.  The flat witness in
+\cref{fig:pentagon-geometries}(a) is optimal on $[\frac12,2]$, and the
+umbrella in panel (b) attains the order-zero value.  At intermediate orders,
+the gap between the displayed bounds does not by itself decide which
+representation or center is optimal; the exact graph value remains open.
 
 \paragraph{Small separations.}
 How small can a graph with $\Cmin<\log\Sigma$ be?  Thirty-two vertices
@@ -1577,9 +1730,12 @@ would bear on Duan and Winter's question about strict submultiplicativity of
 $\Sigma$ for general non-commutative bipartite graphs.
 
 \paragraph{Reproducibility.}
-The certificate data and the verification scripts accompany this paper.
+The certificate data and their verification scripts accompany this paper.
 They are needed only for the finite rational claims of \cref{sec:small}.
-Everything else is proved in the text.
+An additional deterministic matrix regression checks instances of the
+supported sandwiched minimum in \cref{prop:sandwiched}, including the
+sub-one orders and endpoints.  These finite numerical checks are not used
+as proof; the dimension-independent statements are proved in the text.
 
 \paragraph{AI-assisted tools.}
 Generative AI tools were used throughout the research and preparation of this
@@ -1592,7 +1748,7 @@ verification scripts.
 
 \appendix
 
-\section{The certificate}\label{app:certificate}
+\section{The certificate}\label[appendix]{app:certificate}
 
 \paragraph{Words and moments.}
 For words $L=a_1\cdots a_m$ and $R=b_1\cdots b_n$ in seed vertices, write
@@ -1682,9 +1838,9 @@ onto the affine constraints by a minimum-norm correction, and positivity is
 then certified as above.  None of this matters for correctness, which rests
 only on the exact checks.
 
-\section{Deferred proofs}\label{app:proofs}
+\section{Deferred proofs}\label[appendix]{app:proofs}
 
-\subsection{Continuity in the order}\label{app:continuity}
+\subsection{Continuity in the order}\label[subappendix]{app:continuity}
 
 \begin{proof}[Proof of \cref{prop:continuity}]
 Write $f(\alpha)=\log\vt_\alpha(G)$.
@@ -1713,7 +1869,7 @@ $f(\beta)\le f(\alpha)\le\frac{\alpha(1-\beta)}{\beta(1-\alpha)}f(\beta)$,
 and the constant tends to $1$ as $\beta\uparrow\alpha$.
 \end{proof}
 
-\subsection{Orthogonal blocks}\label{app:orthogonal-sum}
+\subsection{Orthogonal blocks}\label[subappendix]{app:orthogonal-sum}
 
 \begin{proof}[Proof of \cref{lem:orthogonal-sum}]
 For $s\ne0$ let $A=\sigma^s$ and $f(t)=t^{1/s}$.  For $s=0$ let $A=\ln\sigma$
@@ -1729,9 +1885,9 @@ The vectors $(e_{jk})_{j,k}$ are orthonormal, so the total is at most
 $\Tr\sigma=1$.
 \end{proof}
 
-\subsection{Exact confusability graphs}\label{app:exact}
+\subsection{Exact confusability graphs}\label[subappendix]{app:exact}
 
-\begin{lemma}\label{lem:exact-graph}
+\begin{lemma}\label[lemma]{lem:exact-graph}
 In~\eqref{eq:def-parameter}, \eqref{eq:cmin-def} and~\eqref{eq:sigma-def},
 restricting to channels whose confusability graph is exactly $G$ does not
 change the infimum.
@@ -1757,6 +1913,44 @@ support weight splits over the two summands, and the new summand contributes
 $O(\eps)$.  So radii converge to the original ones as $\eps\to0$.  Also
 $T'\ge\rho'_x$ and $\Tr T'\to\Tr T$.  The statement for $\Cmin$ follows from
 the order-one radius identity.
+\end{proof}
+
+\subsection{The entanglement-assisted preorder}\label[subappendix]{app:preorder}
+
+Li and Zuiddam state the preorder for graphs through complements.  Their
+Definition~6 \cite{LiZuiddam2020} writes $G\overset{*}{\to}H$ if there are
+$d\in\mathbb N$ and $d\times d$ positive semidefinite matrices $\rho$ and
+$\rho_g^h$ ($g\in V(G)$, $h\in V(H)$) such that
+\begin{enumerate}[label=(\roman*),leftmargin=2.2em,itemsep=1pt,topsep=3pt]
+\item $\sum_{h\in V(H)}\rho_g^h=\rho$ for every $g\in V(G)$, and
+\item $\rho_g^h\rho_{g'}^{h'}=0$ whenever $\{g,g'\}\in E(G)$ and
+$\{h,h'\}\notin E(H)$.
+\end{enumerate}
+The entanglement-assisted cohomomorphism preorder is then $G\le_*H$ if and
+only if $\overline G\overset{*}{\to}\overline H$.  Their graphs are
+confusability graphs, as ours are.
+
+\begin{lemma}\label[lemma]{lem:preorder}
+For graphs $G$ and $H$, the relation $G\le_*H$ of Li and Zuiddam, that is
+$\overline G\overset{*}{\to}\overline H$, holds if and only if there are a
+state $\omega$ and positive semidefinite operators $\omega_g^h$
+satisfying~\eqref{eq:ea-sum} and~\eqref{eq:ea-orth}.
+\end{lemma}
+
+\begin{proof}
+Apply the definition to $\overline G$ and $\overline H$.  A pair $\{g,g'\}$ is
+an edge of $\overline G$ exactly when $g\ne g'$ and $g,g'$ are non-adjacent in
+$G$.  A pair $\{h,h'\}$ is a non-edge of $\overline H$ exactly when $h=h'$ or
+$h\sim h'$ in $H$, that is, when $h\simeq h'$.  The case $h=h'$ is included
+because graphs have no loops.  So condition~(ii) for $\overline G$ and
+$\overline H$ is~\eqref{eq:ea-orth}, and condition~(i) is~\eqref{eq:ea-sum}
+with $\omega=\rho$.  Both conditions are homogeneous, so dividing $\rho$ and
+every $\rho_g^h$ by $\Tr\rho$ makes $\rho$ a state.  (A nonzero $\rho$ is
+implicit in the definition, since $\rho=0$ would relate every pair of graphs;
+Li and Zuiddam note that $\rho$ may even be taken positive definite.)
+Conversely, a state $\omega$ and operators $\omega_g^h$
+satisfying~\eqref{eq:ea-sum}--\eqref{eq:ea-orth} satisfy (i) and (ii) with
+$\rho=\omega$ in dimension $d=\dim\cH$.
 \end{proof}
 
 \bibliographystyle{alpha}

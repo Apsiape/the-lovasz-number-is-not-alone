@@ -18,5 +18,5 @@ The data file was imported byte-for-byte from the jointly maintained research
 repository.  Its SHA-256 digest at version 1 is
 
 ```text
-0ed543d81d5a14d569ac5711f534ced19ca3e1a910d91c606f48e53a66075f7a
+63119899e5f3bcba30a4121c45c1f95f69020c5bcde7550b610113e678b52058
 ```

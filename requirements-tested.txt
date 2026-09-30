@@ -1,0 +1,2 @@
+# Exact versions with which every check was run; requirements.txt gives the supported range.
+numpy==2.3.5
