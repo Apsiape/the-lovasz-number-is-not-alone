@@ -114,7 +114,8 @@ dimension-independent statements are proved in the paper.
 
 The all-versions concept DOI
 [10.5281/zenodo.22983498](https://doi.org/10.5281/zenodo.22983498) resolves to
-the latest version. The `v1.0.0` archive is
+the latest version. The `v1.1.0` archive is
+[10.5281/zenodo.23066485](https://doi.org/10.5281/zenodo.23066485), and the `v1.0.0` archive is
 [10.5281/zenodo.22983499](https://doi.org/10.5281/zenodo.22983499). Citation
 metadata are in `CITATION.cff`.
 
