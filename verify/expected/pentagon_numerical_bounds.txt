@@ -8,5 +8,5 @@ witness: umbrella vectors with center (1-x)|c><c| + (x/2)(I-|c><c|), x optimized
   0.110  2.457e-02  2.462321       2.462321    2.469902
   0.120  3.499e-02  2.483319       2.483319    2.495411
   0.125  4.083e-02  2.493589       2.493589    2.500000
-caption: radius at alpha=0.1 is 2.4408 < 2.4452; below 5/2 until alpha = 0.128164
+caption: radius at alpha=0.1 is 2.44084 (rounded up) < 2.44521 (rounded down); below 5/2 until alpha = 0.128164
 Pentagon numerical bounds: all checks passed (floating point; evidence only)

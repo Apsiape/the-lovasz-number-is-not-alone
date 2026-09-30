@@ -12,12 +12,32 @@ We minimize Petz--Rényi information radii over classical--quantum channels
 compatible with a graph. The resulting parameters form a continuum of points
 in Li and Zuiddam's entanglement-assisted asymptotic spectrum. Sandwiched
 Rényi radii of every order `beta` in `[1/2, infinity]` give exactly the same
-points, at Petz order `2 - 1/beta`, so one curve runs from the Lovász number
-to the no-signalling simulation cost. The paper also proves strong-product
+points, at Petz order `2 - 1/beta`, so one monotone family runs from the
+Lovász number to the no-signalling simulation cost. The paper also proves strong-product
 multiplicativity for arbitrary joint representations, resolves the
 Duan--Winter pentagon conjecture, shows that graph-level no-signalling
 simulation single-letterizes, and gives an exact rational certificate for a
 32-vertex graph with `C_min(G) < log_2 Sigma(G)`.
+
+## What is new in version 1.1.1
+
+Attributions are corrected and a referee audit's precision fixes are applied;
+the mathematics and the numbering are unchanged.
+
+- The identity `theta_0 = theta` is credited to Dalai, who credits it to Schrijver
+  (IEEE Trans. Inf. Theory 2013, Theorem 8).
+- Duan and Winter's question whether `Sigma(K)` can be strictly submultiplicative
+  was answered by Wang and Duan (ISIT 2016); the paper no longer presents it as open.
+- `Theta_* <= theta` is credited to Beigi and, independently, to Duan, Severini and
+  Winter; the fractional packing number to Shannon, and its role in the chain to
+  Cubitt, Leung, Matthews and Winter.
+- Known clauses in Theorem A, Proposition 3.3, Proposition 3.5 and the pentagon
+  corollary now carry their citations, and the relation of the product theorem to
+  Duan and Winter's fixed-graph multiplicativity is stated precisely.
+- Theorem C can be checked from the paper: the Gibbs witnesses are printed, and
+  `certificates/README.md` documents the data format.
+- A "Data and code availability" section, precision fixes throughout (see
+  [CHANGELOG.md](CHANGELOG.md)), and an abstract that fits arXiv's limit.
 
 ## What is new in version 1.1
 
@@ -44,7 +64,7 @@ unchanged. See [CHANGELOG.md](CHANGELOG.md).
 
 - `paper/main.tex` -- standalone manuscript.
 - `paper/references.bib` -- primary references.
-- `output/pdf/the-lovasz-number-is-not-alone-v1.1.pdf` -- manuscript build.
+- `output/pdf/the-lovasz-number-is-not-alone-v1.1.1.pdf` -- manuscript build.
 - `certificates/` -- exact rational certificate data for the 32-, 44-, and
   72-vertex examples, and exact data for the context of Theorem C.
 - `verify/` -- deterministic checks and their pinned output.
@@ -62,7 +82,7 @@ repository root:
 python tools/build.py
 ```
 
-This writes `output/pdf/the-lovasz-number-is-not-alone-v1.1.pdf` and the logs
+This writes `output/pdf/the-lovasz-number-is-not-alone-v1.1.1.pdf` and the logs
 to `output/build/`. The usual latexmk workflow also works and writes
 `paper/main.pdf`:
 

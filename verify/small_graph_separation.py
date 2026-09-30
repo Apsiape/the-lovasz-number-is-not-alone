@@ -409,11 +409,13 @@ def main():
         gap = (tW - tH) / tH
         print("graph with %d vertices, clone counts per overlap class j=0,1,2,4: %s" % (
             nv, [prof[j] for j in (0, 1, 2, 4)]))
-        print("  Gibbs witness:    2^C_min <= 1/t_W = %.6f   (t_W = %s)" % (float(1 / tW), tW))
+        # Printed bounds are rounded in their safe direction: upper bounds up, lower bounds down.
+        print("  Gibbs witness:    2^C_min <= 1/t_W = %.6f   (t_W = %s)" % (
+            math.ceil(float(1 / tW) * 1e6) / 1e6, tW))
         print("  harmonic dual:    Sigma  >= 1/t_H = %.6f   (all %d moment equations exact, %d of them"
-              " nontrivial; Z >= 0 exact)" % (float(1 / tH), len(keys), neq))
+              " nontrivial; Z >= 0 exact)" % (math.floor(float(1 / tH) * 1e6) / 1e6, len(keys), neq))
         print("  exact gap: t_W - t_H > 0, relative %.4e; log2 Sigma - C_min >= %.6f bits" % (
-            float(gap), float(np.log2(float(tW / tH)))))
+            float(gap), math.floor(float(np.log2(float(tW / tH))) * 1e6) / 1e6))
     print("Small-graph certificates: all exact checks passed")
 
 

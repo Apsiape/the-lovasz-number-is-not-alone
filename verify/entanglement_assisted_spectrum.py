@@ -265,7 +265,7 @@ def quantum_hom():
         for j in range(n):
             if orth[i][j]:
                 for h in range(4):
-                    require(np.allclose(rhs[i][h] @ rhs[j][h], 0), "Definition 6 orthogonality", 0, "nonzero")
+                    require(np.allclose(rhs[i][h] @ rhs[j][h], 0), "Definition 7 orthogonality", 0, "nonzero")
     # target H = four distinguishable letters, tau_h = |h><h|, sigma = I/4, radius exactly 2 bits
     kets = [np.outer(np.eye(4)[h], np.eye(4)[h]).astype(complex) for h in range(4)]
     sig = np.eye(4) / 4

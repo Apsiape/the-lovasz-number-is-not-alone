@@ -9,8 +9,10 @@ s = 1 - alpha, and Z_s(sigma, |u><u|) = <u|sigma^s|u>^(1/s).
 The script rebuilds each witness, evaluates its radius with explicit matrix powers, and checks the
 coordinates plotted in paper/main.tex: every plotted value is at least the witness radius (so it is
 a valid upper bound) and exceeds it by less than 1e-6 (the plotting precision).  It also checks the
-two numbers quoted in the caption.  These are floating-point evaluations of explicit witnesses:
-numerical evidence, not exact certificates.
+two numbers quoted in the caption, "2.44084<2.44521" at alpha = 0.1: the witness radius rounded up
+and the limiting-handle bound rounded down, both at five decimals, and that the caption states
+them.  These are floating-point evaluations of explicit witnesses: numerical evidence, not exact
+certificates.
 
 --perturb lowers one plotted value by 1/1000; it then falls below its witness radius and the script
 must exit 1.
@@ -67,8 +69,12 @@ def best_x(alpha):
     return (lo + hi) / 2
 
 
+def manuscript():
+    return open(os.path.join(HERE, "..", "paper", "main.tex")).read()
+
+
 def plotted():
-    tex = open(os.path.join(HERE, "..", "paper", "main.tex")).read()
+    tex = manuscript()
     m = re.search(r"% numerical upper bounds from explicit witnesses[^\n]*\n\s*\\addplot\[[^\]]*\] coordinates\s*\{([^}]*)\}", tex)
     if not m:
         fail("plotted numerical bounds in paper/main.tex", "an \\addplot block", "none")
@@ -98,8 +104,12 @@ def main():
             fail("witness improves on the displayed bound at alpha=%g" % a, "< %.6f" % handle, r)
         print("  %.3f  %.3e  %.6f       %.6f    %.6f" % (a, x, r, y, handle))
     r1 = radius(0.1, best_x(0.1), U)
-    if not (round(r1, 4) == 2.4408 and round(5 ** (1 / 1.8), 4) == 2.4452 and r1 < 5 ** (1 / 1.8)):
-        fail("caption values at alpha=0.1", "2.4408 < 2.4452", (r1, 5 ** (1 / 1.8)))
+    h1 = 5 ** (1 / 1.8)
+    r1_up, h1_down = math.ceil(r1 * 1e5), math.floor(h1 * 1e5)
+    if not (r1_up == 244084 and h1_down == 244521 and r1_up < h1_down):
+        fail("caption values at alpha=0.1", "2.44084 < 2.44521", (r1, h1))
+    if "$2.44084<2.44521$" not in manuscript():
+        fail("caption text of Figure 1", "$2.44084<2.44521$", "not found in paper/main.tex")
     lo, hi = 0.12, 0.14
     for _ in range(100):
         mid = (lo + hi) / 2
@@ -109,8 +119,8 @@ def main():
             hi = mid
     if round(lo, 3) != 0.128:
         fail("crossing with 5/2", "alpha ~ 0.128", lo)
-    print("caption: radius at alpha=0.1 is %.4f < %.4f; below 5/2 until alpha = %.6f" % (
-        r1, 5 ** (1 / 1.8), lo))
+    print("caption: radius at alpha=0.1 is %.5f (rounded up) < %.5f (rounded down); below 5/2 until"
+          " alpha = %.6f" % (r1_up / 1e5, h1_down / 1e5, lo))
     print("Pentagon numerical bounds: all checks passed (floating point; evidence only)")
 
 

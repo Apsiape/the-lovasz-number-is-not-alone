@@ -1,5 +1,67 @@
 # Changelog
 
+## 1.1.1 — 30 September 2026
+
+Attribution and framing corrections after an audit of how the paper credits other work, and
+precision, citation and presentation fixes after a hostile referee audit, which found no false result
+and no gap. No theorem, bound, certificate value or numbering changes; a few proofs gain a sentence
+of precision.
+
+- Dalai's Theorem 8 (due to Schrijver; IEEE Trans. Inf. Theory 59 (2013)) is credited as the identity
+  `theta_0 = theta`, in the abstract, the introduction, Proposition 3.3 and Related work.
+- Wang and Duan (ISIT 2016) answered Duan and Winter's question on strict submultiplicativity of
+  `Sigma(K)`; Section 5 and the open problems now say so.
+- Credits added: Duan, Severini and Winter for `Theta_* <= theta`; Duan and Winter's Theorems 2 and 5,
+  their remarks anticipating Theorem A at order two, and their fixed-graph results (Proposition 18,
+  Theorem 19); Shannon and Cubitt, Leung, Matthews and Winter for the fractional packing number; Li and
+  Zuiddam (with Cubitt et al.) for Theorem A at order zero; Ohya, Petz and Watanabe; Beigi (sandwiched
+  data processing); the classical spectral points.
+- Wording made precise: the abstract's description of the spectrum and of `log_2 Sigma(G)` (an infimum,
+  not an SDP value); Li and Zuiddam's suggestion (a proof route, not a question); the short pentagon
+  proof (it also uses the projection formula); a heuristic in Section 7.
+- Bibliography: Dalai's ISIT pages corrected; Li and Zuiddam's definition cited as Definition 7
+  (Definition 6 in arXiv v2).
+
+After the referee audit:
+
+- Credits: `theta_0 = theta` is also credited to Duan and Winter (proof of their Theorem 5) and, for a
+  pure center, to Cabello, Severini and Winter (arXiv:1010.2163), as noted by Dalai and Winter (IEEE
+  Trans. Inf. Theory 63 (2017)). Related work states that Duan and Winter already express their
+  fixed-channel quantities as radii (their Theorems 2 and 4). Vrana's interpolation with the Bukh–Cox
+  value of the fractional Haemers bound already gives a continuum on `C5` in the ordinary spectrum;
+  the introduction and Section 5.3 say that the new content is membership in the entanglement-assisted
+  spectrum. Also credited or cited: Duan and Winter's fixed-cq-graph separation (Section IV.D); Li and
+  Zuiddam's Theorem 22 (the fractional clique cover number is not in the quantum spectrum); Cubitt,
+  Leung, Matthews and Winter (Phys. Rev. Lett. 104 (2010)) for the 24 magic-square vectors; Csiszár
+  (1995); Cubitt et al.'s Definition 1; Vrana (2022) for uncountability; the concurrent works of
+  Shariat, Hoogsteder-Riera and Tomamichel and of Cheng and Berta; Oufkir, Tomamichel and Berta;
+  Pisier and Xu for interpolation of Schatten classes.
+- Data availability: a back-matter section "Data and code availability" (Zenodo concept DOI and
+  GitHub); "Reproducibility" and "AI-assisted tools" move to the back matter; repository paths in the
+  text are replaced by script names.
+- Theorem C is checkable from the paper: Section 6.5 prints the Gibbs witnesses (centers proportional
+  to `diag(A^4, B^4, B^4, B^4)` with `(A, B) = (41, 56), (56, 51), (3, 4)`, plus clique blocks), the
+  bounds are also given as exact rationals, equation (14) is labelled as certified bounds, and
+  Appendix A states how identically vanishing moments are treated and that the integer positivity
+  recipe factors `Z - gamma I`. `certificates/README.md` documents the data format.
+- Precision: the family is called monotone rather than one continuous curve (continuity is proved on
+  `[0, 1)`, right continuity on `[0, 2)`); Remark 4.8 says where the argument stops and that
+  Proposition 3.1, Lemma 3.6 and Lemmas 4.3–4.4 hold above order two; complex orthonormal
+  representations are realified before Lovász's results are applied; Lemma 4.4 assumes nonzero
+  projections; Lemma 5.4 interpolates Schatten classes only; the proof of Theorem 5.5 notes that
+  averaging loses nothing; the support convention for a non-faithful second argument, `K_s` for
+  positive definite operators, the null graph and the basis for the transpose are stated; a remark
+  after Proposition 3.5 treats pure states; an unnumbered remark in Section 7 bounds every
+  `theta_alpha` by the projective rank of the complement; several local wordings are corrected.
+- Figure 1 draws the value 5/2 on `[0.122, 1/2]` dashed, since there it is only an upper bound, and its
+  caption quotes `2.44084 < 2.44521` (the witness radius was rounded down before);
+  `verify/pentagon_numerical_bounds.py` checks the new caption. Table 1's last column is "certified
+  gap >= (bits)", with the G44 entry rounded down to 0.002145. No plotted coordinate changes.
+- `verify/small_graph_separation.py` now prints each certified bound rounded in its safe direction
+  (upper bounds up, lower bounds down); its pinned output changes in three digits accordingly.
+- The abstract is shortened to fit arXiv's limit, and it now says that `log_2 theta`, `C_min` and
+  `log_2 Sigma` are the radii.
+
 ## 1.1.0 — 30 September 2026
 
 Theorems A–C, every certificate value and the numbering of version 1.0.0 are
@@ -32,7 +94,7 @@ unchanged; the one new lemma is placed last (Lemma B.2).
   the journal's (54)), and explains why their Proposition 18 does not give the
   graph-level single-letter formula.
 - Appendix B.4 (Lemma B.2) derives equations (9)–(10) from Li and Zuiddam's
-  Definition 6 and their complement convention.
+  Definition 7 (Definition 6 in arXiv v2) and their complement convention.
 - Figure 1 adds numerical upper bounds on `theta_alpha(C5)` for
   `0.04 <= alpha <= 0.125` from explicit witnesses (umbrella vectors with an
   optimized faithful center): 2.4408 < 2.4452 at `alpha = 0.1`, below 5/2 until

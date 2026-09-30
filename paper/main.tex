@@ -50,41 +50,42 @@
 \title{The Lov\'asz number is not alone:\\[3pt]
 \large a continuum of R\'enyi points in the entanglement-assisted spectrum of graphs}
 \author{Nidhal Mghirbi \and Seth Douglas}
-\date{September 2026 --- Version 1.1}
-\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas},pdfsubject={Version 1.1; September 2026}}
+\date{September 2026 --- Version 1.1.1}
+\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas},pdfsubject={Version 1.1.1; September 2026}}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Li and Zuiddam's entanglement-assisted asymptotic spectrum of graphs collects
-the graph parameters that behave like capacities for zero-error communication
-with shared entanglement.  To our knowledge, its only previously known element was the Lov\'asz
-number $\vt$.  We find a continuum of others.
+Li and Zuiddam's entanglement-assisted asymptotic spectrum of graphs consists
+of the normalized graph parameters that are additive under disjoint unions,
+multiplicative under strong products and monotone under
+entanglement-assisted cohomomorphisms; the entanglement-assisted Shannon
+capacity is their pointwise minimum.  To our knowledge, the Lov\'asz number
+$\vt$ was its only known element.  We find a continuum of others.
 
-The starting point is an observation about three quantities from Duan and
-Winter's work on no-signalling-assisted zero-error communication.  The
-Lov\'asz number, the smallest Holevo capacity $\Cmin$ and the no-signalling
-simulation cost $\Sigma$ of a graph are the same kind of object: information
-radii of the classical--quantum channels compatible with the graph, measured
-with Petz--R\'enyi divergences of orders $0$, $1$ and $2$.  Interpolating in
-the order gives a family $\vt_\alpha$, $0\le\alpha\le2$, and we prove that
-every member lies in the spectrum.  The main step is multiplicativity under
-the strong product.  It has to hold for representations of the product that do
-not factor, and an exact nesting identity for power compressions takes care
-of this.  The graph radii obtained from sandwiched R\'enyi divergences give
-exactly the same family after the change of order $\alpha=2-1/\beta$,
+For a graph, $\log_2\vt$, the minimal Holevo capacity $\Cmin$ and the
+logarithm of the no-signalling simulation cost $\Sigma$, three quantities from
+Duan and Winter's work on zero-error communication, are information radii of
+the classical--quantum channels compatible with the graph, measured with
+Petz--R\'enyi divergences of orders $0$, $1$ and $2$.  At order zero this is
+due to Schrijver (as credited by Dalai) and to Duan and Winter; at order one
+it is the min--max formula for the Holevo capacity.  Interpolating in the
+order gives a family $\vt_\alpha$, $0\le\alpha\le2$, and we prove that every
+member lies in the spectrum.  The main step, multiplicativity under the strong
+product for representations of the product that do not factor, follows from
+an exact nesting identity for power compressions.  Sandwiched R\'enyi radii
+give exactly the same family after the change of order $\alpha=2-1/\beta$,
 $\frac12\le\beta\le\infty$.
 
-On the five-cycle the family sweeps out the whole interval $[\sqrt5,5/2]$, so
-it contains continuum many distinct points.  A single Hilbert--Schmidt
-inequality gives $\Cmin(C_5)=\log_2(5/2)$, which proves the pentagon
-conjecture of Duan and Winter.  The same framework settles the two links of
-their inequality chain that they left open.  The regularized graph-level
-no-signalling simulation rate always equals its single-letter SDP value
-$\log_2\Sigma$.
-And a 32-vertex graph built from the Mermin--Peres magic square, certified in
-exact rational arithmetic, has $\Cmin<\log_2\Sigma$.
+On the five-cycle the family sweeps out $[\sqrt5,5/2]$, so it contains
+continuum many distinct points.  A Hilbert--Schmidt inequality for
+representations of the pentagon gives $\Cmin(C_5)=\log_2(5/2)$, proving a
+conjecture of Duan and Winter.  We also settle the two links of their
+inequality chain that they left open: the graph-level no-signalling simulation
+rate always equals its single-letter value $\log_2\Sigma(G)$, and a 32-vertex
+graph built from the Mermin--Peres magic square has $\Cmin<\log_2\Sigma$,
+certified in exact rational arithmetic.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -97,10 +98,12 @@ single vertex and respects the cohomomorphism preorder.  These parameters form
 the \emph{asymptotic spectrum of graphs}, and Strassen's duality theorem
 \cite{Strassen1988} says that $\Theta$ is their pointwise minimum.  So every
 spectral point is an upper bound on the Shannon capacity, and many of the
-classical upper bounds turn out to be spectral points: the Lov\'asz number,
-the fractional Haemers bounds, the complement of the projective rank, and the
-fractional clique cover number.  The ordinary spectrum is by now known to be uncountable
-\cite{Vrana2021}.
+classical upper bounds turn out to be spectral points \cite{Zuiddam2019}: the
+Lov\'asz number \cite{Lovasz1979}, the fractional Haemers bounds
+\cite{Haemers1979,Blasiak2013,BukhCox2019}, the complement of the projective
+rank \cite{CMRSSW2014,MancinskaRoberson2016}, and the fractional clique cover
+number.  The ordinary spectrum is by now known to be uncountable
+\cite{Vrana2021,Vrana2022}.
 
 Li and Zuiddam carried the theory over to quantum and entanglement-assisted
 communication \cite{LiZuiddam2020}.  With shared entanglement the preorder
@@ -108,9 +111,18 @@ changes.  Now $G\le_*H$ means that, with the help of an entangled state, one
 use of a channel with confusability graph $H$ can do the job of one use of a
 channel with confusability graph $G$.  The duality survives: the
 entanglement-assisted Shannon capacity $\Theta_*$ is the minimum over a new
-spectrum $\Xs$.  This spectrum has proved much harder to populate.  Beigi had
-shown that $\Theta_*\le\vt$ \cite{Beigi2010}, and Li and Zuiddam proved that
-$\vt$ itself lies in $\Xs$.  They found no other element.  They also
+spectrum $\Xs$, where $\cG$ denotes the class of finite simple graphs.  This
+spectrum has proved much harder to populate.  Beigi and,
+independently, Duan, Severini and Winter had shown that $\Theta_*\le\vt$
+\cite{Beigi2010,DSW2013}, and Li and Zuiddam proved that $\vt$ itself lies in
+$\Xs$, using the entanglement-assisted monotonicity of $\vt$ due to Cubitt et
+al.~\cite{CMRSSW2014}.  They found no other element.  They also showed
+that the fractional clique cover number is not in the spectrum
+$X(\cG,\le_q)$ of the quantum preorder \cite[Theorem~22]{LiZuiddam2020}
+(Theorem~21 in arXiv:1810.00744v2).  This point of the ordinary spectrum
+equals, by linear programming duality, the fractional packing number
+$\alpha^*$ used below, and $X(\cG,\le_q)$ contains $\Xs$, so it is not in
+$\Xs$ either.  And they
 suggested that the conjecture $\Theta_*=\vt$ might be proved by showing that
 $\vt$ is the least element of the spectrum, ``or even the only point''
 \cite{LiZuiddam2020}.
@@ -123,15 +135,23 @@ We start from a paper of Duan and Winter \cite{DuanWinter2016} on zero-error
 communication assisted by no-signalling correlations.  For a confusability
 graph $G$ they compare several numbers attached to the classical--quantum
 channels $x\mapsto\rho_x$ whose confusability graph is $G$.  There is the
-Lov\'asz number $\vt(G)$.  There is $\Cmin(G)$, the smallest Holevo capacity
-of such a channel, and $\Sigma(G)$, the infimum of the real SDP simulation
+Lov\'asz number $\vt(G)$; Duan and Winter show that $\log_2\vt(G)$ is the
+smallest no-signalling-assisted zero-error capacity of a channel compatible
+with $G$ \cite[Theorem~5]{DuanWinter2016}.  There is $\Cmin(G)$, the
+smallest Holevo capacity of such a channel, and $\Sigma(G)$, the infimum of the real SDP simulation
 value over such channels.  They prove the chain
 \begin{equation}\label{eq:dw-chain}
  \log_2\vt(G)\ \le\ \Cmin(G)\ \le\ \SNS(G)\ \le\ \log_2\Sigma(G)\ \le\
  \log_2\alpha^*(G),
 \end{equation}
-where $\SNS$ is an asymptotic simulation cost and $\alpha^*$ is the
-fractional packing number (\cref{sec:dw-quantities} has the definitions).
+where $\SNS$ is an asymptotic simulation cost and $\alpha^*$ is Shannon's
+fractional packing number \cite{Shannon1956} (\cref{sec:dw-quantities} has
+the definitions).  By results of Cubitt, Leung, Matthews and Winter
+\cite{CLMW2011}, among classical channels with confusability graph $G$ the
+smallest asymptotic no-signalling-assisted zero-error capacity and the
+smallest asymptotic no-signalling-assisted simulation cost both equal
+$\log_2\alpha^*(G)$.  This is how $\alpha^*$ enters the chain
+\cite[Section~V]{DuanWinter2016}.
 
 The first three quantities in \eqref{eq:dw-chain} are really one quantity in
 disguise.  Fix a channel compatible with $G$ and a state $\sigma$.  Measure
@@ -148,12 +168,20 @@ Then
 \begin{equation}\label{eq:endpoints-intro}
  \vt_0=\vt,\qquad \vt_1=2^{\Cmin},\qquad \vt_2=\Sigma.
 \end{equation}
-The middle identity is the familiar min--max formula for the Holevo capacity.
-The other two are elementary once the right formula is in place
-(\cref{prop:endpoints}).  So the three Duan--Winter quantities are samples of
-one curve $\alpha\mapsto\vt_\alpha(G)$, taken at orders $0$, $1$ and $2$.
-This also explains why they come in the order they do, since $D_\alpha$ grows
-with $\alpha$.
+The first is a theorem of Dalai, who credits it to Schrijver
+\cite[Theorem~8]{Dalai2013TIT}.  Duan and Winter prove it in the proof of
+their Theorem~5, by purifying the center \cite[Section~V]{DuanWinter2016},
+and the case of a pure center with general projections is due to Cabello,
+Severini and Winter \cite{CSW2010}; Dalai and Winter note the observations of
+Schrijver and of Duan and Winter \cite{DalaiWinter2017}.  The middle identity
+is the familiar min--max formula for the Holevo capacity
+\cite{OhyaPetzWatanabe1997,SchumacherWestmoreland2001}; the third is
+elementary once the right formula is in place
+(\cref{prop:endpoints}).  So the three Duan--Winter quantities are samples,
+at orders $0$, $1$ and $2$, of one monotone family
+$\alpha\mapsto\vt_\alpha(G)$, which is nondecreasing on $[0,2]$ and continuous
+on $[0,1)$ (\cref{prop:endpoints,prop:continuity}).  This also explains why
+they come in the order they do, since $D_\alpha$ is nondecreasing in $\alpha$.
 
 What happens in between?
 
@@ -164,15 +192,19 @@ For every $\alpha\in[0,2]$, the graph parameter $\vt_\alpha$ belongs to the
 entanglement-assisted asymptotic spectrum $\Xs$.
 \end{mainthm}
 
+For $\alpha=0$, where $\vt_0=\vt$, membership is due to Li and Zuiddam
+\cite{LiZuiddam2020}.  The cases $\alpha>0$ are new.
+
 Normalization and additivity are routine.  Monotonicity under $\le_*$ is a
-data-processing argument, and it is why the order stops at two: that is where
-Petz divergences stop satisfying data processing.  The real work is
+data-processing argument, and it is why our argument stops at order two:
+above order two, Petz divergences no longer satisfy data processing
+(\cref{rem:above-two}).  The real work is
 multiplicativity, $\vt_\alpha(G\boxt H)=\vt_\alpha(G)\vt_\alpha(H)$.  One
 inequality follows by tensoring witnesses.  The other has to control
 representations of $G\boxt H$ that are \emph{not} tensor products, and there
-is no reason to expect an optimal representation of a product to factor.
+is no reason to expect a near-optimal representation of a product to factor.
 \Cref{sec:spectral} handles this with an exact nesting identity for the
-compressions that appear in~\eqref{eq:def-intro}.
+compressions that appear in the projection formula~\eqref{eq:projection-formula}.
 
 Are the new points actually new?  The pentagon answers this.
 
@@ -192,14 +224,21 @@ continuum many distinct points of the form $\vt_\alpha$.
 \Cref{fig:pentagon-curve} shows what we know about the pentagon curve.
 Since $\vt_1(C_5)=\vt_2(C_5)=5/2$, \cref{thm:B} gives the values of $\Cmin$
 and $\Sigma$ on the pentagon.  That is precisely what Duan and Winter
-conjectured right after~\eqref{eq:dw-chain}, where they note that a rigorous
-proof ``has so far eluded'' them \cite[Eq.~(54) and the discussion after
-it]{DuanWinter2016}.
+conjectured after their Hadamard-graph example, two paragraphs after the
+chain~\eqref{eq:dw-chain}, where they note that a rigorous
+proof ``has so far eluded'' them \cite[Eq.~(54), which is (53) in
+arXiv:1409.3426v3, and the discussion after it]{DuanWinter2016}.
 
 \begin{pentcor}
 $\log_2\sqrt5<\Cmin(C_5)=\SNS(C_5)=\log_2\Sigma(C_5)=\log_2\alpha^*(C_5)
 =\log_2\tfrac52.$
 \end{pentcor}
+
+The values $\vt(C_5)=\sqrt5$ \cite{Lovasz1979} and $\alpha^*(C_5)=\frac52$
+\cite{Shannon1956} are classical, and the upper bounds on $\Cmin(C_5)$,
+$\SNS(C_5)$ and $\log_2\Sigma(C_5)$ are Duan and Winter's
+chain~\eqref{eq:dw-chain}.  What is new is the lower bound
+$\Cmin(C_5)\ge\log_2\frac52$.
 
 \begin{figure}[t]
 \centering
@@ -225,7 +264,7 @@ $\log_2\sqrt5<\Cmin(C_5)=\SNS(C_5)=\log_2\Sigma(C_5)=\log_2\alpha^*(C_5)
   \addplot[gray!22, on layer=pre main] fill between[of=up and lo];
   \addplot[very thick, orange!85!black, domain=0:0.1217646, samples=200]
      {5^(1/(2-2*x))};
-  \addplot[very thick, black, domain=0.1217646:0.5] {2.5};
+  \addplot[thick, black, densely dashed, domain=0.1217646:0.5] {2.5};
   \addplot[very thick, blue!70!black, domain=0:0.5, samples=240]
      {sqrt(5)*(sqrt(5)/2)^(x/(1-x))};
   \draw[densely dotted, gray] (axis cs:0.1217646,2.200) -- (axis cs:0.1217646,2.5);
@@ -260,14 +299,16 @@ exactly $\tfrac52$, which gives $\Cmin(C_5)=\log_2\tfrac52$ and
 $\Sigma(C_5)=\tfrac52$.  On $[0,\tfrac12]$ it is continuous and nondecreasing
 and lies between the interpolation lower bound (blue) and the minimum of
 $\tfrac52$ and the Lov\'asz-umbrella bound obtained from the limiting
-handle center (orange).  This particular bound is better than $\tfrac52$
+handle center (orange); where this minimum is $\tfrac52$ it is drawn dashed,
+since there it is only an upper bound.  The umbrella bound is better than $\tfrac52$
 only for $\alpha<1-\ln5/(2\ln\frac52)\approx0.122$; the crossing of these
 upper bounds does not by itself identify a transition in the exact graph value.
 Crosses: numerical upper bounds from explicit witnesses, the umbrella vectors
 of \cref{fig:pentagon-geometries}(b) with the faithful center
 $(1-x)\proj c+\tfrac x2(I-\proj c)$ and $x$ optimized at each order
-(\texttt{verify/pentagon\_numerical\_bounds.py}).  They improve on the
-limiting handle center only slightly, for example $2.4408<2.4452$ at
+(verification script \texttt{pentagon\_numerical\_bounds.py}; see Data and
+code availability).  They improve on the
+limiting handle center only slightly, for example $2.44084<2.44521$ at
 $\alpha=0.1$, and they stay below $\tfrac52$ until $\alpha\approx0.128$.
 Continuity and the endpoint values $\sqrt5$ and $\tfrac52$ force the curve
 through every value in between.}
@@ -286,14 +327,21 @@ Both outer bounds are certified by exact rational data.  In particular
 $\vt_1\ne\vt_2$.
 \end{mainthm}
 
+In exact form, the two certified bounds are
+\[
+ 2^{\Cmin(G_{32})}\ \le\ \frac{32329248967670751}{5225365592240894}
+ \ <\ \frac{93824992214030}{15147154828811}\ \le\ \Sigma(G_{32}),
+\]
+the reciprocals of the rationals in~\eqref{eq:g32-rationals}.
 For this graph $\vt(G_{32})=6$ and $\alpha^*(G_{32})=\tfrac{32}5$, so both
 bounds lie well inside the interval $[\vt,\alpha^*]$ of the Duan--Winter chain
 (\cref{sec:small}).
 
-\subsection{A taste of the method: the pentagon in one inequality}
+\subsection{A taste of the method: the pentagon}
 \label{sec:taste}
 
-The pentagon conjecture has a proof short enough to give here in full.  Label
+Given the projection formula of \cref{sec:compressions}, the pentagon
+conjecture has a short proof.  Label
 $C_5$ by $\mathbb Z_5$ with $i\sim i\pm1$.  In a representation of the
 pentagon, non-neighbours get orthogonal projections: $P_iP_{i+2}=0$ for all
 $i$.  At order $\alpha=\frac12$, the formula of \cref{sec:compressions} for
@@ -313,31 +361,47 @@ adjacent to each other, so $P_{i-1}+P_{i+1}$ is again a projection.  Seen from
 inside $P_i$, the sum of all five projections is therefore at most twice the
 identity (\cref{lem:hs}).  Put $X=\sigma^{1/2}$.  The right side of~\eqref{eq:hs-intro}
 is $2\Tr\sigma=2$, so some vertex has $\nrm{P_i\sigma^{1/2}P_i}_2^2\le2/5$,
-and $\vt_{1/2}(C_5)\ge5/2$.  Since $\vt_\alpha$ increases with $\alpha$, the
+and $\vt_{1/2}(C_5)\ge5/2$.  Since $\vt_\alpha$ is nondecreasing in $\alpha$
+(\cref{prop:endpoints}(ii)), the
 same bound holds for $\vt_1=2^{\Cmin}$ and for $\vt_2=\Sigma$.
 
 The matching upper bound is the obvious classical channel: input $i$ produces a
 uniformly random element of $\{i,i+1\}$.  Its Holevo capacity is
 $\log_25-1=\log_2\frac52$, and $T=\frac12 I$ dominates every output with
 $\Tr T=\frac52$.  Duan and Winter's chain~\eqref{eq:dw-chain} squeezes $\SNS$
-in between, and $\alpha^*(C_5)=\frac52$ is classical.  That is the whole proof.
+in between, and $\alpha^*(C_5)=\frac52$ is classical \cite{Shannon1956}.
+Besides \cref{lem:hs}, the argument uses the projection formula, the
+identities $\vt_1=2^{\Cmin}$ and $\vt_2=\Sigma$ of \cref{prop:endpoints}(i)
+(the first is the radius formula for the Holevo capacity) and monotonicity
+in~$\alpha$.
 
 \subsection{What is new}\label{sec:new}
 
 \paragraph{New points in the entanglement-assisted spectrum.}
 To our knowledge, the parameters $\vt_\alpha$ with $\alpha>0$ are the first
-elements of $\Xs$ other than $\vt$.  \Cref{thm:B} settles Li and Zuiddam's
-``only point'' question in the negative.  It says nothing about whether $\vt$
-is the \emph{least} point.  Every $\vt_\alpha$ dominates $\vt$, so the bound
+elements of $\Xs$ other than $\vt$.  Of the two routes to $\Theta_*=\vt$ that
+Li and Zuiddam suggested \cite{LiZuiddam2020}, \cref{thm:A,thm:B} rule out the
+stronger one, which was to show that $\vt$ is the only point.  They say
+nothing about whether $\vt$ is the \emph{least} point.  Every $\vt_\alpha$
+dominates $\vt$, so the bound
 $\Theta_*\le\vt$ is not improved and the conjecture $\Theta_*=\vt$ is
-untouched.
+untouched.  A continuum with the same values on $C_5$ was already available
+in the \emph{ordinary} asymptotic spectrum.  Vrana's log-convex interpolation
+\cite{Vrana2021} between $\vt$ and a fractional Haemers bound, whose value on
+$C_5$ is $\frac52$ \cite[Proposition~4]{BukhCox2019}, evaluates the
+vertex-transitive graph $C_5$ log-affinely \cite[Section~5]{Vrana2022}, so
+its values on $C_5$ fill $[\sqrt5,\frac52]$.  What is new here is that the
+points $\vt_\alpha$ lie in the entanglement-assisted spectrum $\Xs$.
 
 \paragraph{Multiplicativity for joint representations.}
 Duan and Winter proved that $\Sigma$ is multiplicative for two \emph{fixed}
-cq-graphs \cite{DuanWinter2016}.  In our language, that is the case of
-\cref{thm:product} in which the representation of $G\boxt H$ is a tensor
-product.  \Cref{thm:product} drops that assumption, at every order in
-$[0,2]$.  At the two lower endpoints this recovers known results: order zero
+cq-graphs \cite[Proposition~18]{DuanWinter2016}.  Applied to representations
+of $G\boxt H$ that are tensor products, their result gives the order-two
+identity of \cref{thm:product} for the infimum restricted to such
+representations.  \Cref{thm:product} proves the graph-level identity without
+that restriction, at every order in $[0,2]$; it does not recover their
+statement for fixed cq-graphs.  At the two lower endpoints the graph-level
+identity is known: order zero
 is Lov\'asz's multiplicativity of $\vt$ \cite{Lovasz1979}, and order one is
 Duan and Winter's additivity of $\Cmin$ under the strong product
 \cite[Lemma~23]{DuanWinter2016}.  Every order in $(0,1)\cup(1,2]$ is new, and
@@ -346,33 +410,58 @@ single-letter formula,
 \[
  \SNS(G)=\log_2\Sigma(G),
 \]
-for the optimal asymptotic no-signalling simulation rate among channels with
-confusability graph $G$.  Duan and Winter single out asymptotic simulation
-with no-signalling assistance as an important open problem.  At the level of
-confusability graphs, this reduces it to a one-shot problem.
+for graph-level asymptotic no-signalling simulation: at each block length $n$
+one may use any channel compatible with $G^{\boxt n}$, and such a
+channel may correlate the $n$ uses.  Duan and Winter remarked that this
+identity ``may be true'', and that proving it requires the additivity of
+$\log\Sigma$ under the strong product, which they describe as unknown
+\cite[Section~V]{DuanWinter2016}.  In their concluding section they list this
+graph-level simulation cost as open \cite[Section~VII]{DuanWinter2016}.  For
+a fixed cq-graph they had already shown that the asymptotic cost is
+single-letter \cite[Proposition~18 and Theorem~19]{DuanWinter2016}.  At the
+level of confusability graphs, \cref{thm:product} reduces asymptotic
+no-signalling simulation to a one-shot problem.  Their general problem, for
+non-commutative bipartite graphs that are not cq-graphs, is not addressed
+here.
 
 \paragraph{The Duan--Winter chain, link by link.}
 With~\eqref{eq:endpoints-intro} in hand, every link of~\eqref{eq:dw-chain}
 can now be decided (\cref{fig:chain}).  Duan and Winter showed that the last
 link can be strict.  They conjectured that the first is strict on the
 pentagon, which is the corollary above.  They left open whether either of the
-two middle links can be strict.  The third link is always an equality
-(\cref{thm:A} at order two).  The second can be strict (\cref{thm:C}).
+two middle links can be strict, and remarked that the third might be an
+equality.  It is always an equality, by multiplicativity at order two
+(\cref{thm:product,rem:single-letter}).  The second
+can be strict (\cref{thm:C}).  For a fixed cq-graph with two non-orthogonal
+pure outputs, Duan and Winter had already shown the corresponding
+fixed-channel inequalities to be strict \cite[Section~IV.D]{DuanWinter2016};
+what is new is a separation of the graph-level quantities.  They also wrote
+that ``it seems that
+$\Sigma(G)$ and $2^{\Cmin(G)}$ are two new interesting, multiplicative graph
+parameters, different from both $\vt(G)$ and $\alpha^*(G)$''
+\cite[Section~VII]{DuanWinter2016}.  For $2^{\Cmin}$ multiplicativity is their
+Lemma~23, and \cref{thm:product} gives it for $\Sigma$.  Their Hadamard-graph
+example already separates both parameters from $\alpha^*$, and the pentagon
+separates both from $\vt$.
 
-\paragraph{One curve instead of three numbers.}
-Duan and Winter already wrote $\log_2\Sigma$ as a conditional min-entropy,
-which is a max-relative-entropy radius.  What seems to be new is that, once
+\paragraph{One family instead of three numbers.}
+Duan and Winter already wrote $\log_2\Sigma$ as a conditional min-entropy
+\cite[Theorem~2]{DuanWinter2016}, which is a max-relative-entropy radius.
+What seems to be new is that, once
 one minimizes over states supported in a fixed projection, this radius
 coincides with the \emph{Petz} radius of order two.  All three quantities then
-sit on a single monotone curve.  The sandwiched R\'enyi graph radii trace
-this entire curve as well: for $\frac12\le\beta\le\infty$,
+sit in a single monotone family.  The sandwiched R\'enyi graph radii give
+this entire family as well: for $\frac12\le\beta\le\infty$,
 $\widetilde\vt_\beta=\vt_{2-1/\beta}$ (\cref{prop:sandwiched}).  Thus the
 sandwiched family runs from $\vt$ at $\beta=\frac12$, through $2^{\Cmin}$
 at $\beta=1$, to $\Sigma$ at $\beta=\infty$, and gives the same spectral
 points.  The equality is between optimized graph radii, not divergences of
 fixed pairs of states.  The picture has a useful by-product: every
-$\vt_\alpha$ is squeezed between $\vt$ and $\alpha^*$ by flat witnesses
-(\cref{prop:endpoints}).  So the family collapses to a single value on graphs
+$\vt_\alpha$ lies between $\vt$ and $\alpha^*$ (\cref{prop:endpoints}).  At
+orders $0$, $1$ and $2$ these bounds follow from Duan and Winter's chain; at
+other orders they follow from the chain together with monotonicity in
+$\alpha$, and flat witnesses give the upper bound directly.  So the family
+collapses to a single value on graphs
 with $\vt=\alpha^*$, perfect graphs among them, and it can only separate
 points on graphs with $\vt<\alpha^*$.
 
@@ -404,7 +493,7 @@ points on graphs with $\vt<\alpha^*$.
 \node[new] at ($(b)!0.5!(c)+(0,-1.25)$)
   {\textbf{can be strict}\\ open in DW;\\ $G_{32}$, Thm~\ref{thm:C}};
 \node[new] at ($(c)!0.5!(d)+(0,-1.25)$)
-  {\textbf{always equal}\\ open in DW;\\ Thm~\ref{thm:A} at $\alpha=2$};
+  {\textbf{always equal}\\ open in DW;\\ Thm~\ref{thm:product} at $\alpha=2$};
 \node[old] at ($(d)!0.5!(e)+(0,-1.25)$)
   {\textbf{can be strict}\\ shown by DW\\ \phantom{x}};
 \node[font=\small, anchor=east] at (-0.55,-2.45) {$C_5$:};
@@ -421,8 +510,9 @@ points on graphs with $\vt<\alpha^*$.
 \node[val, gray] at (4*\dx,-3.0) {$\cdot$};
 \end{tikzpicture}
 \caption{The Duan--Winter chain~\eqref{eq:dw-chain} after this paper.  The
-three quantities in the first four columns that carry an order are the points
-$\alpha=0,1,2$ of one curve.  Shaded boxes record the status of each link;
+three quantities in the first four columns that carry an order are the members
+$\alpha=0,1,2$ of one monotone family.  The last column is Shannon's fractional packing
+(LP) bound \cite{Shannon1956}.  Shaded boxes record the status of each link;
 teal marks what is new here.  The bottom rows give values in bits (dots are
 values we do not need).}
 \label{fig:chain}
@@ -432,19 +522,61 @@ values we do not need).}
 
 Dalai showed that the Lov\'asz bound and the sphere-packing bound for
 classical--quantum channels are both information radii of Csisz\'ar type
-built from R\'enyi divergences \cite{Dalai2013}.  Our order-zero endpoint is an
-object of the same kind, and the family $\vt_\alpha$ continues it to positive
-order at the level of graphs.  As explained above, Duan and Winter's
-fixed-cq-graph multiplicativity is the factoring case of our product theorem.
+\cite{Csiszar1995} built from R\'enyi divergences
+\cite{Dalai2013,Dalai2013TIT}.  At the level
+of graphs he considered the order-zero radius $\vt_{\mathrm{sp}}$, the
+minimum over projector representations $(U_x)$ of $G$ and density operators
+$F$ of $\max_x\log(1/\Tr U_xF)$, and proved that it equals $\log\vt(G)$, a
+theorem he credits to Schrijver \cite[Theorem~8]{Dalai2013TIT}.  This is our
+identity $\vt_0=\vt$.  Duan and Winter prove it as well, by purifying the
+center in the proof of their Theorem~5 \cite[Section~V]{DuanWinter2016}; the
+case of a pure center with general projections is due to Cabello, Severini
+and Winter \cite{CSW2010}, and Dalai and Winter note the observations of
+Schrijver and of Duan and Winter \cite{DalaiWinter2017}.  The family
+$\vt_\alpha$ continues this graph-level order-zero radius to all orders
+$0\le\alpha\le2$.  For a fixed cq-channel, Duan and Winter already express
+their quantities as radii: the no-signalling-assisted zero-error capacity of
+their Theorem~4 is the order-zero radius (by the minimax formula in their
+proof of Theorem~5), the simulation cost of their Theorem~2 is given by a
+conditional min-entropy, that is, by a max-relative-entropy radius, and the
+Holevo capacity is the relative-entropy radius \cite{DuanWinter2016}.  What
+is new here is the graph-level family at every order in $[0,2]$ and the
+identification of its order-two member with a Petz radius.  As explained
+above, Duan and Winter's fixed-cq-graph multiplicativity gives the order-two
+product identity only for representations that are tensor products; our
+product theorem removes that restriction but does not recover their
+fixed-cq-graph statement.
+
+Two concurrent works concern related channel quantities.  Shariat,
+Hoogsteder-Riera and Tomamichel prove that non-signalling-assisted
+simulation cannot increase the R\'enyi capacity of a classical channel, at
+any order \cite{SHT2026}; this is a channel-level classical analogue of our
+monotonicity step (\cref{thm:ea-mono}).  Cheng and Berta show that the
+Petz--R\'enyi channel information of quantum-input channels can be strictly
+superadditive for every $\alpha\in[\frac12,1)$ \cite{ChengBerta2026}.  This
+does not conflict with \cref{thm:product}, which concerns classical-input
+families and covers arbitrary, possibly entangled, joint representations of
+$G\boxt H$.  Petz radii of a fixed cq-channel also have an operational
+meaning: Petz--R\'enyi capacities of Csisz\'ar type determine the error
+exponent of coding assisted by activated no-signalling correlations
+\cite{OTB2024}.
+
 In the ordinary spectrum, continua arise in a different way.  Vrana's
 probabilistic refinement makes the ordinary spectrum log-convex in a suitable
 sense \cite{Vrana2021}, and so interpolating between two known points produces
 new ones.  We do not know whether an analogue holds for $\le_*$.
-\Cref{sec:open} explains why, even if it does, at least $\vt_1$ is not such an
-interpolation.  For the weaker quantum and commuting-quantum
-preorders, Haemers-type parameters give further points
-\cite{LiZuiddam2020,GaoGriblingLi2022}.  Their monotonicity under $\le_*$ is
-not known.  Finally, Vrana studied which points of the ordinary spectrum
+\Cref{sec:open} gives a heuristic reason why, even if it does, $\vt_1$ should
+not be an interpolation between $\vt$ and $\Sigma$.  The quantum preorder
+$\le_q$ relates fewer pairs of graphs than $\le_*$ ($G\le_qH$ implies
+$G\le_*H$), so monotonicity under $\le_q$ is the weaker requirement and
+$X(\cG,\le_q)$ contains $\Xs$.  Li and Zuiddam place the fractional real and
+complex Haemers bounds and the complement of the projective rank in
+$X(\cG,\le_q)$ \cite[Theorem~22]{LiZuiddam2020}, and Gao, Gribling and Li
+place a tracial Haemers bound in the asymptotic spectrum for the
+commuting-operator version of the quantum preorder \cite{GaoGriblingLi2022}.
+To our knowledge none of these is known to be monotone under $\le_*$; for
+the Haemers bounds and the projective rank, Li and Zuiddam state this
+explicitly \cite{LiZuiddam2020}.  Finally, Vrana studied which points of the ordinary spectrum
 extend to non-commutative graphs \cite{Vrana2022}.  We stay with classical
 graphs throughout.
 
@@ -473,7 +605,8 @@ orientation \cite{Lovasz1979}.  Li and Zuiddam express the same relations
 through graph complements.
 \item $G\sqcup H$ is the disjoint union and $G\boxt H$ the strong product,
 where $(x,y)\simeq(x',y')$ if and only if $x\simeq x'$ and $y\simeq y'$.
-$K_1$ is a single vertex, $\overline{K_n}$ is the edgeless graph on $n$
+$K_0$ is the null graph, with no vertices, $K_1$ is a single vertex,
+$\overline{K_n}$ is the edgeless graph on $n$
 vertices (a noiseless channel with $n$ inputs), and $C_5$ is the pentagon.
 \item Logarithms are to base two unless written $\ln$.  Hilbert spaces are
 finite-dimensional, of arbitrary dimension.  A state is \emph{faithful} if it
@@ -495,8 +628,9 @@ $x\mapsto\rho_x$ whose confusability graph is contained in $G$: two inputs can
 only be confused if they are adjacent.  Extra orthogonality between adjacent
 vertices is allowed.  Duan and Winter optimize over the same class of channels.
 Readers who prefer channels whose confusability graph is exactly $G$ lose
-nothing, because every infimum below is the same for both classes
-(\cref{lem:exact-graph}).
+nothing, because each of the infima
+\eqref{eq:def-parameter}--\eqref{eq:sigma-def} below is the same for both
+classes (\cref{lem:exact-graph}).
 
 For a state $\rho$ and a faithful state $\sigma$, the Petz--R\'enyi
 divergence of order $\alpha\in(0,1)\cup(1,2]$ is
@@ -504,7 +638,10 @@ divergence of order $\alpha\in(0,1)\cup(1,2]$ is
  D_\alpha(\rho\Vert\sigma)=\frac{1}{\alpha-1}\log\Tr\rho^\alpha\sigma^{1-\alpha}.
 \]
 At $\alpha=1$ it is the relative entropy $D(\rho\Vert\sigma)$, and at
-$\alpha=0$ it is $D_0(\rho\Vert\sigma)=-\log\Tr\Pi_\rho\sigma$.  We use four
+$\alpha=0$ it is $D_0(\rho\Vert\sigma)=-\log\Tr\Pi_\rho\sigma$.  If $\sigma$
+is a state that is not faithful but $\supp\rho\subseteq\supp\sigma$, the same
+formulas are used with all powers and logarithms of $\sigma$ taken on its
+support; \cref{lem:flagged} uses this convention.  We use four
 standard facts \cite{Petz1986,Tomamichel2016}.  The divergence is
 nonnegative and vanishes at $\rho=\sigma$.  It is additive under tensor
 products.  It is nondecreasing in $\alpha$.  And it satisfies data processing
@@ -518,7 +655,7 @@ For a graph $G$ and $\alpha\in[0,2]$, define $\vt_\alpha(G)$ by
    (\rho_x)\text{ compatible with }G,\ \sigma\text{ faithful}\Bigr\},
 \end{equation}
 where the states live on a common Hilbert space of any finite dimension.  For
-the empty graph we set $\vt_\alpha(K_0)=0$.
+the null graph we set $\vt_\alpha(K_0)=0$.
 \end{definition}
 
 Nothing changes if singular centers are allowed with the usual support
@@ -543,7 +680,8 @@ SDP value governing exact simulation of the channel $x\mapsto\rho_x$ with
 no-signalling assistance.  For a fixed channel, the literal one-shot
 noiseless message alphabet has size equal to the ceiling of this SDP value;
 the ceiling disappears after division by block length.  At graph level,
-$\Sigma(G)$ is an infimum over compatible channels and need not be attained.
+$\Sigma(G)$ is an infimum over compatible channels and is not known to be
+attained.
 Thus $\log\Sigma(G)$ is the infimum of the corresponding single-letter SDP
 costs.  Tensoring witnesses shows that $\Sigma$ is
 submultiplicative under $\boxt$, so the regularization
@@ -551,7 +689,8 @@ submultiplicative under $\boxt$, so the regularization
  \SNS(G)=\lim_{n\to\infty}\frac1n\log\Sigma(G^{\boxt n})
 \]
 exists.  This is Duan and Winter's graph-level asymptotic simulation cost.
-Finally, $\alpha^*(G)$ is the fractional packing number: the largest
+Finally, $\alpha^*(G)$ is Shannon's fractional packing number
+\cite{Shannon1956}: the largest
 $\sum_xv_x$ over $v\ge0$ with $\sum_{x\in C}v_x\le1$ for every clique $C$.  By
 LP duality it is also the smallest $\sum_Cw_C$ over $w\ge0$ with
 $\sum_{C\ni x}w_C\ge1$ for every vertex $x$.
@@ -605,8 +744,9 @@ compression.
 
 \subsection{From states to projections}
 
-Let $P\ne0$ be a projection, let $\sigma$ be faithful, and let
-$s\in[-1,1]$.  On $\ran P$ define
+Let $P\ne0$ be a projection, let $\sigma$ be positive definite (usually a
+faithful state, but \cref{lem:tower} also compresses unnormalized operators),
+and let $s\in[-1,1]$.  On $\ran P$ define
 \[
  K_s(\sigma,P)=
  \begin{cases}(P\sigma^sP)^{1/s}, & s\ne0,\\ \exp\bigl(P(\ln\sigma)P\bigr), & s=0,\end{cases}
@@ -697,17 +837,36 @@ gives the claim for $\alpha\ne0,1$.  The two remaining orders are direct.
 \begin{proposition}\label[proposition]{prop:endpoints}
 For every graph $G$:
 \begin{enumerate}[label=\textup{(\roman*)},itemsep=1pt]
-\item $\vt_0(G)=\vt(G)$, $\vt_1(G)=2^{\Cmin(G)}$ and $\vt_2(G)=\Sigma(G)$;
-\item $\alpha\mapsto\vt_\alpha(G)$ is nondecreasing on $[0,2]$;
-\item $\vt(G)\le\vt_\alpha(G)\le\alpha^*(G)$ for every $\alpha\in[0,2]$.
+\item $\vt_0(G)=\vt(G)$ \textup{\cite[Theorem~8]{Dalai2013TIT},
+\cite[proof of Theorem~5]{DuanWinter2016}},
+$\vt_1(G)=2^{\Cmin(G)}$
+\textup{\cite{OhyaPetzWatanabe1997,SchumacherWestmoreland2001}} and
+$\vt_2(G)=\Sigma(G)$;
+\item $\alpha\mapsto\vt_\alpha(G)$ is nondecreasing on $[0,2]$
+\textup{(immediate from the monotonicity of $D_\alpha$ in $\alpha$
+\cite{Tomamichel2016})};
+\item $\vt(G)\le\vt_\alpha(G)\le\alpha^*(G)$ for every $\alpha\in[0,2]$; at
+$\alpha\in\{0,1,2\}$ these bounds follow from Duan and Winter's
+chain~\eqref{eq:dw-chain} \textup{\cite{DuanWinter2016}}.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-(i) \emph{Order zero.}  By~\eqref{eq:projection-formula},
-$1/\vt_0(G)=\sup\min_x\Tr P_x\sigma$.  Lov\'asz's handle form reads
+(i) \emph{Order zero.}  This is Dalai's Theorem~8, which he credits to
+Schrijver \cite{Dalai2013TIT}.  Duan and Winter give the same purification
+argument in the proof of their Theorem~5 \cite[Section~V]{DuanWinter2016},
+and for a pure center the passage from projections to vectors is the
+argument of Cabello, Severini and Winter \cite[proof of Eq.~(6)]{CSW2010}.
+We include the short argument in our notation.
+By~\eqref{eq:projection-formula},
+$1/\vt_0(G)=\sup\min_x\Tr P_x\sigma$.  Lov\'asz's definition of $\vt$
+through the value of an orthonormal representation reads
 $1/\vt(G)=\sup\min_x|\langle c,u_x\rangle|^2$ over orthonormal
-representations $(u_x)$ of $G$ and unit vectors $c$ \cite{Lovasz1979}.  A
+representations $(u_x)$ of $G$ and unit vectors $c$
+\cite[Section~II]{Lovasz1979}.  Lov\'asz uses real vectors, but complex ones
+give the same value: rephase each $u_x$ so that $\langle c,u_x\rangle\ge0$,
+and then realify, $v\mapsto(\operatorname{Re}v,\operatorname{Im}v)$, which
+preserves unit length, orthogonality and the values $\langle c,u_x\rangle$.  A
 vector representation is a projection representation with $P_x=\proj{u_x}$,
 and a faithful approximation of $\proj c$ gives $\vt_0\le\vt$.  Conversely,
 purify $\sigma$ to a unit vector $c\in\cH\otimes\cH'$ and put
@@ -716,8 +875,8 @@ and $|\langle c,u_x\rangle|^2=\Tr P_x\sigma$, so $\vt\le\vt_0$.
 
 \emph{Order one.}  For each compatible family, the Holevo capacity equals the
 relative-entropy radius $\min_\sigma\max_xD(\rho_x\Vert\sigma)$
-\cite{SchumacherWestmoreland2001}.  Taking the infimum over families gives
-$\vt_1=2^{\Cmin}$.
+\cite{OhyaPetzWatanabe1997,SchumacherWestmoreland2001}.  Taking the infimum
+over families gives $\vt_1=2^{\Cmin}$.
 
 \emph{Order two.}  By~\eqref{eq:projection-formula},
 $1/\vt_2=\sup\min_x\Tr\sigma_{/P_x}$.  Given a compatible family and $T\ge\rho_x$
@@ -730,7 +889,10 @@ $T=\sigma/c$, whose trace is $1/c$.  Hence $\Sigma\le\vt_2$.
 (ii) $D_\alpha$ is nondecreasing in $\alpha$ for each pair of states, and
 infima preserve this.
 
-(iii) The lower bound follows from (i) and (ii).  For the upper bound take a
+(iii) The lower bound follows from (i) and (ii).  The upper bound also
+follows from (i), (ii) and~\eqref{eq:dw-chain}, since
+$\vt_\alpha\le\vt_2=\Sigma\le\alpha^*$; flat witnesses give it directly.
+Take a
 fractional clique cover $w$ with $\sum_Cw_C=\alpha^*(G)$, and work on the
 space spanned by orthonormal vectors $\ket C$, one for each clique with
 $w_C>0$.  Put $\sigma=\sum_Cw_C\proj C/\alpha^*(G)$ and let $\Pi_x$ project
@@ -756,9 +918,13 @@ $[0,1)$.
 Right continuity comes from fixing a near-optimal witness.  Left continuity
 comes from a comparison $D_\alpha\le\frac{\alpha(1-\beta)}{\beta(1-\alpha)}D_\beta$
 for $\beta<\alpha<1$, whose constant does not depend on the states or the
-dimension.  The details are in \cref{app:continuity}.
+dimension.  The details are in \cref{app:continuity}.  The right-continuity
+argument works at every order in $[0,2)$, so the map is right-continuous on
+$[0,2)$.  Left continuity at orders in $[1,2]$ is not proved here, except on
+the pentagon, where the map is constant on $[\frac12,2]$
+(\cref{thm:pentagon-half}).
 
-\subsection{Sandwiched radii give the same curve}\label{sec:sandwiched}
+\subsection{Sandwiched radii give the same family}\label{sec:sandwiched}
 
 The Petz divergence is not the only quantum R\'enyi divergence.  For
 $\beta\in[\frac12,1)\cup(1,\infty)$ the \emph{sandwiched} R\'enyi divergence
@@ -772,7 +938,8 @@ with the relative entropy $\widetilde D_1=D$ at order one and the
 max-relative entropy
 $\widetilde D_\infty(\rho\Vert\sigma)=\log\min\{\lambda:\rho\le\lambda\sigma\}$
 at order infinity.  This family satisfies data processing throughout
-$[\frac12,\infty]$ \cite{FrankLieb2013}.  Define $\widetilde\vt_\beta(G)$
+$[\frac12,\infty]$ \cite{FrankLieb2013,Beigi2013}.  Define
+$\widetilde\vt_\beta(G)$
 by~\eqref{eq:def-parameter} with $\widetilde D_\beta$ in place of $D_\alpha$,
 using the same compatible families and faithful centers, and set
 $\widetilde\vt_\beta(K_0)=0$.  On this full range it gives exactly the Petz
@@ -858,25 +1025,39 @@ $1/\lambda\le\Tr\sigma_{/P}=Z_{-1}(\sigma,P)$, with equality at
 $\rho=\sigma_{/P}/\Tr\sigma_{/P}=K_{-1}/Z_{-1}$.
 
 In every case $K_s/Z_s$ is faithful on $\ran P$.  Thus the minimizing
-states retain the prescribed supports, and for a nonempty graph the same
+states retain the prescribed supports, and for a graph with at least one
+vertex the same
 argument as in~\eqref{eq:projection-formula} yields
 \[
  \frac1{\widetilde\vt_\beta(G)}
  =\sup_{(P_x),\,\sigma}\min_x Z_s(\sigma,P_x)
  =\frac1{\vt_{1-s}(G)}.
 \]
-The empty graph follows from the conventions.  These identities hold in
+The null graph follows from the conventions.  These identities hold in
 each fixed dimension before optimizing over representations and centers;
 no exchange of an order limit with an unbounded-dimension infimum is used.
 \end{proof}
 
-Thus the sandwiched radii on $[\frac12,\infty]$ trace exactly the Petz curve
+Thus the sandwiched radii on $[\frac12,\infty]$ give exactly the Petz family
 on $[0,2]$, from the Lov\'asz number to the no-signalling simulation cost.
 By \cref{thm:A}, every
 $\widetilde\vt_\beta$ in this range is a point of $\Xs$, and the two
 families give the same set of spectral points.  This is an identity of
 optimized graph radii after reparameterization, not an identity between
-the two divergences for arbitrary fixed states.
+the two divergences for arbitrary fixed states.  For a pure state
+$\psi=\proj\phi$ and a faithful state $\sigma$ the two divergences do agree:
+$\widetilde D_\beta(\psi\Vert\sigma)=D_{2-1/\beta}(\psi\Vert\sigma)$ for
+every $\beta\in[\frac12,\infty]$.  Indeed, for $\beta\ne1,\infty$ the
+operator $\sigma^{(1-\beta)/2\beta}\psi\,\sigma^{(1-\beta)/2\beta}$ has rank
+one, so both sides equal
+$\frac{\beta}{\beta-1}\log\bra\phi\sigma^{(1-\beta)/\beta}\ket\phi$; at
+$\beta=1$ both are the relative entropy, and at $\beta=\infty$ both equal
+$\log\bra\phi\sigma^{-1}\ket\phi$.  \Cref{prop:sandwiched} is the
+corresponding statement for optimized radii, where the optimal states need
+not be pure.  At $\beta=\infty$ the
+identity $\widetilde\vt_\infty=\Sigma$ is Duan and Winter's conditional
+min-entropy formula \cite[Theorem~2]{DuanWinter2016}, written as a
+max-relative-entropy radius and optimized over compatible channels.
 
 \subsection{The tower identity}
 
@@ -969,8 +1150,8 @@ For $0\le\alpha\le2$ and all graphs $G,H$,
 \end{theorem}
 
 \begin{proof}
-If either graph is empty both sides vanish, so assume both are nonempty and
-put $s=1-\alpha$.
+If either graph is the null graph both sides vanish, so assume that both
+have vertices and put $s=1-\alpha$.
 
 For ``$\le$'', take witnesses $(\rho_x),\sigma$ for $G$ and $(\tau_y),\omega$
 for $H$.  If $(x,y)$ and $(x',y')$ are distinct and non-adjacent in $G\boxt H$,
@@ -1009,10 +1190,12 @@ At $\alpha=0$ and $\alpha=1$, \cref{thm:product} recovers the multiplicativity
 of $\vt$ \cite{Lovasz1979} and Duan and Winter's additivity of $\Cmin$
 \cite[Lemma~23]{DuanWinter2016}.  At $\alpha=2$ it says
 $\Sigma(G\boxt H)=\Sigma(G)\Sigma(H)$.
-Hence $\SNS(G)=\log\Sigma(G)$: regularizing the graph-level SDP value does not
-change it.  Their
-fixed-cq-graph result \cite{DuanWinter2016} is the special case
-$P_{xy}=P_x\otimes Q_y$.
+Hence $\SNS(G)=\log\Sigma(G)$: regularizing the graph-level value
+$\log\Sigma(G)$, an infimum of one-shot SDP costs, does not change it.  Their
+fixed-cq-graph multiplicativity \cite[Proposition~18]{DuanWinter2016} gives
+this identity only for the infimum restricted to product representations
+$P_{xy}=P_x\otimes Q_y$.  \Cref{thm:product} removes that restriction, but it
+does not recover their statement for fixed cq-graphs.
 \end{remark}
 
 \subsection{Disjoint unions}
@@ -1037,7 +1220,7 @@ $\ran Q$, and for $\alpha=0$ use $Q\sigma Q=Z_1\sigma_Q$.
 \end{proof}
 
 \begin{lemma}[orthogonal blocks]\label[lemma]{lem:orthogonal-sum}
-If $Q_1,\dots,Q_m$ are mutually orthogonal projections, $\sigma$ is a faithful
+If $Q_1,\dots,Q_m$ are mutually orthogonal nonzero projections, $\sigma$ is a faithful
 state and $s\in[-1,1]$, then $\sum_jZ_s(\sigma,Q_j)\le1$.
 \end{lemma}
 
@@ -1049,7 +1232,8 @@ For $0\le\alpha\le2$, $\vt_\alpha(G\sqcup H)=\vt_\alpha(G)+\vt_\alpha(H)$.
 \end{theorem}
 
 \begin{proof}
-Assume both graphs are nonempty.  For ``$\le$'', put witnesses for $G$ and $H$
+Assume that neither graph is the null graph.  For ``$\le$'', put witnesses
+for $G$ and $H$
 with radii at most $\log a$ and $\log b$ on orthogonal summands, and use the
 center $(a\sigma_G\oplus b\sigma_H)/(a+b)$.  Compressing this center to the
 first summand gives weight $a/(a+b)$ and reduced center $\sigma_G$, so by
@@ -1115,8 +1299,8 @@ If $G\le_*H$, then $\vt_\alpha(G)\le\vt_\alpha(H)$ for every $\alpha\in[0,2]$.
 \end{theorem}
 
 \begin{proof}
-If $G$ is empty there is nothing to prove, and if $G$ is nonempty
-then~\eqref{eq:ea-sum} forces $H$ to be nonempty.  Take $\omega,\omega_g^h$ as
+If $G$ is the null graph there is nothing to prove, and otherwise
+\eqref{eq:ea-sum} forces $H$ to have a vertex.  Take $\omega,\omega_g^h$ as
 in~\eqref{eq:ea-sum}--\eqref{eq:ea-orth}, restricted to $\supp\omega$, and a
 compatible family $(\tau_h)$ for $H$ with faithful center $\sigma$ and radius
 at most $R$.  Define
@@ -1134,16 +1318,22 @@ around $\sigma'$ by $R$.
 \begin{proof}[Proof of \cref{thm:A}]
 Normalization was noted at the start of the section.  Additivity is
 \cref{thm:union}, multiplicativity is \cref{thm:product}, and monotonicity is
-\cref{thm:ea-mono}.
+\cref{thm:ea-mono}.  At $\alpha=0$ these are properties of $\vt$, and
+membership of $\vt$ in $\Xs$ is Li and Zuiddam's theorem
+\cite{LiZuiddam2020}, whose monotonicity step is due to Cubitt et
+al.~\cite{CMRSSW2014}.
 \end{proof}
 
 \begin{remark}[orders above two]\label[remark]{rem:above-two}
 The only place the restriction $\alpha\le2$ enters is data processing in
-\cref{lem:flagged}.  Petz data processing fails above order two, and the
-inequality of \cref{lem:flagged} itself fails too.  The verifier accompanying
-this paper contains a finite-dimensional order-three example that violates
-it by more than half a bit.  So this argument says nothing about
-$\alpha>2$.
+\cref{lem:flagged}.  \Cref{prop:supported}, \cref{lem:tower} and
+\cref{lem:compression,lem:orthogonal-sum} hold verbatim for $s<-1$, that is,
+for $\alpha>2$, so data processing is the only obstruction in this argument.
+Petz data processing fails above order two, and the inequality of
+\cref{lem:flagged} itself fails too: the accompanying verification scripts
+(see Data and code availability) exhibit an explicit finite-dimensional
+instance at order three in which it fails by more than half a bit.  So this
+argument says nothing about $\alpha>2$.
 \end{remark}
 
 \section{The pentagon}\label{sec:pentagon}
@@ -1221,7 +1411,7 @@ it has radius $\log\frac52$ at every order.
 \node[font=\scriptsize, anchor=north west] at ($(p2)+(0.18,-0.18)$) {$\{e_2,e_3\}$};
 \node[font=\scriptsize, anchor=north east] at ($(p3)+(-0.18,-0.18)$) {$\{e_3,e_4\}$};
 \node[font=\scriptsize, anchor=east]  at ($(p4)+(-0.32,0)$) {$\{e_4,e_0\}$};
-\node[font=\small] at (0,-2.55) {(a) flat witness, $\alpha\ge\frac12$};
+\node[font=\small] at (0,-2.55) {(a) flat witness, $\frac12\le\alpha\le2$};
 \end{tikzpicture}
 \end{minipage}\hfill
 \begin{minipage}[b]{0.5\textwidth}
@@ -1249,7 +1439,9 @@ on $\{e_i,e_{i+1}\}$ and the center is $I/5$.  Non-adjacent supports are
 disjoint, and the radius is $\log\frac52$ at every order; this witness is
 optimal for $\frac12\le\alpha\le2$.  (b) Unit vectors $u_i$ on a cone around
 the handle $c$ with $|\langle c,u_i\rangle|^2=1/\sqrt5$ and
-$u_i\perp u_{i+2}$.  This attains $\vt(C_5)=\sqrt5$ at order zero.  For
+$u_i\perp u_{i+2}$.  With the singular center $\proj c$, a limit of faithful
+centers, this attains $\vt(C_5)=\sqrt5$ at order zero; no faithful center
+attains it.  For
 $0\le\alpha\le\frac12$, faithful centers tending to $\proj c$ make the
 exponentiated radius tend to $5^{1/(2-2\alpha)}$, giving an upper bound on
 $\vt_\alpha(C_5)$.  For
@@ -1260,8 +1452,8 @@ $0<\alpha<\frac12$, the exact graph value remains undetermined.}
 \subsection{Below order one half}
 
 Order zero is governed by a trace-norm version of \cref{lem:hs}, with the
-constant $\sqrt5$ in place of $2$.  Interpolating between the two gives
-everything in between.
+constant $\sqrt5$ in place of $2$.  Interpolating between the two gives a
+lower bound at every order in between.
 
 \begin{lemma}[trace-norm inequality]\label[lemma]{lem:trace}
 For every representation of $C_5$ and every operator $X$,
@@ -1272,8 +1464,12 @@ $\sum_i\nrm{P_iXP_i}_1\le\sqrt5\,\nrm X_1$.
 If $(P_i)$ represents $G$ and $v$ is a vector, pick unit vectors
 $u_i\in\ran P_i$ parallel to $P_iv$ (arbitrary if $P_iv=0$).  They form an
 orthonormal representation of $G$, and $\sum_i\nrm{P_iv}^2=\sum_i|\langle
-u_i,v\rangle|^2\le\vt(\overline G)\nrm v^2$ by Lov\'asz's theorem
-\cite{Lovasz1979}.  The pentagon is self-complementary, so the constant is
+u_i,v\rangle|^2\le\vt(\overline G)\nrm v^2$ by Lov\'asz's Theorem~5 applied
+to $\overline G$ \cite{Lovasz1979}.  That theorem is stated for real vectors;
+to apply it, rephase each $u_i$ so that $\langle u_i,v\rangle\ge0$ and
+realify, $w\mapsto(\operatorname{Re}w,\operatorname{Im}w)$, which preserves
+unit length, orthogonality and the values $\langle u_i,v\rangle$.  The
+pentagon is self-complementary, so the constant is
 $\sqrt5$.  For $X=ab^*$ we have $\nrm{P_iab^*P_i}_1=\nrm{P_ia}\nrm{P_ib}$, and
 Cauchy--Schwarz proves the claim for rank one.  A singular value decomposition
 and the triangle inequality do the rest.
@@ -1288,12 +1484,18 @@ For $1\le p\le2$, every representation of $C_5$ and every operator $X$,
 \end{lemma}
 
 \begin{proof}
-The map $X\mapsto(P_iXP_i)_i$ has norm at most $\sqrt5$ from $S_1$ to
-$\ell_1(S_1)$ by \cref{lem:trace}, and at most $\sqrt2$ from $S_2$ to
-$\ell_2(S_2)$ by \cref{lem:hs}.  Complex interpolation of Schatten classes and
-their $\ell_p$-sums \cite{BerghLofstrom1976,Bhatia1997} bounds its norm from
-$S_p$ to $\ell_p(S_p)$ by $5^{(2-p)/(2p)}2^{(p-1)/p}$.  Raise this to the
-power $p$.
+Consider the map $T:X\mapsto\bigoplus_iP_iXP_i$ into block-diagonal
+operators on $\mathbb C^5\otimes\cH$.  For block-diagonal operators
+$\nrm{\bigoplus_iY_i}_p^p=\sum_i\nrm{Y_i}_p^p$, so the claim says that $T$
+has norm at most $B(p)^{1/p}$ from $S_p(\cH)$ to $S_p(\mathbb C^5\otimes\cH)$.
+By \cref{lem:trace} the norm is at most $\sqrt5$ for $p=1$, and by
+\cref{lem:hs} it is at most $\sqrt2$ for $p=2$.  The Schatten classes form a
+complex interpolation scale with equal norms \cite[Eq.~(2.1)]{PisierXu2003},
+and the complex method is exact of exponent $\theta$
+\cite{BerghLofstrom1976}, here $\theta=2-2/p$.  So the norm from $S_p$ to
+$S_p$ is at most
+$\sqrt5^{\,1-\theta}\sqrt2^{\,\theta}=5^{(2-p)/(2p)}2^{(p-1)/p}$.  Raise this
+to the power $p$.
 \end{proof}
 
 \begin{theorem}\label{thm:pentagon-bounds}
@@ -1306,6 +1508,15 @@ For the lower bound put $s=1/p$ and $X=\sigma^s$ in \cref{lem:interp}.  Then
 $\nrm X_p^p=\Tr\sigma=1$ and $\nrm{P_i\sigma^sP_i}_p^p=Z_s(\sigma,P_i)$, so
 $\sum_iZ_s(\sigma,P_i)\le B(p)$.  The minimum is at most the average, so
 $\vt_\alpha(C_5)\ge5/B(p)=\sqrt5(\sqrt5/2)^{p-1}$.
+
+The step from the minimum to the average loses nothing.  Given a
+representation $(P_i)$ of $C_5$ with center $\sigma$, the projections
+$P'_i=\bigoplus_{k\in\mathbb Z_5}P_{i+k}$ on $\mathbb C^5\otimes\cH$ again
+represent $C_5$, and with the center $\sigma'=\bigoplus_k\sigma/5$
+homogeneity and additivity over orthogonal blocks give
+$Z_s(\sigma',P'_i)=\frac15\sum_kZ_s(\sigma,P_k)$ for every $i$.  So the
+minimum for $(P'_i)$ and $\sigma'$ is the average for $(P_i)$ and $\sigma$,
+and the supremum of the minimum equals the supremum of the average.
 
 The bound $\frac52$ is \cref{thm:pentagon-half} combined with monotonicity.
 For the other upper bound, take the umbrella of
@@ -1331,7 +1542,10 @@ functions, and each of them lies in $\Xs$ by \cref{thm:A}.
 \end{proof}
 
 The lower bound in~\eqref{eq:pentagon-intro} exceeds $\sqrt5$ as soon as
-$\alpha>0$.  So no $\vt_\alpha$ with $\alpha>0$ equals $\vt$.
+$\alpha>0$.  So no $\vt_\alpha$ with $\alpha>0$ equals $\vt$.  Points of the
+\emph{ordinary} spectrum whose values on $C_5$ fill $[\sqrt5,\frac52]$ were
+already available through Vrana's interpolation (\cref{sec:new}); the new
+content of \cref{thm:B} is that the points $\vt_\alpha$ lie in $\Xs$.
 
 \begin{remark}[an explicit ladder]
 Readers who want explicit separations without the intermediate value theorem
@@ -1353,8 +1567,9 @@ $\log\frac52$.  They also ask whether the two middle links can ever be strict.
 We can now answer all of this.
 
 Since the corollaries below answer their questions, we quote the relevant
-passages.  The quotations, and the numbers of Section~V and Proposition~18, are from
-arXiv:1409.3426v3, where the chain is numbered~(53) rather than~(54).  There a
+passages.  The quotations, and the section, theorem, proposition and lemma
+numbers we cite from \cite{DuanWinter2016}, are from arXiv:1409.3426v3,
+where the chain is numbered~(53) rather than~(54).  There a
 graph $G$ comes with $S_G=\operatorname{span}\{\ket i\!\bra j:i\sim j\}$,
 where ``$i\sim j$ means confusability: $i=j$ or $\{i,j\}\in E$ is an edge of
 the graph''.  For a cq-graph $K$ the condition $K^\dagger K<S_G$ says that
@@ -1390,7 +1605,8 @@ question.
 
 Their Proposition~18 does not settle the middle link.  It states that
 $\Sigma(K_1\otimes K_2)=\Sigma(K_1)\Sigma(K_2)$ for cq-graphs $K_1,K_2$,
-which concerns two fixed channels.  The graph quantity
+which concerns two fixed cq-graphs, that is, two fixed families of output
+supports.  The graph quantity
 $\Sigma(G\boxt H)$ is an infimum over all channels compatible with $G\boxt H$,
 and most of them are not of the form $K\otimes L$.  So Proposition~18 gives
 only $\Sigma(G\boxt H)\le\Sigma(G)\Sigma(H)$, the inequality quoted above.  The
@@ -1398,7 +1614,7 @@ reverse inequality needs a bound for non-product channels.  That is the
 additivity they list as unknown, and \cref{thm:product} at order two supplies
 it (\cref{rem:single-letter}).  Operationally, $\SNS(G)$ is the cost rate of
 exact no-signalling-assisted simulation when, at each block length $n$, one
-may choose the cheapest channel compatible with $G^{\boxt n}$.  Such a channel
+may choose any channel compatible with $G^{\boxt n}$.  Such a channel
 may correlate the $n$ uses.  \Cref{cor:middle} says that this freedom does not
 lower the rate below the single-letter value $\log\Sigma(G)$.
 
@@ -1410,10 +1626,14 @@ $\log\sqrt5<\Cmin(C_5)=\SNS(C_5)=\log\Sigma(C_5)=\log\alpha^*(C_5)=\log\frac52$.
 \Cref{thm:pentagon-half,prop:endpoints} give
 $\Cmin(C_5)=\log\Sigma(C_5)=\log\frac52$, and~\eqref{eq:dw-chain} squeezes
 $\SNS(C_5)$ between them.  The fractional packing number of $C_5$ is
-$\frac52$ and $\vt(C_5)=\sqrt5$ \cite{Lovasz1979}.
+$\frac52$ \cite{Shannon1956} and $\vt(C_5)=\sqrt5$ \cite{Lovasz1979}.
 \end{proof}
 
-This proof uses only \cref{lem:hs}, the projection formula and
+The values $\vt(C_5)=\sqrt5$ and $\alpha^*(C_5)=\frac52$ are classical, and
+the upper bounds on $\Cmin(C_5)$, $\SNS(C_5)$ and $\log\Sigma(C_5)$ are Duan
+and Winter's chain.  The new ingredient is the lower bound
+$\Cmin(C_5)\ge\log\frac52$.  This proof uses only \cref{lem:hs}, the
+projection formula, the radius formula for the Holevo capacity and
 monotonicity in $\alpha$.  The product theorem is not needed for the pentagon,
 but it is needed for the general statement.
 
@@ -1427,10 +1647,20 @@ The first statement is \cref{rem:single-letter}.  The second is
 \cref{thm:C}, since $\Cmin(G_{32})<\log\Sigma(G_{32})=\SNS(G_{32})$.
 \end{proof}
 
-Duan and Winter also ask whether $\Sigma$ can be strictly submultiplicative
-\cite{DuanWinter2016}.  For confusability graphs, with the optimization over
-compatible channels built in, \cref{thm:product} says that it cannot.  Their
-question for general non-commutative bipartite graphs is not addressed here.
+For a fixed cq-graph, strict inequalities of this kind were known: for the
+cq-graph $K$ of two non-orthogonal pure states, Duan and Winter show
+$C_{0,\mathrm{NS}}(K)<C_{\min E}(K)<S_{0,\mathrm{NS}}(K)$
+\cite[Section~IV.D and Fig.~4]{DuanWinter2016}.  \Cref{cor:middle} separates
+the graph-level quantities, each of which is an infimum over all channels
+compatible with $G$.
+
+For non-commutative bipartite graphs $K$, Duan and Winter also asked
+whether $\Sigma(K)$ can be strictly submultiplicative
+\cite[Section~VII]{DuanWinter2016}.  Wang and Duan answered this with
+explicit qubit--qutrit examples, for which
+$\Sigma(K\otimes K)<\Sigma(K)^2$ \cite{WangDuan2016}.  For the graph-level
+quantity $\Sigma(G)$, with the optimization over compatible channels built
+in, \cref{thm:product} shows that no such gap occurs.
 
 \section{Order one versus order two}\label{sec:small}
 
@@ -1443,8 +1673,7 @@ separate the endpoints we need a graph whose good channels are genuinely
 quantum.  Contextuality scenarios are a natural source, since they come with
 rigid noncommutative representations.  We take the most familiar one, the
 Mermin--Peres magic square \cite{Mermin1990,Peres1990}, and then add weights
-by cloning vertices.  This section works directly from the definitions
-\eqref{eq:cmin-def} and~\eqref{eq:sigma-def} and does not use
+by cloning vertices.  This section uses \cref{sec:compressions} but not
 \cref{thm:product}.
 
 \subsection{The graph}
@@ -1499,7 +1728,14 @@ first two signs $(s,t)$ is represented by the joint eigenprojection
 \]
 a rank-one projection on $\mathbb C^2\otimes\mathbb C^2$.  These projections
 represent $F$.  In fact $Q_vQ_w=0$ holds exactly for the non-adjacent pairs,
-with no accidental orthogonality.  Let vertex $0$ be the first-row vertex
+with no accidental orthogonality.  The ranges of these $24$ projections are
+the $24$ vectors, in six bases of $\mathbb C^4$, that Cubitt, Leung, Matthews
+and Winter took from Peres's proof of the Kochen--Specker theorem to show
+that entanglement can increase the one-shot zero-error capacity of a
+classical channel \cite[Fig.~2]{CLMW2010}.  The six contexts give their six
+bases, and the confusability graph of their channel is the orthogonality
+graph of the $24$ vectors, the complement of $F$.  Let vertex $0$ be the
+first-row vertex
 with signs $(+,+,+)$, so $Q_0=\proj{00}$, and sort the vertices by overlap
 $j_v=4\Tr Q_vQ_0\in\{0,1,2,4\}$.  The four classes have sizes $9,8,6,1$.
 Class $0$ consists of the nine non-neighbours of vertex $0$, and class $4$ is
@@ -1519,11 +1755,12 @@ example is
 Two of the weights of \cref{sec:compressions} matter here.  The Gibbs weight
 $w_\sigma(P)=Z_0(\sigma,P)$ belongs to order one, and the harmonic weight
 $h_\sigma(P)=Z_{-1}(\sigma,P)=\Tr\sigma_{/P}$ belongs to order two.  For a
-profile $k$, let $t_W(F[k])$ be the supremum of
+profile $k$ and a seed vertex $v$, write $k_v=k_{j_v}$ for the number of
+copies of $v$ in $F[k]$.  Let $t_W(F[k])$ be the supremum of
 $\min_{v:\,k_v>0}w_\sigma(P_v)/k_v$ over representations $(P_v)$ of the seed
 $F$ and faithful states $\sigma$.  Define $t_H(F[k])$ in the same way with
-$h_\sigma$.  Here $k_v$ means $k_{j_v}$, and deleted vertices may be
-represented by $P_v=0$.
+$h_\sigma$.  Deleted vertices, those with $k_v=0$, may be represented by
+$P_v=0$.
 
 \begin{proposition}[bridge]\label[proposition]{prop:bridge}
 For every profile $k$,
@@ -1568,7 +1805,10 @@ in every dimension.  That is the job of the next subsection.
 
 \subsection{Harmonic weights as moments}
 
-Let $(P_v)$ represent $F$ on $\cH$ and let $\sigma$ be faithful.  Put
+Let $(P_v)$ represent $F$ on $\cH$ and let $\sigma$ be faithful.  Fix an
+orthonormal basis $(e_i)$ of $\cH$, write
+$\vect(M)=\sum_{i,j}\langle e_i,Me_j\rangle\,e_i\otimes e_j$, and take all
+transposes in this basis.  Put
 $\Omega=\vect(\sqrt\sigma)\in\cH\otimes\cH$, let $F_v$ be the orthogonal
 projection onto $\sigma^{-1/2}\ran P_v$, and let $E_v=F_v^{\mathsf T}$.
 
@@ -1618,23 +1858,26 @@ dimension.  A rational dual solution then certifies a rational upper bound.
 \centering
 \begin{tabular}{@{}lcrccc@{}}
 \toprule
-graph & profile $(k_0,k_1,k_2,k_4)$ & vertices & $2^{\Cmin}\le$ & $\Sigma\ge$ & gap (bits)\\
+graph & profile $(k_0,k_1,k_2,k_4)$ & vertices & $2^{\Cmin}\le$ & $\Sigma\ge$ & certified gap $\ge$ (bits)\\
 \midrule
 $G_{32}$ & $(2,1,1,0)$ & 32 & $6.186983\ldots$ & $6.194232\ldots$ & $0.001689$\\
-$G_{44}$ & $(1,2,3,1)$ & 44 & $8.949075\ldots$ & $8.962394\ldots$ & $0.002146$\\
+$G_{44}$ & $(1,2,3,1)$ & 44 & $8.949075\ldots$ & $8.962394\ldots$ & $0.002145$\\
 $G_{72}$ & $(4,3,2,0)$ & 72 & $105/8$          & $13.191800\ldots$ & $0.007324$\\
 \bottomrule
 \end{tabular}
 \caption{Certified bounds for three clone graphs.  Upper bounds on
 $2^{\Cmin}$ come from explicit rational Gibbs witnesses: a direct sum of the
-magic-square representation and one-dimensional clique representations.
+magic-square representation, with center proportional to
+$\mathrm{diag}(A^4,B^4,B^4,B^4)$ and $(A,B)=(41,56)$, $(56,51)$, $(3,4)$, and
+one-dimensional clique representations (see the text).
 Lower bounds on $\Sigma$ come from rational dual certificates for the moment
-relaxation.}
+relaxation.  The gap is $\log_2$ of the ratio of the two bounds, rounded
+down.}
 \label{tab:certified}
 \end{table}
 
-\Cref{tab:certified} lists the certified bounds.  For $G_{32}$ the exact
-rational values are
+\Cref{tab:certified} lists the certified bounds.  For $G_{32}$ the certified
+rational bounds, not the exact values of $t_W$ and $t_H$, are
 \begin{equation}\label{eq:g32-rationals}
  t_W(G_{32})\ \ge\ \frac{5225365592240894}{32329248967670751}
  \ >\ \frac{15147154828811}{93824992214030}\ \ge\ t_H(G_{32}).
@@ -1645,8 +1888,36 @@ $t_H\le21337116511217/281474976708840$.
 
 \begin{proof}[Proof of \cref{thm:C}]
 Combine~\eqref{eq:g32-rationals} with \cref{prop:bridge}.  The reciprocals of
-the two rationals are $6.186983\ldots$ and $6.194232\ldots$.
+the two rationals, $6.186983\ldots$ and $6.194232\ldots$, are the bounds in
+\cref{thm:C}.
 \end{proof}
+
+\paragraph{The Gibbs witnesses.}
+Each upper bound on $2^{\Cmin}$ comes from one representation of the seed on
+$\mathbb C^4\oplus\mathbb C^m$.  Vertex $v$ gets
+$Q_v\oplus\bigoplus_{C\ni v}\proj C$, where $C$ runs over $m$ weighted
+cliques of $F$, each with its own basis vector $\ket C$ ($m=18$, $10$ and $9$
+cliques, all of size five, for $G_{32}$, $G_{44}$ and $G_{72}$).
+Non-adjacent vertices share no clique, so this is a representation.  The
+center is
+\[
+ \sigma=\frac{w}{A^4+3B^4}\,\mathrm{diag}(A^4,B^4,B^4,B^4)\ \oplus\
+ \bigoplus_Cw_C\proj C
+\]
+in the basis $\ket{00},\ket{01},\ket{10},\ket{11}$ of $\mathbb C^4$, with
+$(A,B)=(41,56)$, $(56,51)$ and $(3,4)$ and positive rational weights $w$ and
+$w_C$.  If $\sigma$ is diagonal in an orthonormal basis $(\ket i)$ with
+eigenvalues $\lambda_i$, the Gibbs weight of a rank-one projection $Q$ is
+$Z_0(\sigma,Q)=\prod_i\lambda_i^{\bra iQ\ket i}$.  Since
+$4\bra{00}Q_v\ket{00}=j_v$, the magic-square block contributes the rational
+number $wA^{j_v}B^{4-j_v}/(A^4+3B^4)$ to $w_\sigma(P_v)$, each clique
+containing $v$ contributes $w_C$, and Gibbs weights add over orthogonal
+blocks.  By homogeneity,
+$t_W(F[k])\ge\min_{k_v>0}w_\sigma(P_v)/(k_v\Tr\sigma)$, and this minimum is
+the certified value, for $G_{32}$ the left rational
+in~\eqref{eq:g32-rationals}.  The stored weights have $\Tr\sigma=999999999/10^9$ for
+$G_{32}$ and $G_{44}$ and $\Tr\sigma=1$ for $G_{72}$; for $G_{32}$ the
+magic-square block has weight $w=345767129/10^9$.
 
 \paragraph{Where the separations sit.}  In all three graphs the Lov\'asz number
 equals the independence number, and the fractional packing number is larger:
@@ -1662,9 +1933,10 @@ each dual matrix $Z$ is proved in integers (\cref{app:certificate}); in
 floating point its smallest eigenvalue is about $2.0\times10^{-5}$,
 $6.2\times10^{-7}$ and $2.0\times10^{-5}$ for $G_{32}$, $G_{44}$ and $G_{72}$.
 These margins only guided the rounding.  The values of $\vt$ and $\alpha^*$
-are checked exactly by \texttt{verify/theorem\_c\_context.py}: an independent
-set and a rational dual matrix for $\vt$, and a rational packing and clique
-cover of equal value for $\alpha^*$.
+are checked exactly by the verification script
+\texttt{theorem\_c\_context.py} (see Data and code availability): an
+independent set and a rational dual matrix for $\vt$, and a rational packing
+and clique cover of equal value for $\alpha^*$.
 
 \section{Open problems}\label{sec:open}
 
@@ -1682,6 +1954,31 @@ A natural guess for the $\alpha\to\infty$ endpoint is the complement of the
 projective rank.  Flat representations give the corresponding upper bound, but
 we are missing a dimension-free argument for the other direction.
 
+\paragraph{The projective rank.}
+Let $\xi_f$ be the projective rank of Man\v{c}inska and Roberson
+\cite{MancinskaRoberson2016}, the infimum of $d/r$ over
+$d/r$-representations: rank-$r$ projections on $\mathbb C^d$, one for each
+vertex, with adjacent vertices orthogonal.  A $d/r$-representation $(P_x)$ of
+$\overline G$ is a representation of $G$ in the sense of
+\cref{def:representation}, and the flat witness $\rho_x=P_x/r$,
+$\sigma=I/d$ has radius $\log(d/r)$ at every order (\cref{lem:flat}).
+Hence
+\[
+ \vt_\alpha(G)\le\xi_f(\overline G)\qquad(0\le\alpha\le2),
+\]
+and in particular $\Sigma(G)\le\xi_f(\overline G)$.  This is sharper than
+the bound $\alpha^*$ of \cref{prop:endpoints}(iii), since
+$\xi_f(\overline G)\le\alpha^*(G)$ \cite{LiZuiddam2020}.  Equality
+$\Sigma(G)=\xi_f(\overline G)$ holds on $C_5$, where both sides equal
+$\frac52$ (by \cref{thm:pentagon-half}, the inequality above and
+$\alpha^*(C_5)=\frac52$), and on the
+complement of the Hadamard graph $H_n$ in Duan and Winter's example, where
+both equal $n$ \cite[Section~V]{DuanWinter2016}: there $\Sigma=n$, and the
+vectors of $H_n$ give an $n/1$-representation of $H_n$.  Whether
+$\Sigma(G)=\xi_f(\overline G)$ for every graph is open.  If it holds,
+\cref{thm:A} places $\xi_f(\overline G)$ in $\Xs$, which Li and Zuiddam leave
+open \cite[after Proposition~24]{LiZuiddam2020}.
+
 \paragraph{Other divergences.}
 The proof of \cref{thm:A} uses three features of the Petz family.  These are
 a closed form for the supported minimum with the tower property, the
@@ -1689,7 +1986,7 @@ block structure used for unions and flagged mixtures, and data processing.
 For sandwiched divergences the answer is complete on the full
 data-processing range $[\frac12,\infty]$: \cref{prop:sandwiched} gives the
 supported minimum $-\log Z_{(1-\beta)/\beta}$ and identifies the graph
-radii with the Petz curve on $[0,2]$.  In particular, the orders
+radii with the Petz family on $[0,2]$.  In particular, the orders
 $\frac12\le\beta<1$ give precisely the Petz sub-one family, not additional
 spectral points.  Do other quantum divergences with these three features
 yield spectral points outside this common family?
@@ -1697,15 +1994,17 @@ yield spectral points outside this common family?
 \paragraph{Convexity.}
 In the ordinary spectrum, Vrana's probabilistic refinement makes the spectrum
 log-convex \cite{Vrana2021}.  If the same held for $\le_*$, interpolating
-between $\vt$ and $\Sigma$ would produce another continuum.  At least part of
-the R\'enyi family is not of this form.  Along such interpolations,
-vertex-transitive graphs are evaluated log-affinely \cite{Vrana2022}.  A point
-with value $\frac52$ on $C_5$ would then carry no weight on $\vt$, so it would
-be $\Sigma$ itself.  But $\vt_1(C_5)=\frac52$ and $\vt_1\ne\Sigma$ by
-\cref{thm:C}.  So $\vt_1$ is not such an interpolant, and we do not know
-whether the $\vt_\alpha$ with $\alpha<\frac12$ are.  Making any of this
-rigorous would need an entanglement-assisted theory of probabilistic
-refinements, which we do not have.
+between $\vt$ and $\Sigma$ would produce another continuum.  The following is
+a heuristic, conditional on such a theory for $\le_*$; it suggests that at
+least part of the R\'enyi family is not of this form.  In the ordinary
+spectrum, vertex-transitive graphs are evaluated log-affinely along such
+interpolations \cite[Section~5]{Vrana2022}.  If the same were true for
+$\le_*$, an interpolant with value $\frac52$ on $C_5$ would carry no weight on
+$\vt$, so it would be $\Sigma$ itself.  Since $\vt_1(C_5)=\frac52$ and
+$\vt_1\ne\Sigma$ by \cref{thm:C}, $\vt_1$ would then not be such an
+interpolant; we do not know whether the $\vt_\alpha$ with $\alpha<\frac12$
+would be.  Making any of this rigorous would need an entanglement-assisted
+theory of probabilistic refinements, which we do not have.
 
 \paragraph{The pentagon curve.}
 What is $\vt_\alpha(C_5)$ for $0<\alpha<\frac12$?  The bounds in
@@ -1726,18 +2025,34 @@ relaxation already exact for the three graphs of \cref{tab:certified}?
 Duan, Severini and Winter's quantum Lov\'asz number extends $\vt$ to
 non-commutative graphs \cite{DSW2013}.  Does the whole family $\vt_\alpha$
 extend, and does the product theorem survive?  A positive answer at order two
-would bear on Duan and Winter's question about strict submultiplicativity of
-$\Sigma$ for general non-commutative bipartite graphs.
+would give a single-letter formula for graph-level no-signalling simulation
+over non-commutative graphs, in contrast with the fixed-$K$ quantity
+$\Sigma(K)$, which can be strictly submultiplicative \cite{WangDuan2016}.
 
-\paragraph{Reproducibility.}
-The certificate data and their verification scripts accompany this paper.
+\section*{Data and code availability}
+
+The certificate data behind \cref{thm:C} and \cref{tab:certified}, the exact
+data for the values of $\vt$ and $\alpha^*$ quoted in \cref{sec:small}, and
+the verification scripts named in the text are archived on Zenodo under the
+all-versions DOI
+\href{https://doi.org/10.5281/zenodo.22983498}{10.5281/zenodo.22983498},
+and are also available at
+\url{https://github.com/Apsiape/the-lovasz-number-is-not-alone}.  The
+archive documents the data format and pins the expected output of every
+script.
+
+\section*{Reproducibility}
+
+The certificate data and their verification scripts accompany this paper
+(see Data and code availability).
 They are needed only for the finite rational claims of \cref{sec:small}.
 An additional deterministic matrix regression checks instances of the
 supported sandwiched minimum in \cref{prop:sandwiched}, including the
 sub-one orders and endpoints.  These finite numerical checks are not used
 as proof; the dimension-independent statements are proved in the text.
 
-\paragraph{AI-assisted tools.}
+\section*{AI-assisted tools}
+
 Generative AI tools were used throughout the research and preparation of this
 manuscript, including for mathematical exploration, proof development and
 critique, literature organization, computational assistance, and drafting.
@@ -1788,7 +2103,10 @@ vertices, and the relaxation needs no change.
 
 \paragraph{The relaxation and its dual.}
 Let $\Gamma(y)$ be the real symmetric matrix with one variable $y_\kappa$ per
-key, and let $\kappa_v$ be the key of $m(\varnothing,v)=h_\sigma(P_v)$.  The
+key, and let $\kappa_v$ be the key of $m(\varnothing,v)=h_\sigma(P_v)$.
+Entries of the Gram matrix whose moment vanishes identically by the rules
+(R1)--(R4) are $0$ in $\Gamma(y)$; they carry no key and no equation below,
+so the corresponding entries of $Z$ are restricted only by $Z\succeq0$.  The
 primal problem is to maximize $t$ subject to
 \[
  \Gamma(y)\succeq0,\qquad y_1=1,\qquad y_{\kappa_v}\ge tk_v\ \ (k_v>0).
@@ -1807,23 +2125,26 @@ therefore
 \]
 
 \paragraph{Exact positivity.}
-The file \texttt{certificates/small\_graph\_certificates.json} contains, for
-each graph, the rational Gibbs witness, the multipliers $\mu$, and the nonzero
-orbits of $Z$.  The verifier rebuilds the seed, its $216$ ordered non-adjacent
+The certificate file (see Data and code availability) contains, for each
+graph, the rational Gibbs witness, the multipliers $\mu$, the nonzero entries
+of $Z$, one for each orbit of $\mathcal A_0$ together with transposition, and
+a shift $\gamma$.  The verifier rebuilds the seed, its $216$ ordered non-adjacent
 pairs, the two-qubit representation, the overlap classes, the $48$
 automorphisms, the $409$ monomials and the key table.  It checks
 every equation~\eqref{eq:moment-dual} and $\mu\ge0$ in rational arithmetic,
 and it recomputes the Gibbs witness exactly.  To prove $Z\succeq0$, it clears
 denominators, $DZ\in\mathbb Z^{409\times409}$, rounds a floating-point
-Cholesky factor at scale $2^{40}$ to an integer matrix $L$, and checks in
-exact integer arithmetic that
+Cholesky factor of the shifted matrix $Z-\gamma I$ at scale $2^{40}$ to an
+integer matrix $L$, and checks in exact integer arithmetic that
 \[
  R=2^{80}DZ-DLL^{\mathsf T}
 \]
 is symmetric and diagonally dominant with nonnegative diagonal.  Then
-$R\succeq0$ and $Z=LL^{\mathsf T}/2^{80}+R/(2^{80}D)\succeq0$.  Only the
-integer check counts.  Whether the floating-point factorization succeeded
-plays no role.
+$R\succeq0$ and $Z=LL^{\mathsf T}/2^{80}+R/(2^{80}D)\succeq0$.  The shift,
+$\gamma=10^{-5}$, $2\cdot10^{-7}$ and $10^{-5}$ for $G_{32}$, $G_{44}$ and
+$G_{72}$, leaves room on the diagonal of $R$ for the rounding error.  Only
+the integer check counts.  Whether the floating-point factorization
+succeeded plays no role.
 
 \paragraph{Negative controls.}
 The verifier runs two tampered certificates, and both must be rejected.  One
@@ -1845,11 +2166,12 @@ only on the exact checks.
 \begin{proof}[Proof of \cref{prop:continuity}]
 Write $f(\alpha)=\log\vt_\alpha(G)$.
 
-\emph{Right continuity at $\alpha_0\in[0,1)$.}  Pick a compatible family and
+\emph{Right continuity at $\alpha_0\in[0,2)$.}  Pick a compatible family and
 a faithful center whose order-$\alpha_0$ radius is at most $f(\alpha_0)+\eps$.
 For fixed states with a faithful center, $\alpha\mapsto D_\alpha$ is
-continuous on $[0,1)$, including from the right at $0$, because
-$\rho^\alpha\to\Pi_\rho$.  So
+continuous on $[0,2]$, including from the right at $0$, because
+$\rho^\alpha\to\Pi_\rho$, and at $1$, where the limit is the relative
+entropy.  So
 $\limsup_{\alpha\downarrow\alpha_0}f(\alpha)\le f(\alpha_0)+\eps$, and
 monotonicity gives the reverse inequality.
 
@@ -1873,7 +2195,8 @@ and the constant tends to $1$ as $\beta\uparrow\alpha$.
 
 \begin{proof}[Proof of \cref{lem:orthogonal-sum}]
 For $s\ne0$ let $A=\sigma^s$ and $f(t)=t^{1/s}$.  For $s=0$ let $A=\ln\sigma$
-and $f=\exp$.  In each case $f$ is convex on the spectrum of $A$ and
+and $f=\exp$.  In each case $f$ is convex on an interval containing the
+spectrum of $A$ and
 $f(A)=\sigma$.  Diagonalize $Q_jAQ_j$ on $\ran Q_j$ in an orthonormal basis
 $(e_{jk})_k$.  Its eigenvalues are $\langle e_{jk},Ae_{jk}\rangle$, so
 Jensen's inequality for the spectral measure of $A$ gives
@@ -1918,7 +2241,8 @@ the order-one radius identity.
 \subsection{The entanglement-assisted preorder}\label[subappendix]{app:preorder}
 
 Li and Zuiddam state the preorder for graphs through complements.  Their
-Definition~6 \cite{LiZuiddam2020} writes $G\overset{*}{\to}H$ if there are
+Definition~7 \cite{LiZuiddam2020} (Definition~6 in arXiv:1810.00744v2)
+writes $G\overset{*}{\to}H$ if there are
 $d\in\mathbb N$ and $d\times d$ positive semidefinite matrices $\rho$ and
 $\rho_g^h$ ($g\in V(G)$, $h\in V(H)$) such that
 \begin{enumerate}[label=(\roman*),leftmargin=2.2em,itemsep=1pt,topsep=3pt]
@@ -1947,7 +2271,10 @@ $\overline H$ is~\eqref{eq:ea-orth}, and condition~(i) is~\eqref{eq:ea-sum}
 with $\omega=\rho$.  Both conditions are homogeneous, so dividing $\rho$ and
 every $\rho_g^h$ by $\Tr\rho$ makes $\rho$ a state.  (A nonzero $\rho$ is
 implicit in the definition, since $\rho=0$ would relate every pair of graphs;
-Li and Zuiddam note that $\rho$ may even be taken positive definite.)
+Li and Zuiddam note that $\rho$ may even be taken positive definite.  In
+Cubitt et al.'s Definition~1, from which the definition is taken, $\rho$ is
+the reduced state of a bipartite pure state, so it is a nonzero state
+\cite[Definition~1]{CMRSSW2014}.)
 Conversely, a state $\omega$ and operators $\omega_g^h$
 satisfying~\eqref{eq:ea-sum}--\eqref{eq:ea-orth} satisfy (i) and (ii) with
 $\rho=\omega$ in dimension $d=\dim\cH$.

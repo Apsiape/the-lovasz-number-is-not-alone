@@ -74,7 +74,7 @@ def build(output: Path, log_dir: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path,
-                        default=ROOT / "output/pdf/the-lovasz-number-is-not-alone-v1.1.pdf")
+                        default=ROOT / "output/pdf/the-lovasz-number-is-not-alone-v1.1.1.pdf")
     parser.add_argument("--log-dir", type=Path, default=ROOT / "output/build")
     args = parser.parse_args()
     try:
