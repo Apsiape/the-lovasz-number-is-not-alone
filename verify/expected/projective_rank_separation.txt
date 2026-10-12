@@ -1,0 +1,7 @@
+seed: 24 vertices, 216 ordered non-adjacent pairs, exact representation checked
+overlap classes j = 0, 1, 2, 4 with sizes 9, 8, 6, 1; contexts [[0, 0, 0, 4], [1, 1, 1, 1], [1, 1, 1, 1], [0, 0, 2, 2], [0, 0, 2, 2], [0, 0, 2, 2]]
+rank inequality: magic-square representation gives 59 (tight); 1041 cliques (largest 5) give at most 53
+G = F[(59, 60, 61, 63)]: 1440 vertices; context totals [240, 240, 240, 240, 240, 240]
+lower bound: xi_f(complement) >= (83 k_0 + 80 k_1 + 62 k_2 + 11 k_4)/59 = 14172/59 = 14172/59
+upper bound: sigma = diag(31,29,29,29)/118, h_sigma(Q_v) = 899/(59(62 - j_v)); Sigma <= max_v k_v/h_sigma(Q_v) = 215940/899 (attained on classes [1, 2]); K = 4534740
+Sigma(G) <= 215940/899 = 240.200222 < 240.203390 = 14172/59 <= xi_f(complement of G); gap 168/53041

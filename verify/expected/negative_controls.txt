@@ -4,4 +4,5 @@ PASS negative control: small_graph_separation.py --perturb-psd rejected
 PASS negative control: sandwiched_supported.py --perturb rejected
 PASS negative control: theorem_c_context.py --perturb rejected
 PASS negative control: pentagon_numerical_bounds.py --perturb rejected
-Negative controls: 6/6 rejected
+PASS negative control: projective_rank_separation.py --perturb rejected
+Negative controls: 7/7 rejected

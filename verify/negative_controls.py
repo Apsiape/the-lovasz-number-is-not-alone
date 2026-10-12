@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-"""Run the six corruption tests: the three certificate tests, the optimizer test for the
-supported sandwiched minimum, and the tests of the Theorem C context and Figure 1 bound checks.
+"""Run the seven corruption tests: the three certificate tests, the optimizer test for the
+supported sandwiched minimum, the tests of the Theorem C context and Figure 1 bound checks, and
+the test of the rank inequality behind Theorem D.
 
 A nonzero exit alone is insufficient: the expected rejection diagnostic must
 also appear, so import errors and missing files are not mistaken for success.
@@ -22,6 +23,8 @@ def main() -> int:
         ("sandwiched_supported.py", "--perturb", "Supported equality failed"),
         ("theorem_c_context.py", "--perturb", "FAIL: exact positive semidefiniteness of a*I - A"),
         ("pentagon_numerical_bounds.py", "--perturb", "FAIL: plotted value at alpha="),
+        ("projective_rank_separation.py", "--perturb",
+         "FAIL: rank inequality on the magic-square representation"),
     ]
     failures = 0
     for script, flag, marker in cases:

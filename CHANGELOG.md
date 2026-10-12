@@ -1,5 +1,31 @@
 # Changelog
 
+## 1.2.0 — October 2026
+
+A new main theorem and section; Theorems A–C, all certificate values and the numbering of
+Sections 1–6 are unchanged.
+
+- **Theorem D (order two is not the projective rank).** For the clone graph
+  `G_1440 = F[(59, 60, 61, 63)]` of the magic-square seed,
+  `Sigma(G_1440) <= 215940/899 < 14172/59 <= xi_f(complement of G_1440)`. Flat witnesses give
+  `Sigma(G) <= xi_f(complement of G)` for every graph, and equality holds whenever `theta = alpha*`,
+  on `C5` and on Duan and Winter's Hadamard example; Theorem D shows that it can fail. Version 1.1.1
+  listed equality as an open problem.
+- New Section 7, "Order two versus the projective rank": the flat bound (moved from the open problems),
+  Proposition 7.1 (the order-two bridge for clone graphs is exact, `Sigma(F[k]) = 1/t_H(F[k])`),
+  Lemma 7.2 (anticommutators bound traces), Lemma 7.3 (a rank inequality for the magic square, tight on
+  the magic-square representation), the proof of Theorem D, and a paragraph on how the profile is
+  chosen. Open problems become Section 8.
+- Introduction: Theorem D with context; a "What is new" paragraph; the organization paragraph. The
+  abstract gains one sentence and is tightened to stay within arXiv's limit.
+- Open problems: "The projective rank" now records what Theorem D settles and what it leaves open
+  (membership of the complement of the projective rank in the entanglement-assisted spectrum, exact
+  values for `G_1440`, sharper inequalities, the smallest separating graph); "Above order two" notes
+  that an extension reaching the projective rank would have to keep growing beyond order two.
+- References: Ji (arXiv:1310.3794, Lemma 6, anticommutation in magic-square operator solutions) and
+  Wocjan and Elphick (Electron. J. Combin. 26 (2019), rank-counting lower bounds on the projective rank).
+- Verification: `verify/projective_rank_separation.py` and its pinned output; a seventh negative control.
+
 ## 1.1.1 — 30 September 2026
 
 Attribution and framing corrections after an audit of how the paper credits other work, and

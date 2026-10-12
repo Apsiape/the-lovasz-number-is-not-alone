@@ -17,7 +17,29 @@ Lovász number to the no-signalling simulation cost. The paper also proves stron
 multiplicativity for arbitrary joint representations, resolves the
 Duan--Winter pentagon conjecture, shows that graph-level no-signalling
 simulation single-letterizes, and gives an exact rational certificate for a
-32-vertex graph with `C_min(G) < log_2 Sigma(G)`.
+32-vertex graph with `C_min(G) < log_2 Sigma(G)`. A rank inequality for the same
+magic square shows that a 1440-vertex graph has `Sigma(G)` strictly below the
+projective rank of its complement.
+
+## What is new in version 1.2.0
+
+- **Theorem D (order two is not the projective rank).** Flat witnesses give
+  `Sigma(G) <= xi_f(complement of G)` for every graph, with equality whenever
+  `theta = alpha*`, on `C5` and on Duan and Winter's Hadamard example. A clone graph
+  of the magic-square seed on 1440 vertices has
+  `Sigma(G) <= 215940/899 = 240.2002... < 240.2033... = 14172/59 <= xi_f(complement of G)`.
+  Equality for every graph would have placed the complement of the projective rank in
+  the entanglement-assisted spectrum, which Li and Zuiddam leave open; Theorem D closes
+  that route without deciding the question. Both bounds are proved by hand.
+- New Section 7: the flat bound; the order-two bridge for clone graphs is exact,
+  `Sigma(F[k]) = 1/t_H(F[k])` (Proposition 7.1); a rank inequality for the magic
+  square that holds in every dimension and is tight on the magic-square representation
+  (Lemma 7.3), a robust form of the anticommutation relations of its operator
+  solutions; the proof of Theorem D.
+- `verify/projective_rank_separation.py` re-checks the arithmetic of Theorem D in
+  exact rational arithmetic, and a seventh negative control tests it.
+- The open problems are updated (the projective rank; above order two). The former
+  Section 7 (open problems) is now Section 8.
 
 ## What is new in version 1.1.1
 
@@ -64,7 +86,7 @@ unchanged. See [CHANGELOG.md](CHANGELOG.md).
 
 - `paper/main.tex` -- standalone manuscript.
 - `paper/references.bib` -- primary references.
-- `output/pdf/the-lovasz-number-is-not-alone-v1.1.1.pdf` -- manuscript build.
+- `output/pdf/the-lovasz-number-is-not-alone-v1.2.0.pdf` -- manuscript build.
 - `certificates/` -- exact rational certificate data for the 32-, 44-, and
   72-vertex examples, and exact data for the context of Theorem C.
 - `verify/` -- deterministic checks and their pinned output.
@@ -82,7 +104,7 @@ repository root:
 python tools/build.py
 ```
 
-This writes `output/pdf/the-lovasz-number-is-not-alone-v1.1.1.pdf` and the logs
+This writes `output/pdf/the-lovasz-number-is-not-alone-v1.2.0.pdf` and the logs
 to `output/build/`. The usual latexmk workflow also works and writes
 `paper/main.pdf`:
 
@@ -112,10 +134,15 @@ pinned copy in `verify/expected/`:
   controls of Lemmas 4.3–4.6, Theorem 4.7 and the pentagon bounds of Section 5.
 - `theorem_c_context.py` checks the Lovász numbers and fractional packing
   numbers of the three graphs in exact rational arithmetic.
+- `projective_rank_separation.py` checks the finite facts behind Theorem D in
+  exact rational arithmetic: the class structure of the contexts, tightness of the
+  rank inequality on the magic-square representation (and its validity on every
+  commuting representation), the lower bound `14172/59`, the harmonic weights and the
+  upper bound `215940/899`.
 - `sandwiched_supported.py` is a deterministic numerical regression for the
   supported minimum of Proposition 3.5 (seed `20260929`, tolerance `1e-8`).
 - `pentagon_numerical_bounds.py` rebuilds each numerical witness of Figure 1.
-- `negative_controls.py` runs six corruption tests and requires each to be
+- `negative_controls.py` runs seven corruption tests and requires each to be
   rejected with its specific diagnostic:
 
 ```sh
@@ -125,6 +152,7 @@ python verify/small_graph_separation.py --perturb-psd
 python verify/sandwiched_supported.py --perturb
 python verify/theorem_c_context.py --perturb
 python verify/pentagon_numerical_bounds.py --perturb
+python verify/projective_rank_separation.py --perturb
 ```
 
 Passing the scripts establishes only the stated finite checks. The

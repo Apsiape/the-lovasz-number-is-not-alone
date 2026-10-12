@@ -33,6 +33,7 @@
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\vect}{vec}
+\DeclareMathOperator{\rk}{rank}
 
 \newcommand{\vt}{\vartheta}
 \newcommand{\cH}{\mathcal H}
@@ -50,8 +51,8 @@
 \title{The Lov\'asz number is not alone:\\[3pt]
 \large a continuum of R\'enyi points in the entanglement-assisted spectrum of graphs}
 \author{Nidhal Mghirbi \and Seth Douglas}
-\date{September 2026 --- Version 1.1.1}
-\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas},pdfsubject={Version 1.1.1; September 2026}}
+\date{October 2026 --- Version 1.2.0}
+\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas},pdfsubject={Version 1.2.0; October 2026}}
 
 \begin{document}
 \maketitle
@@ -64,28 +65,29 @@ entanglement-assisted cohomomorphisms; the entanglement-assisted Shannon
 capacity is their pointwise minimum.  To our knowledge, the Lov\'asz number
 $\vt$ was its only known element.  We find a continuum of others.
 
-For a graph, $\log_2\vt$, the minimal Holevo capacity $\Cmin$ and the
-logarithm of the no-signalling simulation cost $\Sigma$, three quantities from
-Duan and Winter's work on zero-error communication, are information radii of
-the classical--quantum channels compatible with the graph, measured with
-Petz--R\'enyi divergences of orders $0$, $1$ and $2$.  At order zero this is
+For a graph, three quantities of Duan and Winter, $\log_2\vt$, the minimal
+Holevo capacity $\Cmin$ and the logarithm of the no-signalling simulation cost
+$\Sigma$, are information radii of the classical--quantum channels compatible
+with the graph, measured with Petz--R\'enyi divergences of orders $0$, $1$
+and $2$.  At order zero this is
 due to Schrijver (as credited by Dalai) and to Duan and Winter; at order one
 it is the min--max formula for the Holevo capacity.  Interpolating in the
 order gives a family $\vt_\alpha$, $0\le\alpha\le2$, and we prove that every
 member lies in the spectrum.  The main step, multiplicativity under the strong
-product for representations of the product that do not factor, follows from
+product for representations that do not factor, follows from
 an exact nesting identity for power compressions.  Sandwiched R\'enyi radii
-give exactly the same family after the change of order $\alpha=2-1/\beta$,
+give the same family after the change of order $\alpha=2-1/\beta$,
 $\frac12\le\beta\le\infty$.
 
-On the five-cycle the family sweeps out $[\sqrt5,5/2]$, so it contains
-continuum many distinct points.  A Hilbert--Schmidt inequality for
+On the five-cycle the family sweeps out $[\sqrt5,5/2]$, a continuum of
+distinct points.  A Hilbert--Schmidt inequality for
 representations of the pentagon gives $\Cmin(C_5)=\log_2(5/2)$, proving a
-conjecture of Duan and Winter.  We also settle the two links of their
-inequality chain that they left open: the graph-level no-signalling simulation
+conjecture of Duan and Winter.  We also settle the two open links of
+their inequality chain: the graph-level no-signalling simulation
 rate always equals its single-letter value $\log_2\Sigma(G)$, and a 32-vertex
 graph built from the Mermin--Peres magic square has $\Cmin<\log_2\Sigma$,
-certified in exact rational arithmetic.
+certified in exact rational arithmetic.  The same square also separates
+$\Sigma$ from the projective rank of the complement.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -337,6 +339,30 @@ For this graph $\vt(G_{32})=6$ and $\alpha^*(G_{32})=\tfrac{32}5$, so both
 bounds lie well inside the interval $[\vt,\alpha^*]$ of the Duan--Winter chain
 (\cref{sec:small}).
 
+Order two also has a natural upper bound of its own.  Every
+$d/r$-representation of the complementary graph $\overline G$, in the sense of
+Man\v{c}inska and Roberson \cite{MancinskaRoberson2016}, is a flat witness for
+$G$, so $\Sigma(G)\le\xi_f(\overline G)$, where $\xi_f$ is the projective rank
+(\cref{sec:projective}).  The graph parameter $G\mapsto\xi_f(\overline G)$
+lies in Li and Zuiddam's spectrum for the quantum preorder, and whether it
+lies in $\Xs$ is open \cite{LiZuiddam2020}.  The two sides agree on the
+pentagon and on Duan and Winter's Hadamard example, and if they agreed on
+every graph, \cref{thm:A} would settle that question.  They do not.
+
+\begin{mainthm}[order two is not the projective rank]\label{thm:D}
+There is a graph $G_{1440}$ on $1440$ vertices, built from the same magic
+square, such that
+\[
+ \Sigma(G_{1440})\ \le\ \frac{215940}{899}=240.2002\ldots\ <\
+ 240.2033\ldots=\frac{14172}{59}\ \le\ \xi_f\bigl(\overline{G_{1440}}\bigr).
+\]
+\end{mainthm}
+
+The upper bound is an explicit order-two witness whose center leans toward
+one vertex of the seed.  The lower bound is a rank inequality for the magic
+square that holds in every dimension (\cref{lem:rank-ineq}); both bounds are
+proved by hand.
+
 \subsection{A taste of the method: the pentagon}
 \label{sec:taste}
 
@@ -465,6 +491,26 @@ collapses to a single value on graphs
 with $\vt=\alpha^*$, perfect graphs among them, and it can only separate
 points on graphs with $\vt<\alpha^*$.
 
+\paragraph{Order two is not the projective rank.}
+Flat witnesses built from $d/r$-representations of the complement give
+$\Sigma(G)\le\xi_f(\overline G)$, with equality whenever $\vt=\alpha^*$, on
+$C_5$ and on Duan and Winter's Hadamard example.  To our knowledge, neither
+this inequality nor the question of equality appears in earlier work.  Had
+equality
+held for every graph, \cref{thm:A} would have placed $\xi_f(\overline G)$ in
+$\Xs$, which Li and Zuiddam leave open \cite[after Proposition~24]{LiZuiddam2020}.
+\Cref{thm:D} closes that route; it does not decide the question.  The
+lower bound on $\xi_f$ uses no certificate.  It is one linear inequality
+between the normalized ranks of a representation of the magic-square seed,
+tight on the magic-square representation itself, and its proof is a robust
+form of the anticommutation relations that every operator solution of the
+magic square obeys \cite[Lemma~6]{Ji2013}: up to errors controlled by the
+defects of the representation, cell observables in different rows and
+columns anticommute, which forces their traces to be small.  Rank-counting
+lower bounds on the projective rank have been used before, with spectral
+input \cite{WocjanElphick2019}; we know of no lower bound of this
+contextual kind.
+
 \begin{figure}[t]
 \centering
 \begin{tikzpicture}[
@@ -584,8 +630,9 @@ graphs throughout.
 \Cref{sec:setup} fixes conventions.  \Cref{sec:compressions} rewrites
 $\vt_\alpha$ in terms of projections and proves the basic properties of the
 family.  \Cref{sec:spectral} proves \cref{thm:A}.  \Cref{sec:pentagon}
-treats the pentagon and the Duan--Winter chain, and \cref{sec:small}
-separates orders one and two.  Open problems are collected in
+treats the pentagon and the Duan--Winter chain, \cref{sec:small}
+separates orders one and two, and \cref{sec:projective} separates order two
+from the projective rank.  Open problems are collected in
 \cref{sec:open}.  The appendices contain the certificate format and a few
 routine proofs.
 
@@ -1938,6 +1985,253 @@ are checked exactly by the verification script
 independent set and a rational dual matrix for $\vt$, and a rational packing
 and clique cover of equal value for $\alpha^*$.
 
+\section{Order two versus the projective rank}\label{sec:projective}
+
+\subsection{The flat bound}
+
+Let $\xi_f$ be the projective rank of Man\v{c}inska and Roberson
+\cite{MancinskaRoberson2016}, the infimum of $d/r$ over
+$d/r$-representations: rank-$r$ projections on $\mathbb C^d$, one for each
+vertex, with adjacent vertices orthogonal.  A $d/r$-representation $(P_x)$ of
+$\overline G$ is a representation of $G$ in the sense of
+\cref{def:representation}, and the flat witness $\rho_x=P_x/r$,
+$\sigma=I/d$ has radius $\log(d/r)$ at every order (\cref{lem:flat}).
+Hence
+\begin{equation}\label{eq:flat-projective}
+ \vt_\alpha(G)\le\xi_f(\overline G)\qquad(0\le\alpha\le2),
+\end{equation}
+and in particular $\Sigma(G)\le\xi_f(\overline G)$.  This is sharper than
+the bound $\alpha^*$ of \cref{prop:endpoints}(iii), since
+$\xi_f(\overline G)\le\alpha^*(G)$ \cite{LiZuiddam2020}.  Equality
+$\Sigma(G)=\xi_f(\overline G)$ holds whenever $\vt(G)=\alpha^*(G)$.  It
+holds on $C_5$, where both sides equal $\frac52$ (by
+\cref{thm:pentagon-half}, \eqref{eq:flat-projective} and
+$\alpha^*(C_5)=\frac52$), and on the complement of the Hadamard graph $H_n$
+in Duan and Winter's example, where both equal $n$
+\cite[Section~V]{DuanWinter2016}: there $\Sigma=n$, and the vectors of $H_n$
+give an $n/1$-representation of $H_n$.  \Cref{thm:D} shows that it can fail.
+
+\subsection{The order-two bridge is exact}
+
+For the clone graphs of \cref{sec:small}, the lower bound on $\Sigma$ in
+\cref{prop:bridge} is an equality.
+
+\begin{proposition}\label[proposition]{prop:bridge-exact}
+Let $k$ be a profile with at least one positive entry.  If $(P_v)$ and
+$\sigma$ are as in the definition of $t_H(F[k])$, then
+\[
+ \Sigma(F[k])\le\max_{v:\,k_v>0}\frac{k_v}{h_\sigma(P_v)} .
+\]
+Consequently $\Sigma(F[k])=1/t_H(F[k])$.
+\end{proposition}
+
+\begin{proof}
+Let $L$ be a common multiple of the positive $k_v$.  On $\cH\otimes\mathbb
+C^L$ put $\sigma'=\sigma\otimes I/L$.  For each $v$ with $k_v>0$, split the
+standard basis of $\mathbb C^L$ into $k_v$ consecutive blocks of $L/k_v$
+vectors, let $\Pi_{v,a}$ project onto the $a$-th block, and put
+$P'_{v,a}=P_v\otimes\Pi_{v,a}$.  Copies of one vertex get orthogonal blocks,
+and non-adjacent seed vertices have orthogonal $P_v$, so $(P'_{v,a})$
+represents $F[k]$.  Since
+$P'_{v,a}\sigma'^{-1}P'_{v,a}=P_v\sigma^{-1}P_v\otimes L\,\Pi_{v,a}$, the
+shorted operator factorizes, $\sigma'_{/P'_{v,a}}=\sigma_{/P_v}\otimes
+\Pi_{v,a}/L$, and
+\[
+ h_{\sigma'}(P'_{v,a})=h_\sigma(P_v)\,\frac{\Tr\Pi_{v,a}}L=\frac{h_\sigma(P_v)}{k_v}.
+\]
+The projection formula~\eqref{eq:projection-formula} at $\alpha=2$, with
+$\vt_2=\Sigma$ (\cref{prop:endpoints}), gives the displayed bound.  Taking
+the supremum over $(P_v)$ and $\sigma$ gives $\Sigma(F[k])\le1/t_H(F[k])$,
+and \cref{prop:bridge} gives the reverse inequality.
+\end{proof}
+
+\subsection{A rank inequality for the magic square}
+
+In this subsection $\tau=\Tr/d$ is the normalized trace on $\mathbb C^d$.  We
+use three facts about rank: it is subadditive, $\rk(XY)\le\min(\rk X,\rk Y)$,
+and multiplying by an invertible operator does not change it.  Number the six
+contexts of the seed $F$ as $c=0,\dots,5$: the rows are $0,1,2$ from the top
+and the columns are $3,4,5$ from the left (\cref{fig:magic}).  As before,
+vertex $0$ is the row-$0$ vertex with signs $(+,+,+)$.
+
+\begin{lemma}[anticommutators bound traces]\label[lemma]{lem:anticomm}
+If $X$ and $Y$ are Hermitian unitaries on $\mathbb C^d$, then
+$\lvert\Tr X\rvert\le\rk(XY+YX)$.
+\end{lemma}
+
+\begin{proof}
+The operator $X+YXY=(XY+YX)Y$ has the rank of $XY+YX$, norm at most $2$ and
+trace $2\Tr X$.  The trace of an operator is at most its rank times its norm
+in absolute value.
+\end{proof}
+
+\begin{lemma}[rank inequality]\label[lemma]{lem:rank-ineq}
+Let $(P_v)$ be projections on $\mathbb C^d$, one for each vertex of $F$, with
+$P_vP_w=0$ whenever $v\ne w$ are non-adjacent; zero projections are allowed.
+For each context $c$ put $S_c=\sum_{v\in c}P_v$.  Then
+\begin{equation}\label{eq:rank-ineq}
+ 4\tau(P_0)+7\tau(S_0)+11\tau(S_1)+9\tau(S_2)
+ +11\tau(S_3)+11\tau(S_4)+9\tau(S_5)\le59,
+\end{equation}
+with equality for the magic-square representation $(Q_v)$.
+\end{lemma}
+
+The four vertices of a context are pairwise non-adjacent, so each $S_c$ is a
+projection, and $\delta_c=1-\tau(S_c)$ is the normalized rank of its defect
+$I-S_c$.  The coefficients of the contexts sum to $58$, so
+\eqref{eq:rank-ineq} says
+\[
+ 4\tau(P_0)\le1+7\delta_0+11\delta_1+9\delta_2+11\delta_3+11\delta_4+9\delta_5 .
+\]
+If every context is complete, this is $\tau(P_0)\le\frac14$: the vertex-$0$
+outcome takes at most a quarter of the space.  The lemma makes this robust,
+with a penalty linear in the defects.  For $(Q_v)$ every context is complete
+and $\tau(Q_0)=\frac14$, which gives equality.
+
+\begin{proof}
+\emph{Completion.}  In each context, add the defect $I-S_c$ to one of its
+four projections; in row $0$, add it to $P_0$.  Each context now carries four
+orthogonal projections summing to $I$, labelled by its sign patterns.  For a
+cell $(i,j)$, let $U_{ij}$ be the sum of the completed projections of row
+$i$, each weighted by the sign it gives to the cell, and define $V_{ij}$ in
+the same way from column $j$.  These are Hermitian unitaries.  The three
+$U_{ij}$ in a row commute and multiply to $I$.  The three $V_{ij}$ in a
+column commute and multiply to $I$, except in the last column, where they
+multiply to $-I$.
+
+\emph{Rows and columns agree off the defects.}  Fix a cell $(i,j)$.  Let
+$U_\pm$ be the sum of the original projections of row $i$ that give the cell
+the sign $\pm$, and $V_\pm$ the same for column $j$.  Two vertices that give
+a shared cell opposite signs are non-adjacent, so $U_+V_-=U_-V_+=0$.  Let $z$
+lie in the kernels of both defects, $I-S_i$ and $I-S_{3+j}$.  Then
+$U_+z+U_-z=z=V_+z+V_-z$.  Put $x=U_+z$ and $y=V_+z$.  Then
+$\langle x,z-y\rangle=\langle z,U_+V_-z\rangle=0$ and
+$\langle z-x,y\rangle=\langle z,U_-V_+z\rangle=0$, so
+\[
+ \nrm x^2=\langle x,z\rangle=\langle x,y\rangle=\langle z,y\rangle=\nrm y^2 .
+\]
+Hence $\nrm{x-y}^2=0$ and $U_{ij}z=2x-z=2y-z=V_{ij}z$.  The two kernels meet
+in a subspace of codimension at most $d(\delta_i+\delta_{3+j})$, so
+\[
+ \eta_{ij}:=\rk(U_{ij}-V_{ij})/d\le\delta_i+\delta_{3+j} .
+\]
+Put $e_j=\sum_i\eta_{ij}$ and $\eps=e_0+e_1+e_2$.  Summing over the nine
+cells gives $\eps\le3\delta$, where $\delta=\sum_c\delta_c$.
+
+\emph{Relations.}  Write $A,B$ for $U_{00},U_{01}$, write $D,E$ for
+$U_{10},U_{11}$, and write $H,J$ for $U_{20},U_{21}$.  The $U$'s in a row
+commute and multiply to $I$, so the last cells of the three rows carry $AB$,
+$DE$ and $HJ$.  In column $0$, $V_{20}=V_{00}V_{10}=V_{10}V_{00}$.  Replacing
+each $V_{i0}$ by $U_{i0}$ costs at most $\eta_{i0}$ in normalized rank, so
+\[
+ \rk(H-AD)/d,\ \ \rk(H-DA)/d\ \le\ e_0,
+\]
+and in the same way $\rk(J-BE)/d$ and $\rk(J-EB)/d$ are at most $e_1$.  In
+the last column $V_{22}=-V_{02}V_{12}=-V_{12}V_{02}$, so
+\[
+ \rk(HJ+AB\,DE)/d,\ \ \rk(HJ+DE\,AB)/d\ \le\ e_2 .
+\]
+Since $HJ-AD\,BE=(H-AD)J+AD(J-BE)$, comparing $HJ$ with $AD\,BE$ and with
+$-AB\,DE$ gives $\rk(ADBE+ABDE)\le d\eps$.  Now $ADBE+ABDE=A(DB+BD)E$, and
+$A$ and $E$ are unitary, so $\rk(BD+DB)\le d\eps$.  In the same way,
+$DAEB+DEAB=D(AE+EA)B$ gives $\rk(AE+EA)\le d\eps$.  Finally, $A$ and $D$ lie
+in column $0$, where $V_{00}$ and $V_{10}$ commute, so
+$\rk(AD-DA)\le2d(\eta_{00}+\eta_{10})\le du_0$ with
+$u_0=2(\delta_0+\delta_1+2\delta_3)$.  Likewise $\rk(BE-EB)\le du_1$ with
+$u_1=2(\delta_0+\delta_1+2\delta_4)$.
+
+\emph{Traces.}  By \cref{lem:anticomm}, $\lvert\tau(B)\rvert\le\eps$ and
+$\lvert\tau(A)\rvert\le\eps$.  Since $A$ and $B$ commute, $AB$ is a Hermitian
+unitary.  The identities $\{AB,D\}=A\{B,D\}+[D,A]B$ and
+$\{AB,E\}=A[B,E]+\{A,E\}B$, together with \cref{lem:anticomm}, give
+\[
+ \lvert\tau(AB)\rvert\le\eps+\min(u_0,u_1)\le\eps+2(\delta_0+\delta_1+\delta_3+\delta_4).
+\]
+The completed row-$0$ projection with signs $(+,+,+)$ is
+$\frac14(I+A)(I+B)$, and it equals $P_0+(I-S_0)$.  Taking normalized traces,
+\[
+ 4\tau(P_0)+4\delta_0=1+\tau(A)+\tau(B)+\tau(AB)
+ \le1+3\eps+2(\delta_0+\delta_1+\delta_3+\delta_4).
+\]
+With $\eps\le3\delta$ this is
+$4\tau(P_0)\le1+7\delta_0+11\delta_1+9\delta_2+11\delta_3+11\delta_4+9\delta_5$,
+which is~\eqref{eq:rank-ineq}.
+\end{proof}
+
+The relations used in the proof are robust forms of the anticommutation
+relations of the magic square: in an exact operator solution, cell
+observables in different rows and columns anticommute
+\cite[Lemma~6]{Ji2013}.
+
+\subsection{Proof of \texorpdfstring{\cref{thm:D}}{Theorem D}}
+
+Let $G_{1440}=F[(59,60,61,63)]$, so $k_0=59$, $k_1=60$, $k_2=61$ and
+$k_4=63$; it has $9\cdot59+8\cdot60+6\cdot61+63=1440$ vertices.  In the
+seed, row $0$ consists of vertex $0$ and three class-$0$ vertices, rows $1$
+and $2$ consist of class-$1$ vertices, and each column consists of two
+class-$0$ and two class-$2$ vertices.  So every context of $G_{1440}$ has
+$63+3\cdot59=4\cdot60=2\cdot61+2\cdot59=240$ vertices.
+
+\emph{Lower bound.}  Let $(R_{v,a})$ be a $d/r$-representation of
+$\overline{G_{1440}}$, where $(v,a)$ is the $a$-th copy of the seed vertex
+$v$.  Distinct copies of one vertex are non-adjacent in $G_{1440}$, so
+$P_v=\sum_aR_{v,a}$ is a projection of rank $k_vr$.  If $v\ne w$ are
+non-adjacent in $F$, all their copies are non-adjacent, so $P_vP_w=0$.
+\Cref{lem:rank-ineq} applies with $\tau(P_0)=63r/d$ and $\tau(S_c)=240r/d$
+for every context, and gives
+\[
+ \frac rd\,(4\cdot63+58\cdot240)=\frac rd\cdot14172\le59 .
+\]
+So $d/r\ge14172/59$ for every $d/r$-representation, and
+$\xi_f(\overline{G_{1440}})\ge14172/59$.
+
+\emph{Upper bound.}  Take the magic-square representation $(Q_v)$ and, in
+the basis $\ket{00},\ket{01},\ket{10},\ket{11}$, the faithful state
+$\sigma=\mathrm{diag}(31,29,29,29)/118$.  For a rank-one projection
+$Q=\proj\psi$ we have $h_\sigma(Q)=1/\langle\psi,\sigma^{-1}\psi\rangle$.
+Since $\lvert\langle00|\psi_v\rangle\rvert^2=j_v/4$ for a unit vector
+$\psi_v$ in $\ran Q_v$,
+\[
+ \frac1{h_\sigma(Q_v)}=118\Bigl(\frac{j_v}{4\cdot31}+\frac{4-j_v}{4\cdot29}\Bigr)
+ =\frac{59\,(62-j_v)}{899}.
+\]
+Hence $k_v/h_\sigma(Q_v)=59\,k_v(62-j_v)/899$, and $k_j(62-j)$ equals
+$3658$, $3660$, $3660$ and $3654$ for $j=0,1,2,4$.  By
+\cref{prop:bridge-exact},
+\[
+ \Sigma(G_{1440})\le\frac{59\cdot3660}{899}=\frac{215940}{899}.
+\]
+Explicitly, with $L=\operatorname{lcm}(59,60,61,63)$ and $\Pi_{v,a}$ as in
+the proof of \cref{prop:bridge-exact}, the states
+$\rho_{v,a}=(k_v/L)\,Q_v\otimes\Pi_{v,a}$ are compatible with $G_{1440}$, and
+all of them lie below $T=(215940/899)\,\sigma\otimes I/L$, whose trace is
+$215940/899$.
+
+\emph{Separation.}  Finally, $14172/59-215940/899=168/53041>0$.  This proves
+\cref{thm:D}.  The script \texttt{projective\_rank\_separation.py} re-checks
+the class structure of the contexts, the harmonic weights and this
+arithmetic in exact rational arithmetic (see Data and code availability).
+
+\paragraph{Where the profile comes from.}
+Both bounds are linear in the profile.  For every profile $k$ with positive
+entries, the same argument gives
+\[
+ \xi_f\bigl(\overline{F[k]}\bigr)\ge\frac{83k_0+80k_1+62k_2+11k_4}{59},
+ \qquad
+ \Sigma(F[k])\le\max_{j}\frac{k_j}{h_j(a)},
+\]
+where $h_j(a)$ is the harmonic weight of a class-$j$ projection $Q_v$ at the
+center $\mathrm{diag}(a,b,b,b)$, $a+3b=1$.  At the central state every
+harmonic weight is $\frac14$, and for profiles proportional to the weights
+the two bounds coincide.  Tilting the center toward $\ket{00}$, with
+$a=\frac14+3\epsilon$ and $b=\frac14-\epsilon$, changes the weights of the
+classes $j=0,1,2,4$ by $-\epsilon$, $0$, $\epsilon$ and $3\epsilon$ to first
+order.  For profiles proportional to the tilted weights, the lower bound then
+exceeds the upper bound by a relative $12\epsilon/59$ to first order.  So the
+separation appears at first order in the tilt.  The gain is small, and the
+clone counts must follow the weights closely.  For $G_{1440}$ the relative
+gap is $1.3\times10^{-5}$; its profile is the smallest we found.
+
 \section{Open problems}\label{sec:open}
 
 \paragraph{Is $\vt$ the least point?}
@@ -1952,32 +2246,20 @@ order two.  Is some suitably defined $\vt_\alpha$ with $\alpha>2$ still in
 $\Xs$?  Flat witnesses show that any such extension is at most $\alpha^*$.
 A natural guess for the $\alpha\to\infty$ endpoint is the complement of the
 projective rank.  Flat representations give the corresponding upper bound, but
-we are missing a dimension-free argument for the other direction.
+we are missing a dimension-free argument for the other direction.  By
+\cref{thm:D}, such an extension would have to keep growing beyond order two on
+$G_{1440}$.
 
 \paragraph{The projective rank.}
-Let $\xi_f$ be the projective rank of Man\v{c}inska and Roberson
-\cite{MancinskaRoberson2016}, the infimum of $d/r$ over
-$d/r$-representations: rank-$r$ projections on $\mathbb C^d$, one for each
-vertex, with adjacent vertices orthogonal.  A $d/r$-representation $(P_x)$ of
-$\overline G$ is a representation of $G$ in the sense of
-\cref{def:representation}, and the flat witness $\rho_x=P_x/r$,
-$\sigma=I/d$ has radius $\log(d/r)$ at every order (\cref{lem:flat}).
-Hence
-\[
- \vt_\alpha(G)\le\xi_f(\overline G)\qquad(0\le\alpha\le2),
-\]
-and in particular $\Sigma(G)\le\xi_f(\overline G)$.  This is sharper than
-the bound $\alpha^*$ of \cref{prop:endpoints}(iii), since
-$\xi_f(\overline G)\le\alpha^*(G)$ \cite{LiZuiddam2020}.  Equality
-$\Sigma(G)=\xi_f(\overline G)$ holds on $C_5$, where both sides equal
-$\frac52$ (by \cref{thm:pentagon-half}, the inequality above and
-$\alpha^*(C_5)=\frac52$), and on the
-complement of the Hadamard graph $H_n$ in Duan and Winter's example, where
-both equal $n$ \cite[Section~V]{DuanWinter2016}: there $\Sigma=n$, and the
-vectors of $H_n$ give an $n/1$-representation of $H_n$.  Whether
-$\Sigma(G)=\xi_f(\overline G)$ for every graph is open.  If it holds,
-\cref{thm:A} places $\xi_f(\overline G)$ in $\Xs$, which Li and Zuiddam leave
-open \cite[after Proposition~24]{LiZuiddam2020}.
+\Cref{thm:D} shows that $\Sigma(G)$ and $\xi_f(\overline G)$ differ, so
+\cref{thm:A} does not place $\xi_f(\overline G)$ in $\Xs$.  Whether it lies in
+$\Xs$ remains open \cite[after Proposition~24]{LiZuiddam2020}.  For
+$G_{1440}$, each context is an independent set of $240$ vertices, so
+$240\le\Sigma(G_{1440})\le\frac{215940}{899}$, while
+$\frac{14172}{59}\le\xi_f(\overline{G_{1440}})\le\alpha^*(G_{1440})$.  What are
+the exact values?  Is \cref{lem:rank-ineq} the best linear inequality of its
+kind for the seed, and do other contextuality scenarios give larger gaps?
+How small can a graph with $\Sigma(G)<\xi_f(\overline G)$ be?
 
 \paragraph{Other divergences.}
 The proof of \cref{thm:A} uses three features of the Petz family.  These are
@@ -2037,7 +2319,8 @@ the verification scripts named in the text are archived on Zenodo under the
 all-versions DOI
 \href{https://doi.org/10.5281/zenodo.22983498}{10.5281/zenodo.22983498},
 and are also available at
-\url{https://github.com/Apsiape/the-lovasz-number-is-not-alone}.  The
+\url{https://github.com/Apsiape/the-lovasz-number-is-not-alone}.  They
+include an exact check of the arithmetic behind \cref{thm:D}.  The
 archive documents the data format and pins the expected output of every
 script.
 
@@ -2046,6 +2329,8 @@ script.
 The certificate data and their verification scripts accompany this paper
 (see Data and code availability).
 They are needed only for the finite rational claims of \cref{sec:small}.
+The proof of \cref{thm:D} is complete by hand; the script
+\texttt{projective\_rank\_separation.py} re-checks its arithmetic.
 An additional deterministic matrix regression checks instances of the
 supported sandwiched minimum in \cref{prop:sandwiched}, including the
 sub-one orders and endpoints.  These finite numerical checks are not used
