@@ -1,5 +1,39 @@
 # Changelog
 
+## 1.2.1 — 14 October 2026
+
+Credit and precision fixes after a final pre-arXiv review. No theorem, bound, certificate value or
+numbering changes.
+
+- **Credit.** That non-signalling-assisted simulation cannot increase the Rényi capacity of a
+  classical channel follows from the data-processing inequality for channel divergences under
+  non-signalling maps of Oufkir, Yao and Berta (Ann. Henri Poincaré 2026, Lemma 24; Lemma 25 in
+  arXiv:2509.15200v1). Related work now credits them, and describes Shariat, Hoogsteder-Riera and
+  Tomamichel as giving an alternative proof, as their v2 does.
+- **Section 1.1.** The sentence introducing the radii now names the three terms of the Duan–Winter
+  chain that are radii (`log2 theta`, `C_min`, `log2 Sigma`); version 1.2.0 said "the first three",
+  which would have included `S_NS`. `C_min` and `Sigma` are defined as infima, without the shorthand
+  "real SDP simulation value".
+- **Abstract.** The three quantities are the *smallest* information radii of compatible channels; the
+  main step is stated for channels that need not factor; the last sentence states the direction of
+  Theorem D (`Sigma(G) <= xi_f(complement of G)`, strict on a 1440-vertex graph). The abstract is
+  shortened to 1910 characters after expanding the paper's macros, within arXiv's limit.
+- **Introduction.** "Seed" is no longer used before Section 6 defines it; a clause after Theorem D notes
+  that it rules out every member of the family, since `theta_alpha <= Sigma` for `alpha <= 2`; a
+  caveat repeated in Related work is removed.
+- **Open problems.** "Non-commutative graphs" cites Wang and Duan (IEEE Trans. Inf. Theory 64 (2018)):
+  there the entanglement-assisted capacity can be strictly below the quantum Lovász number, so that
+  spectrum has another point (Li and Zuiddam, remark after Theorem 33).
+- **Precision.** Figure 4 caption (the claim is for the umbrella vectors); "at least as strong" for the
+  flat bound in Section 7.1; Appendix A names the key of `Tr sigma`; `C_min` is an infimum.
+- **References.** Oufkir, Yao and Berta, and Wang and Duan (2018) added; Oufkir, Tomamichel and Berta
+  updated to Lett. Math. Phys. 116 (2026), article 33; Ji's entry prints its arXiv number.
+- **Build.** `\pdfoutput=1` heads `main.tex`, for arXiv.
+- **Verification.** Section [2] of `verify/entanglement_assisted_spectrum.py` printed a difference of
+  two hard-coded rationals that matched no statement of the paper; it is removed, and the section keeps
+  the exact pentagon endpoint check. Theorem C is checked by `verify/small_graph_separation.py`, as
+  before. In the pinned output the section header changes and the L - R line is gone.
+
 ## 1.2.0 — October 2026
 
 A new main theorem and section; Theorems A–C, all certificate values and the numbering of

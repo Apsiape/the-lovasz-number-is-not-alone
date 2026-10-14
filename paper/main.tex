@@ -1,3 +1,4 @@
+\pdfoutput=1
 \documentclass[11pt]{article}
 
 \usepackage[utf8]{inputenc}
@@ -51,8 +52,8 @@
 \title{The Lov\'asz number is not alone:\\[3pt]
 \large a continuum of R\'enyi points in the entanglement-assisted spectrum of graphs}
 \author{Nidhal Mghirbi \and Seth Douglas}
-\date{October 2026 --- Version 1.2.0}
-\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas},pdfsubject={Version 1.2.0; October 2026}}
+\date{October 2026 --- Version 1.2.1}
+\hypersetup{pdftitle={The Lovasz number is not alone: a continuum of Renyi points in the entanglement-assisted spectrum of graphs},pdfauthor={Nidhal Mghirbi and Seth Douglas},pdfsubject={Version 1.2.1; October 2026}}
 
 \begin{document}
 \maketitle
@@ -65,29 +66,28 @@ entanglement-assisted cohomomorphisms; the entanglement-assisted Shannon
 capacity is their pointwise minimum.  To our knowledge, the Lov\'asz number
 $\vt$ was its only known element.  We find a continuum of others.
 
-For a graph, three quantities of Duan and Winter, $\log_2\vt$, the minimal
-Holevo capacity $\Cmin$ and the logarithm of the no-signalling simulation cost
-$\Sigma$, are information radii of the classical--quantum channels compatible
-with the graph, measured with Petz--R\'enyi divergences of orders $0$, $1$
-and $2$.  At order zero this is
-due to Schrijver (as credited by Dalai) and to Duan and Winter; at order one
-it is the min--max formula for the Holevo capacity.  Interpolating in the
-order gives a family $\vt_\alpha$, $0\le\alpha\le2$, and we prove that every
-member lies in the spectrum.  The main step, multiplicativity under the strong
-product for representations that do not factor, follows from
-an exact nesting identity for power compressions.  Sandwiched R\'enyi radii
-give the same family after the change of order $\alpha=2-1/\beta$,
-$\frac12\le\beta\le\infty$.
+Three quantities of Duan and Winter, $\log_2\vt$, the minimal Holevo capacity
+$\Cmin$ and the logarithm of the no-signalling simulation cost $\Sigma$, are
+the smallest information radii of classical--quantum channels compatible with
+a graph, measured with Petz--R\'enyi divergences of orders $0$, $1$ and $2$.
+At order zero this is due to Schrijver (as credited by Dalai) and to Duan and
+Winter; at order one it is the min--max formula for the Holevo capacity.
+Interpolating in the order gives a family $\vt_\alpha$, $0\le\alpha\le2$, and
+we prove that every member lies in the spectrum.  The main step,
+multiplicativity under strong products for channels that need not factor,
+follows from an exact nesting identity for compressions.  Sandwiched R\'enyi
+radii of order $\beta\in[1/2,\infty]$ give the same family, at
+$\alpha=2-1/\beta$.
 
-On the five-cycle the family sweeps out $[\sqrt5,5/2]$, a continuum of
-distinct points.  A Hilbert--Schmidt inequality for
-representations of the pentagon gives $\Cmin(C_5)=\log_2(5/2)$, proving a
-conjecture of Duan and Winter.  We also settle the two open links of
-their inequality chain: the graph-level no-signalling simulation
-rate always equals its single-letter value $\log_2\Sigma(G)$, and a 32-vertex
-graph built from the Mermin--Peres magic square has $\Cmin<\log_2\Sigma$,
-certified in exact rational arithmetic.  The same square also separates
-$\Sigma$ from the projective rank of the complement.
+On the five-cycle the family takes every value in $[\sqrt5,5/2]$.  A
+Hilbert--Schmidt inequality for the pentagon gives $\Cmin(C_5)=\log_2(5/2)$,
+proving a conjecture of Duan and Winter.  We also settle the two open links of
+their inequality chain: the graph-level no-signalling simulation rate always
+equals its single-letter value $\log_2\Sigma(G)$, and a 32-vertex graph from
+the Mermin--Peres magic square has $\Cmin<\log_2\Sigma$, certified in exact
+rational arithmetic.  Finally, $\Sigma$ never exceeds the projective rank of
+the complement; a rank inequality for the same square makes this strict on a
+1440-vertex graph.
 \end{abstract}
 
 \section{Introduction}\label{sec:intro}
@@ -140,8 +140,9 @@ channels $x\mapsto\rho_x$ whose confusability graph is $G$.  There is the
 Lov\'asz number $\vt(G)$; Duan and Winter show that $\log_2\vt(G)$ is the
 smallest no-signalling-assisted zero-error capacity of a channel compatible
 with $G$ \cite[Theorem~5]{DuanWinter2016}.  There is $\Cmin(G)$, the
-smallest Holevo capacity of such a channel, and $\Sigma(G)$, the infimum of the real SDP simulation
-value over such channels.  They prove the chain
+infimum of the Holevo capacities of such channels, and $\Sigma(G)$, the infimum over
+such channels of the semidefinite-programming value that governs their exact
+simulation with no-signalling assistance.  They prove the chain
 \begin{equation}\label{eq:dw-chain}
  \log_2\vt(G)\ \le\ \Cmin(G)\ \le\ \SNS(G)\ \le\ \log_2\Sigma(G)\ \le\
  \log_2\alpha^*(G),
@@ -155,8 +156,8 @@ smallest asymptotic no-signalling-assisted simulation cost both equal
 $\log_2\alpha^*(G)$.  This is how $\alpha^*$ enters the chain
 \cite[Section~V]{DuanWinter2016}.
 
-The first three quantities in \eqref{eq:dw-chain} are really one quantity in
-disguise.  Fix a channel compatible with $G$ and a state $\sigma$.  Measure
+Three of the quantities in \eqref{eq:dw-chain}, $\log_2\vt$, $\Cmin$ and
+$\log_2\Sigma$, are really one quantity in disguise.  Fix a channel compatible with $G$ and a state $\sigma$.  Measure
 the distance from each output $\rho_x$ to $\sigma$ with the Petz--R\'enyi
 divergence $D_\alpha$ and take the worst case.  This worst case,
 $\max_xD_\alpha(\rho_x\Vert\sigma)$, is an order-$\alpha$ \emph{information
@@ -358,8 +359,8 @@ square, such that
 \]
 \end{mainthm}
 
-The upper bound is an explicit order-two witness whose center leans toward
-one vertex of the seed.  The lower bound is a rank inequality for the magic
+The upper bound is an explicit order-two witness: the magic-square
+representation with a center tilted slightly toward one of its vectors.  The lower bound is a rank inequality for the magic
 square that holds in every dimension (\cref{lem:rank-ineq}); both bounds are
 proved by hand.
 
@@ -499,9 +500,12 @@ this inequality nor the question of equality appears in earlier work.  Had
 equality
 held for every graph, \cref{thm:A} would have placed $\xi_f(\overline G)$ in
 $\Xs$, which Li and Zuiddam leave open \cite[after Proposition~24]{LiZuiddam2020}.
-\Cref{thm:D} closes that route; it does not decide the question.  The
+\Cref{thm:D} closes that route, and since $\vt_\alpha\le\Sigma$ for
+$\alpha\le2$ it does so for every member of the family; it does not decide
+the question.  The
 lower bound on $\xi_f$ uses no certificate.  It is one linear inequality
-between the normalized ranks of a representation of the magic-square seed,
+between the normalized ranks of a representation of the $24$-vertex graph
+built from the magic square,
 tight on the magic-square representation itself, and its proof is a robust
 form of the anticommutation relations that every operator solution of the
 magic square obeys \cite[Lemma~6]{Ji2013}: up to errors controlled by the
@@ -587,17 +591,17 @@ proof of Theorem~5), the simulation cost of their Theorem~2 is given by a
 conditional min-entropy, that is, by a max-relative-entropy radius, and the
 Holevo capacity is the relative-entropy radius \cite{DuanWinter2016}.  What
 is new here is the graph-level family at every order in $[0,2]$ and the
-identification of its order-two member with a Petz radius.  As explained
-above, Duan and Winter's fixed-cq-graph multiplicativity gives the order-two
-product identity only for representations that are tensor products; our
-product theorem removes that restriction but does not recover their
-fixed-cq-graph statement.
+identification of its order-two member with a Petz radius.
 
-Two concurrent works concern related channel quantities.  Shariat,
-Hoogsteder-Riera and Tomamichel prove that non-signalling-assisted
+Recent work concerns related channel quantities.  Non-signalling-assisted
 simulation cannot increase the R\'enyi capacity of a classical channel, at
-any order \cite{SHT2026}; this is a channel-level classical analogue of our
-monotonicity step (\cref{thm:ea-mono}).  Cheng and Berta show that the
+any order.  This follows from the data-processing inequality for channel
+divergences under non-signalling maps of Oufkir, Yao and Berta
+\cite[Lemma~24]{OYB2026} (Lemma~25 in arXiv:2509.15200v1), and Shariat,
+Hoogsteder-Riera and Tomamichel give an alternative variational proof that
+works directly with the information-radius form of the capacity
+\cite{SHT2026}.  This is a channel-level classical analogue of our
+monotonicity step (\cref{thm:ea-mono}).  Concurrently, Cheng and Berta show that the
 Petz--R\'enyi channel information of quantum-input channels can be strictly
 superadditive for every $\alpha\in[\frac12,1)$ \cite{ChengBerta2026}.  This
 does not conflict with \cref{thm:product}, which concerns classical-input
@@ -1487,8 +1491,8 @@ disjoint, and the radius is $\log\frac52$ at every order; this witness is
 optimal for $\frac12\le\alpha\le2$.  (b) Unit vectors $u_i$ on a cone around
 the handle $c$ with $|\langle c,u_i\rangle|^2=1/\sqrt5$ and
 $u_i\perp u_{i+2}$.  With the singular center $\proj c$, a limit of faithful
-centers, this attains $\vt(C_5)=\sqrt5$ at order zero; no faithful center
-attains it.  For
+centers, this attains $\vt(C_5)=\sqrt5$ at order zero; for these vectors no
+faithful center attains it.  For
 $0\le\alpha\le\frac12$, faithful centers tending to $\proj c$ make the
 exponentiated radius tend to $5^{1/(2-2\alpha)}$, giving an upper bound on
 $\vt_\alpha(C_5)$.  For
@@ -2000,7 +2004,7 @@ Hence
 \begin{equation}\label{eq:flat-projective}
  \vt_\alpha(G)\le\xi_f(\overline G)\qquad(0\le\alpha\le2),
 \end{equation}
-and in particular $\Sigma(G)\le\xi_f(\overline G)$.  This is sharper than
+and in particular $\Sigma(G)\le\xi_f(\overline G)$.  This is at least as strong as
 the bound $\alpha^*$ of \cref{prop:endpoints}(iii), since
 $\xi_f(\overline G)\le\alpha^*(G)$ \cite{LiZuiddam2020}.  Equality
 $\Sigma(G)=\xi_f(\overline G)$ holds whenever $\vt(G)=\alpha^*(G)$.  It
@@ -2305,7 +2309,13 @@ relaxation already exact for the three graphs of \cref{tab:certified}?
 
 \paragraph{Non-commutative graphs.}
 Duan, Severini and Winter's quantum Lov\'asz number extends $\vt$ to
-non-commutative graphs \cite{DSW2013}.  Does the whole family $\vt_\alpha$
+non-commutative graphs \cite{DSW2013}, and Li and Zuiddam place it in the
+entanglement-assisted spectrum of non-commutative graphs.  There the analogue
+of $\Theta_*=\vt$ fails: Wang and Duan exhibit non-commutative graphs whose
+entanglement-assisted zero-error capacity is strictly below the quantum
+Lov\'asz number \cite{WangDuan2018}, so that spectrum contains another point,
+although no explicit one is known \cite[Theorem~33 and the remark after
+it]{LiZuiddam2020}.  Does the whole family $\vt_\alpha$
 extend, and does the product theorem survive?  A positive answer at order two
 would give a single-letter formula for graph-level no-signalling simulation
 over non-commutative graphs, in contrast with the fixed-$K$ quantity
@@ -2388,7 +2398,8 @@ vertices, and the relaxation needs no change.
 
 \paragraph{The relaxation and its dual.}
 Let $\Gamma(y)$ be the real symmetric matrix with one variable $y_\kappa$ per
-key, and let $\kappa_v$ be the key of $m(\varnothing,v)=h_\sigma(P_v)$.
+key, write $1$ for the key of $m(\varnothing,\varnothing)=\Tr\sigma$, and let
+$\kappa_v$ be the key of $m(\varnothing,v)=h_\sigma(P_v)$.
 Entries of the Gram matrix whose moment vanishes identically by the rules
 (R1)--(R4) are $0$ in $\Gamma(y)$; they carry no key and no equation below,
 so the corresponding entries of $Z$ are restricted only by $Z\succeq0$.  The

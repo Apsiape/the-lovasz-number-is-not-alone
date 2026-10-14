@@ -8,8 +8,7 @@
     k=5 alpha_k=3.814682713765e-06  L(alpha_k)=2.236068929198581  U(alpha_k+1)=2.236068835523735
     U(alpha_0) = 5^(9/16) = 2.472695437163514 < 5/2
     all ladder separations strict; values lie in (sqrt5, 5/2)
-[2] separation 2^C_min <= R < L <= Sigma (exact fractions)
-    L - R = 538087279416248559183095/153778236194122166201858782246 > 0
+[2] pentagon endpoints (exact fractions)
     pentagon: theta(C5)^2 = 5 < 25/4 = (2^C_min(C5))^2
 [3] Lemmas 4.3-4.4 (compression identity, orthogonal-sum inequality)
     max sum_j c_s(Q_j;sigma) over 60 states, s in {-1,-1/2,0,1/2,1}: 0.9455 <= 1

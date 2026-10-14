@@ -21,6 +21,22 @@ simulation single-letterizes, and gives an exact rational certificate for a
 magic square shows that a 1440-vertex graph has `Sigma(G)` strictly below the
 projective rank of its complement.
 
+## What is new in version 1.2.1
+
+Credit and precision fixes after a final pre-arXiv review; no theorem, bound,
+certificate value or numbering changes.
+
+- The monotonicity of the Rényi capacity under non-signalling-assisted
+  simulation is credited to Oufkir, Yao and Berta (Ann. Henri Poincaré 2026,
+  Lemma 24), with Shariat, Hoogsteder-Riera and Tomamichel's alternative proof.
+- The introduction names the three terms of the Duan--Winter chain that are
+  radii (`log2 theta`, `C_min`, `log2 Sigma`); the abstract is made precise
+  (infima over channels; the direction of Theorem D) and fits arXiv's limit.
+- The open problem on non-commutative graphs cites Wang and Duan (2018); Oufkir,
+  Tomamichel and Berta is updated to its journal version.
+- `verify/entanglement_assisted_spectrum.py` no longer prints a difference of
+  two hard-coded rationals that matched no claim of the paper.
+
 ## What is new in version 1.2.0
 
 - **Theorem D (order two is not the projective rank).** Flat witnesses give
@@ -86,7 +102,8 @@ unchanged. See [CHANGELOG.md](CHANGELOG.md).
 
 - `paper/main.tex` -- standalone manuscript.
 - `paper/references.bib` -- primary references.
-- `output/pdf/the-lovasz-number-is-not-alone-v1.2.0.pdf` -- manuscript build.
+- `output/pdf/the-lovasz-number-is-not-alone-v1.2.1.pdf` -- manuscript build
+  (`v1.2.0.pdf` is the previous version).
 - `certificates/` -- exact rational certificate data for the 32-, 44-, and
   72-vertex examples, and exact data for the context of Theorem C.
 - `verify/` -- deterministic checks and their pinned output.
@@ -104,7 +121,7 @@ repository root:
 python tools/build.py
 ```
 
-This writes `output/pdf/the-lovasz-number-is-not-alone-v1.2.0.pdf` and the logs
+This writes `output/pdf/the-lovasz-number-is-not-alone-v1.2.1.pdf` and the logs
 to `output/build/`. The usual latexmk workflow also works and writes
 `paper/main.pdf`:
 
@@ -130,7 +147,7 @@ pinned copy in `verify/expected/`:
   Floating-point Cholesky factorization only proposes an integer factor; it is
   not an acceptance criterion.
 - `entanglement_assisted_spectrum.py` checks the pentagon distinctness ladder
-  and the rational separation in exact arithmetic, and runs finite numerical
+  and the pentagon endpoints in exact arithmetic, and runs finite numerical
   controls of Lemmas 4.3–4.6, Theorem 4.7 and the pentagon bounds of Section 5.
 - `theorem_c_context.py` checks the Lovász numbers and fractional packing
   numbers of the three graphs in exact rational arithmetic.

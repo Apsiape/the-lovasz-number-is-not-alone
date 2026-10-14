@@ -7,11 +7,11 @@ authors:
     given-names: Nidhal
   - family-names: Douglas
     given-names: Seth
-version: 1.2.0
-date-released: 2026-10-12
-doi: 10.5281/zenodo.23328355
+version: 1.2.1
+date-released: 2026-10-14
+doi: 10.5281/zenodo.22983498
 repository-code: "https://github.com/Apsiape/the-lovasz-number-is-not-alone"
-repository-artifact: "https://doi.org/10.5281/zenodo.23328355"
+repository-artifact: "https://doi.org/10.5281/zenodo.22983498"
 license: CC-BY-4.0
 keywords:
   - entanglement-assisted asymptotic spectrum

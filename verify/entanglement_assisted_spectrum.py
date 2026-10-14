@@ -4,7 +4,8 @@ What is exact here
 ------------------
 * the integer inequality 2^16 < 5^7 behind the distinctness ladder, and the
   ladder values at 50-digit decimal precision;
-* the rational separation L - R, recomputed with fractions.
+* the pentagon endpoint inequality theta(C5) = sqrt5 < 5/2 = 2^C_min(C5), in
+  rational arithmetic (squared).
 
 What is a finite numerical control (it changes no status)
 ---------------------------------------------------------
@@ -139,16 +140,12 @@ def ladder(ratio):
     print("    all ladder separations strict; values lie in (sqrt5, 5/2)")
 
 
-# ---------------------------------------------------------------- 2. Rational separation
-def qi92():
-    print("[2] separation 2^C_min <= R < L <= Sigma (exact fractions)")
-    lam = Fraction(11122150566011123, 1853614522304)
-    L = Fraction(24001 * 24000 + 24004) / lam
-    R = Fraction(24002 ** 4 + 3 * 24001 ** 4, 24002 * 24001 ** 2)
-    target = Fraction(538087279416248559183095, 153778236194122166201858782246)
-    require(L - R == target, "L-R", str(target), str(L - R))
-    require(L - R > 0, "L-R > 0", "positive", str(L - R))
-    print("    L - R = {0}/{1} > 0".format((L - R).numerator, (L - R).denominator))
+# ---------------------------------------------------------------- 2. Pentagon endpoints
+# Versions up to 1.2.0 also printed a difference L - R of two hard-coded rationals
+# that matched no statement of the paper; it was removed in 1.2.1. Theorem C is
+# checked in exact arithmetic by small_graph_separation.py.
+def pentagon_endpoints():
+    print("[2] pentagon endpoints (exact fractions)")
     require(Fraction(5, 2) ** 2 > 5, "(5/2)^2 > 5", "true", "false")
     print("    pentagon: theta(C5)^2 = 5 < 25/4 = (2^C_min(C5))^2")
 
@@ -399,7 +396,7 @@ def main():
     if ratio != 8:
         print("PERTURBED RUN: ladder ratio 7")
     ladder(ratio)
-    qi92()
+    pentagon_endpoints()
     disjoint_union(rng)
     flagged(rng)
     quantum_hom()
